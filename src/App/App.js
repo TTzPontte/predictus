@@ -5,6 +5,7 @@ import {Outlet, Route, Routes} from "react-router-dom";
 // import {withAuthenticator} from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import Searches from "./Containers/Searches/Searches";
+import {withAuthenticator} from "@aws-amplify/ui-react";
 
 // import awsExports from "../aws-exports";
 //
@@ -49,5 +50,4 @@ function App(props) {
     );
 }
 
-// export default withAuthenticator(App);
-export default App;
+export default withAuthenticator(App);
