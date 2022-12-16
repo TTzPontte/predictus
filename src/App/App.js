@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import {Col, Container, Navbar, Row} from "react-bootstrap";
 import {Outlet, Route, Routes} from "react-router-dom";
 // import {Amplify} from "aws-amplify";

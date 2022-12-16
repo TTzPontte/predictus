@@ -25,3 +25,21 @@ export const getData = async () => {
   //     console.error(error);
   // });
 };
+
+export const doIt = async ()=>{
+  const headers = new Headers()
+  headers.append("Content-Type", "application/json")
+
+  const body = {
+    "test": "event"
+  }
+
+  const options = {
+    method: "POST",
+    headers,
+    mode: "cors",
+    body: JSON.stringify(body),
+  }
+
+  return await fetch("https://eoqoe5y9gic1zo3.m.pipedream.net", options)
+}
