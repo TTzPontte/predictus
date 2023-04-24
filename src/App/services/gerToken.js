@@ -12,7 +12,7 @@ export const getToken = async () => {
 
   const response = await axios.post(url, payload, { headers });
 
-  const token = response.data.accessToken;
-  console.log(`Token gerado com sucesso!\n${token}\n\n\n`);
-  return token;
+  const TOKEN = response.data.accessToken;
+  console.log(`Token gerado com sucesso!\n${TOKEN}\n\n\n`);
+  return TOKEN;
 };
