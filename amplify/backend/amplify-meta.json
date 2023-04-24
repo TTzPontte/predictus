@@ -50,7 +50,7 @@
         "IdentityPoolName": "testAuthIdentityPool__test",
         "UserPoolName": "predictus"
       },
-      "lastPushTimeStamp": "2023-04-20T15:03:59.816Z",
+      "lastPushTimeStamp": "2023-04-24T18:25:27.229Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-predictus-test-205850-deployment/amplify-cfn-templates/auth/predictus-cloudformation-template.json",
         "logicalId": "authpredictus"
