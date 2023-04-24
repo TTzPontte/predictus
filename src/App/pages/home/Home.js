@@ -11,7 +11,7 @@ const Home = () => {
   const onSubmit = async (data) => {
     const token = await getToken();
     console.log(data.cpfCNPJ)
-    const result = await getByCpf(token, data.cpfCNPJ);
+    const result = await getByCpf(token);
     console.log(result)
   }
 

@@ -6,7 +6,7 @@ export const getByCpf = async (TOKEN, documentNumber) => {
   const payload = `{
     "documentNumber": "00000197041",
     "reportName": "COMBO_CONCESSAO_COM_SCORE_FINTECH",
-    "optionalFeatures": ["RENDA_ESTIMADA"]
+    "optionalFeatures": ["PARTICIPACAO_SOCIETARIA"]
     }`;
 
   const headers = {
