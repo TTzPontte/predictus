@@ -1,8 +1,7 @@
-var axios = require("axios").default;
+const axios = require('axios');
 
-export const getByCNPJ = async (TOKEN, documentNumber) => {
+async function gerarRelatorio() {
   const url = 'https://uat-api.serasaexperian.com.br/credit-services/business-information-report/v1/reports';
-  
   const reportName = 'PACOTE_BASICO_FINTECH';
   const optionalFeatures = 'QSA';
   const documentId = '17997596000149';
@@ -28,4 +27,7 @@ export const getByCNPJ = async (TOKEN, documentNumber) => {
       console.error(error);
       throw new Error('Erro ao gerar relatório');
     });
-};
+}
+
+// Executar Funções
+gerarRelatorio();

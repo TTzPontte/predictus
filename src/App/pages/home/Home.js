@@ -6,23 +6,21 @@ import { getToken } from '../../services/gerToken';
 import { getByCpf } from '../../services/getByCPF';
 import { getByCNPJ } from '../../services/getByCNPJ';
 import { getPJInfo } from '../../services/getPJInfo';
+import generateTableDataPJ from '../../services/generateTableDataPJ';
+import generateTableDataPF from '../../services/generateTableDataPF';
 
 const Home = () => {
   const { register, handleSubmit } = useForm();
   const [token, setToken] = useState(null);
+  const [tableDataPF, setTableDataPF] = useState([]);
+  const [tableData, setTableData] = useState([]);
+  const [downloadLink, setDownloadLink] = useState(null);
 
-  
   async function downloadResult(result) {
     const nomeConsulta = result.reports[0].registration.consumerName;
     const blob = new Blob([JSON.stringify(result)], { type: "application/json" });
     const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = nomeConsulta + ".json";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    setDownloadLink({ url, name: nomeConsulta });
   }
 
   const onSubmit = async (data) => {
@@ -37,6 +35,17 @@ const Home = () => {
     console.log('Infos: \n', pjInfo)
 
     await downloadResult(result);
+
+    const tableDataPF = generateTableDataPF(result);
+    setTableDataPF(tableDataPF);
+
+    const tableData = generateTableDataPJ(pjInfo);
+    setTableData(tableData); //
+
+    
+    var resultPJ = await getByCNPJ(token, data.cpfCNPJ);
+    resultPJ = await getByCNPJ(token, data.cpfCNPJ);
+    console.log(resultPJ);
   };
   
 
@@ -53,6 +62,21 @@ const Home = () => {
         })} />
         <input type="submit" />
       </form>
+      {downloadLink && (
+        <p>
+          <a href={downloadLink.url} download={`${downloadLink.name}.json`}>Clique aqui</a> para baixar o documento.
+        </p>
+      )}
+      <br></br>
+      <br></br>
+      <br></br>
+      {tableDataPF}
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      {tableData} {/* adicionando a tabela no retorno do componente */}
+
     </Container>
     
 

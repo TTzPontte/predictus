@@ -14,14 +14,14 @@ app.options('*', function(req, res) {
     res.sendStatus(200);
 });
 
-app.use('/api', createProxyMiddleware({ 
+app.use('/apiPJ', createProxyMiddleware({ 
   target: 'https://uat-api.serasaexperian.com.br',
   changeOrigin: true,
   pathRewrite: {
-    '^/api': '/credit-services/person-information-report/v1/creditreport'
+    '^/apiCNPJ': '/credit-services/business-information-report/v1/reports'
   }
 }));
 
-app.listen(3001, () => {
-  console.log('Servidor proxy iniciado na porta 3001');
+app.listen(3002, () => {
+  console.log('Servidor proxy iniciado na porta 3002');
 });
