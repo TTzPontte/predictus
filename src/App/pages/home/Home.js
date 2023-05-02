@@ -6,7 +6,6 @@ import { getToken } from '../../services/gerToken';
 import { getByCpf } from '../../services/getByCPF';
 import { getByCNPJ } from '../../services/getByCNPJ';
 import { getPJInfo } from '../../services/getPJInfo';
-import FileSaver from 'file-saver';
 
 const Home = () => {
   const { register, handleSubmit } = useForm();
@@ -33,9 +32,6 @@ const Home = () => {
 
     const result = await getByCpf(token, data.cpfCNPJ);
     console.log(result);
-
-    const resultPJ = await getByCNPJ(token, data.cpfCNPJ);
-    console.log('CNPJ: ', resultPJ);
 
     const pjInfo = await getPJInfo(result)
     console.log('Infos: \n', pjInfo)
