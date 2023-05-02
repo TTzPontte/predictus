@@ -1,13 +1,13 @@
 var axios = require("axios").default;
 
 export const getByCpf = async (TOKEN, documentNumber) => {
-  const url = 'https://uat-api.serasaexperian.com.br/credit-services/person-information-report/v1/creditreport';
+  const url = 'http://localhost:3001/api';
   
-  const payload = `{
-    "documentNumber": "00000197041",
-    "reportName": "COMBO_CONCESSAO_COM_SCORE_FINTECH",
-    "optionalFeatures": ["PARTICIPACAO_SOCIETARIA"]
-    }`;
+  const payload = {
+    documentNumber: documentNumber,
+    reportName: "COMBO_CONCESSAO_COM_SCORE_FINTECH",
+    optionalFeatures: ["PARTICIPACAO_SOCIETARIA"]
+  };
 
   const headers = {
     'Content-Type': 'application/json',
@@ -17,6 +17,7 @@ export const getByCpf = async (TOKEN, documentNumber) => {
 
   try {
     const response = await axios.post(url, payload, { headers });
+    console.log(response)
     return response.data;
   } catch (error) {
     console.error(error);
