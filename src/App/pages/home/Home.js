@@ -62,16 +62,16 @@ const Home = () => {
         })} />
         <input type="submit" />
       </form>
-      {downloadLink && (
-        <p>
-          <a href={downloadLink.url} download={`${downloadLink.name}.json`}>Clique aqui</a> para baixar o documento.
-        </p>
-      )}
       <br></br>
       <br></br>
       <br></br>
       {tableDataPF}
       <br></br>
+      {downloadLink && (
+        <p>
+          <a href={downloadLink.url} download={`${downloadLink.name}.json`}>Clique aqui</a> para baixar o documento.
+        </p>
+      )}
       <br></br>
       <br></br>
       <br></br>
