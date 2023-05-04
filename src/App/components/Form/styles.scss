@@ -1,0 +1,346 @@
+$input: (
+  height: 40px,
+  textColor: #3b3349,
+  borderColor: #c3c3d5,
+  placeholderColor: #c3c3d5,
+  backgroundColor: #ffffff,
+  backgroundColorSecondary: #f7f7f7
+);
+
+.input {
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
+  border-color: map-get($input, borderColor) !important;
+  color: map-get($input, textColor);
+  max-height: 6.25rem !important;
+
+  &.full {
+    max-height: 100% !important;
+  }
+
+  &-label {
+    margin-bottom: 23.5px !important;
+
+    &.bold {
+      color: #3b3349;
+      font-size: 15px;
+      font-weight: bold;
+      line-height: 22px;
+      margin-bottom: 16px !important;
+    }
+  }
+
+  &.grey {
+    input[type="password"],
+    input[type="email"],
+    input[type="text"],
+    input[type="short_text"],
+    input[type="date"],
+    input[type="tel"],
+    input[type="search"],
+    textarea,
+    input[type="number"] {
+      background: map-get($input, backgroundColorSecondary) 0% 0% no-repeat
+        padding-box;
+    }
+
+    .select-header {
+      background: map-get($input, backgroundColorSecondary) 0% 0% no-repeat
+        padding-box;
+    }
+  }
+
+  .select-header,
+  input[type="password"],
+  input[type="email"],
+  input[type="text"],
+  input[type="short_text"],
+  input[type="date"],
+  input[type="tel"],
+  input[type="search"],
+  textarea,
+  input[type="number"] {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+
+    height: map-get($input, height);
+    background: map-get($input, backgroundColor) 0% 0% no-repeat padding-box;
+    color: map-get($input, textColor) !important;
+    border: 1px map-get($input, borderColor) solid;
+
+    min-height: 40px;
+    font-size: 1rem !important;
+    width: 100%;
+
+    box-shadow: 0px 7px 64px #00000012;
+    text-overflow: ellipsis;
+    line-height: 20px;
+    font-family: "Lato";
+    padding: 11px 20px 10px 16px;
+
+    &::placeholder {
+      color: map-get($input, placeholderColor);
+    }
+
+    &:disabled {
+      background-color: #eeedf2 !important;
+      color: #c3c3d5 !important;
+
+      &::placeholder {
+        color: #c3c3d5;
+      }
+    }
+  }
+
+  textarea {
+    height: 139px !important;
+    input {
+      max-height: 139px !important;
+    }
+  }
+}
+
+/**
+   Avatar
+**/
+.container-avatar {
+  &.tiny {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  &.small {
+    width: 86px;
+    height: 86px;
+  }
+
+  &.medium {
+    height: 142px;
+    width: 142px;
+  }
+
+  &.large {
+    width: 100%;
+    height: 100%;
+  }
+
+  .avatar {
+    height: 100%;
+    width: 100%;
+
+    border-radius: 50%;
+    position: relative;
+
+    &-image {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    &-upload {
+      position: absolute;
+      left: 70%;
+      top: 74%;
+
+      width: 26%;
+      height: 26%;
+
+      border-radius: 50%;
+      background-color: white;
+      cursor: pointer;
+      box-shadow: 0px 3px 6px #00000029;
+    }
+  }
+}
+
+/**
+   Radio Button
+**/
+
+.form-radio-large {
+  .radio {
+    &-item {
+      label {
+        margin-bottom: 20px;
+        height: 54px;
+        width: 120px;
+        padding: 0.7rem 0.3rem;
+      }
+    }
+  }
+}
+
+.radio {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__block {
+    display: table;
+
+    .radio-item {
+      margin-bottom: 10px !important;
+    }
+  }
+
+  &__inline {
+    align-items: center;
+  }
+
+  &-simple {
+    border: 1px red solid;
+  }
+
+  &-item {
+    &.buttons {
+      margin: 0 !important;
+      padding-bottom: 10px;
+
+      label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 0.4rem 1.1rem;
+
+        text-align: center;
+        font-size: 14px;
+        line-height: 22px;
+        font-family: "Lato";
+
+        cursor: pointer;
+        color: #393447;
+        background-color: white;
+        border-radius: 8px;
+        border: 1px solid #c3c3d3;
+      }
+
+      input {
+        display: none;
+        &:checked {
+          + {
+            label {
+              border: 1px solid #5c3b6b;
+              background-color: #5c3b6b;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+
+    &.simple {
+      :checked:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -3px;
+        left: -1px;
+        position: relative;
+        background-color: #0ab887;
+        content: "";
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+      }
+    }
+  }
+}
+
+.help-information {
+  margin-left: 7px;
+
+  & > img {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+/**
+   Search
+**/
+.search {
+  padding-left: 66px !important;
+  color: #3b3349 !important;
+  font-family: Lato, sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0px;
+  border: 1px solid #c3c3d5 !important;
+  position: relative;
+
+  &__icon {
+    position: absolute;
+    z-index: 9;
+    width: 25px;
+    height: 25px;
+
+    margin: 10px;
+    margin-left: 22px;
+    margin-top: 10px;
+  }
+
+  &__icon::before {
+    content: "";
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+
+    //background-image: url("../../../../images/icons/search_icon.png");
+    background-size: 20px;
+  }
+
+}
+.form-validation-code {
+  display: flex;
+  flex-direction: column;
+
+  .fields-validation-code {
+    display: flex;
+    flex-wrap: nowrap !important;
+    padding-left: 0;
+    justify-content: center;
+  }
+
+  .buttons-validation-code {
+    align-self: flex-end;
+    display: flex !important;
+    justify-content: space-evenly;
+    width: 300px;
+    margin-top: 80px !important;
+
+    .button {
+      margin-right: 1.5rem !important;
+    }
+  }
+
+  .input-validation-code {
+    height: 60px !important;
+    width: 60px !important;
+    margin: 10px !important;
+
+    -moz-appearance: textfield; /* Firefox */
+
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .input-validation-code::-webkit-outer-spin-button,
+  .input-validation-code::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+}
+
+.change-password-visibility-icon {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.buttons-validation-code {
+  margin-top: 45px !important;
+
+}

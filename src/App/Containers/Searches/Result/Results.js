@@ -1,0 +1,162 @@
+import React, { useEffect, useState } from "react";
+import { Container, Table } from "react-bootstrap";
+// import { Table } from "@aws-amplify/ui-react";
+const TableBody = ({ list, header }) => (
+  <tbody>
+    {list.map((item, index) => (
+      <TableRow {...{ item, index, header }} />
+    ))}
+  </tbody>
+);
+
+const TableHeader = ({ header }) => {
+  const translationMap = {
+    documentNumber: 'Número do documento',
+    consumerName: 'Nome do consumidor',
+    motherName: 'Nome da mãe',
+    birthDate: 'Data de nascimento',
+    statusRegistration: 'Status do registro',
+    address: 'Endereço',
+    addressLine: "Logradouro",
+    district: "Bairro",
+    zipCode: "CEP",
+    country: "País",
+    city: "Cidade",
+    state: "Estado",
+    phone: 'Telefone',
+    regionCode: "DDI",
+    areaCode: "DDD",
+    phoneNumber: "Número de Telefone",
+    registration: "Registro",
+    negativeData: "Dados Negativos",
+    score: "Score",
+    facts: "Fatos"
+  };
+
+  return (
+    <>
+      <thead>
+        <tr>
+          {header.map((i) => {
+            const isArr = Array.isArray(i);
+            const notObj = typeof i !== "object";
+            const notUndefined = typeof i !== "undefined";
+            return <>{!!notUndefined && !!notObj && <th style={{ textAlign: 'center' }}>{translationMap[i] || i}</th>}</>;
+          })}
+        </tr>
+      </thead>
+    </>
+  );
+};
+
+const TableCol = ({ item, index, i, header }) => {
+  const currentItem = item[i];
+  // console.log({ currentItem });
+  const isArr = Array.isArray(currentItem);
+  const notObj = typeof currentItem !== "object";
+  const notUndefined = typeof currentItem !== "undefined";
+
+  return (
+    <td>
+      {notUndefined === false && <span> - </span>}
+      {!!notUndefined && !!isArr && <SimpleTable list={currentItem} />}
+      {!!notUndefined && !!notObj && <td>{currentItem}</td>}
+    </td>
+  );
+};
+
+
+const SimpleTable = ({ list }) => {
+  const [firstItem] = list;
+  console.log("SimpleTable", { firstItem });
+  const header = Object.keys(firstItem);
+  return (
+    <Table striped={"columns"} variant={"red"} className={"table-light"} responsive="sm">
+      <TableHeader header={header} />
+      <TableBody {...{ list, header }} />
+    </Table>
+  );
+};
+
+const translationMap = {
+  documentNumber: 'Número do documento',
+  consumerName: 'Nome do consumidor',
+  motherName: 'Nome da mãe',
+  birthDate: 'Data de nascimento',
+  statusRegistration: 'Status do registro',
+  address: 'Endereço',
+  addressLine: "Logradouro",
+  district: "Bairro",
+  zipCode: "CEP",
+  country: "País",
+  city: "Cidade",
+  state: "Estado",
+  phone: 'Telefone',
+  regionCode: "DDI",
+  areaCode: "DDD",
+  phoneNumber: "Número de Telefone",
+  companyDocument:"CNPJ",
+  companyName:"Razão Social",
+  foundationDate:"Data de abertura da empresa",
+  summary:"Resumo",
+  count:"Contagem",
+  balance:"Balanço",
+  pefin:"Pefin",
+  refin:"Refin",
+  check:"Check",
+  collectionRecords:"Registros",
+
+
+
+};
+
+
+const TableRow = ({ item, header }) => {
+  const renderTableCell = (value) => {
+    if (typeof value === 'object' && value !== null) {
+      return (
+        <ul>
+          {Object.entries(value).map(([subKey, subValue]) => (
+            <li key={subKey}>
+              <strong>{translationMap[subKey] || subKey}:</strong>{' '}
+              {renderTableCell(subValue)}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+    return JSON.stringify(value);
+  };
+
+  return (
+    <tr>
+      {header.map((key) => (
+        <td key={key}>{renderTableCell(item[key])}</td>
+      ))}
+    </tr>
+  );
+};
+
+const Results = ({ list }) => {
+  const consultTitle = "Consulta - nomeConsulta";
+  const [firstItem] = list;
+  if (firstItem.reportName) {
+    delete firstItem.reportName;
+  }
+  const header = Object.keys(firstItem);
+  return (
+    <Container fluid>
+      <h3>{consultTitle}</h3><br></br>
+      <Table striped bordered hover responsive="lg">
+        <TableHeader {...{ header }} />
+        <tbody>
+          {list.map((item) => (
+            <TableRow item={item} header={header} />
+          ))}
+        </tbody>
+      </Table>
+    </Container>
+  );
+};
+
+export default Results;

@@ -1,0 +1,61 @@
+@import "~bootstrap/scss/bootstrap";
+
+table {
+  border: 1px solid lightgray;
+  padding: 1em;
+table {
+  border: 2px solid lightgray;
+  //border-bottom: 2px solid lightgray;
+  padding: 1.5em;
+}
+  th {
+    border: 1px solid lightgray;
+    padding: 1em;
+  }
+}
+
+//
+//* {
+//  font-family: "Muli";
+//}
+//
+//pre {
+//  outline: 1px solid #ccc;
+//  padding: 5px;
+//  margin: 5px;
+//}
+//
+//.string {
+//  color: green;
+//}
+//
+//.number {
+//  color: darkorange;
+//}
+//
+//.boolean {
+//  color: blue;
+//}
+//
+//.null {
+//  color: magenta;
+//}
+//
+//.key {
+//  color: red;
+//}
+//
+//table {
+//  border-collapse: collapse;
+//}
+//
+//th,
+//td {
+//  border: 1px solid purple;
+//}
+//
+//.header,
+//.page {
+//  padding: 15px 25px;
+//  border-bottom: 1px solid purple;
+//}

@@ -1,0 +1,33 @@
+/*Select,*/
+/*.input {*/
+/*  !*font-size: 24px;*!*/
+/*  !*border-width: 0;*!*/
+/*  !*width: 100%;*!*/
+/*  !*border-bottom: 1px solid #80008042 !important;*!*/
+/*}*/
+
+/*.input:not([disabled]):hover,*/
+/*.input:focus {*/
+/*  border-bottom: 2px solid purple;*/
+/*}*/
+
+/*.input:focus {*/
+/*  outline: none;*/
+/*}*/
+
+/*.input-wrap {*/
+/*  display: block;*/
+/*  margin: 10px 0;*/
+/*}*/
+
+/*.input-wrap.disabled {*/
+/*  opacity: 0.2;*/
+/*}*/
+
+/*.input-title {*/
+/*  display: inline-block;*/
+/*}*/
+
+.hide{
+  display: none;
+}

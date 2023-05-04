@@ -1,0 +1,4349 @@
+[
+  {
+    "area": "CIVEL",
+    "grauProcesso": 1,
+    "unidadeOrigem": "CUIABA CIVEL",
+    "urlProcesso": "http://servicos.tjmt.jus.br/processos/comarcas/dadosProcessoPrint.aspx",
+    "sistema": "TJMT",
+    "dataProcessamento": "2022-06-05T00:03:11.583768",
+    "partes": [
+      {
+        "tipo": "REQUERENTE",
+        "polo": "ATIVO",
+        "nome": "ESTADO DE MATO GROSSO",
+        "cnpj": "03507415000144"
+      },
+      {
+        "tipo": "REQUERIDO",
+        "polo": "PASSIVO",
+        "nome": "J.J. COMERCIO DE CONFECCOES LTDA - ME",
+        "cnpj": "07057506000186"
+      },
+      {
+        "tipo": "REQUERIDO",
+        "polo": "PASSIVO",
+        "cpf": "52324010178",
+        "nome": "JAIRO DE SOUZA MARTINS"
+      },
+      {
+        "tipo": "REQUERIDO",
+        "polo": "PASSIVO",
+        "cpf": "41205790187",
+        "nome": "JOSE CARLOS DE LIMA"
+      }
+    ],
+    "tribunal": "TJ-MT",
+    "juiz": "ADAIR JULIETA DA SILVA",
+    "uf": "MT",
+    "segmento": "JUSTICA ESTADUAL",
+    "dataDistribuicao": "2020-07-26T00:00:00",
+    "movimentos": [
+      {
+        "data": "2021-02-03T00:00:00",
+        "indice": 7,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO"
+        ]
+      },
+      {
+        "data": "2020-12-16T00:00:00",
+        "indice": 6,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DESPACHO->MERO EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2020-07-29T00:00:00",
+        "indice": 5,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CERTIDAO DE PUBLICACAO DE EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2020-07-29T00:00:00",
+        "indice": 4,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CERTIDAO DE ENVIO DE MATERIA PARA IMPRENSA"
+        ]
+      },
+      {
+        "data": "2020-07-26T00:00:00",
+        "indice": 3,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO"
+        ]
+      },
+      {
+        "data": "2020-07-26T00:00:00",
+        "indice": 2,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CERTIDAO DE ABERTURA DE VOLUME"
+        ]
+      },
+      {
+        "data": "2020-07-26T00:00:00",
+        "indice": 1,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSO P/DESPACHO/DECISAO"
+        ]
+      },
+      {
+        "data": "2020-07-26T00:00:00",
+        "indice": 0,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REDISTRIBUICAO"
+        ]
+      }
+    ],
+    "classeProcessual": {
+      "codigoCNJ": "1116",
+      "nome": "EXECUCAO FISCAL"
+    },
+    "orgaoJulgador": "VARA ESPECIALIZADA DE EXECUTIVO FISCAL",
+    "numeroProcessoUnico": "00103935320158110041"
+  },
+  {
+    "area": "CIVEL",
+    "grauProcesso": 1,
+    "unidadeOrigem": "CUIABA CIVEL",
+    "urlProcesso": "https://pje.tjmt.jus.br/pje/ConsultaPublica/DetalheProcessoConsultaPublica/listView.seam?ca=5100ba8dc5e9a3e58ece767363ab48b1a9751a53c375a432",
+    "sistema": "PJE-TJMT",
+    "dataProcessamento": "2022-09-22T02:16:24.968470512",
+    "partes": [
+      {
+        "tipo": "EXEQUENTE",
+        "polo": "ATIVO",
+        "nome": "ESTADO DE MATO GROSSO",
+        "cnpj": "03507415000730"
+      },
+      {
+        "tipo": "EXECUTADO",
+        "polo": "PASSIVO",
+        "nome": "J.J. COMERCIO DE CONFECCOES LTDA - ME",
+        "cnpj": "07057506000186"
+      },
+      {
+        "tipo": "EXECUTADO",
+        "polo": "PASSIVO",
+        "cpf": "41205790187",
+        "nome": "JOSE CARLOS DE LIMA"
+      },
+      {
+        "tipo": "EXECUTADO",
+        "polo": "PASSIVO",
+        "advogados": [
+          {
+            "oab": {
+              "uf": "MT",
+              "tipo": "O",
+              "numero": 3722
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "47766840804",
+            "nome": "JOSE ARLINDO DO CARMO"
+          }
+        ],
+        "cpf": "52324010178",
+        "nome": "JAIRO DE SOUZA MARTINS"
+      }
+    ],
+    "tribunal": "TJ-MT",
+    "juiz": "ADAIR JULIETA DA SILVA",
+    "uf": "MT",
+    "segmento": "JUSTICA ESTADUAL",
+    "dataDistribuicao": "2020-01-09T00:00:00",
+    "movimentos": [
+      {
+        "data": "2022-09-19T23:06:20",
+        "indice": 10,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO DE PETICAO"
+        ]
+      },
+      {
+        "data": "2022-02-25T15:34:42",
+        "indice": 9,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO DE IMPUGNACAO A CONTESTACAO"
+        ]
+      },
+      {
+        "data": "2022-02-11T07:10:28",
+        "indice": 8,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA DECISAO"
+        ]
+      },
+      {
+        "data": "2022-02-11T07:09:59",
+        "indice": 7,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ATO ORDINATORIO PRATICADO"
+        ]
+      },
+      {
+        "data": "2022-02-04T12:40:52",
+        "indice": 6,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DECORRIDO PRAZO DE ESTADO DE MATO GROSSO EM 03/02/2022 23:59."
+        ]
+      },
+      {
+        "data": "2022-01-27T09:50:45",
+        "indice": 5,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO DE PETICAO"
+        ]
+      },
+      {
+        "data": "2022-01-12T16:03:58",
+        "indice": 4,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "EXPEDICAO DE OUTROS DOCUMENTOS."
+        ]
+      },
+      {
+        "data": "2021-12-21T15:00:14",
+        "indice": 3,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO DE EXCECAO DE PRE-EXECUTIVIDADE"
+        ]
+      },
+      {
+        "data": "2020-02-11T14:38:06",
+        "indice": 2,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DECISAO INTERLOCUTORIA"
+        ]
+      },
+      {
+        "data": "2020-01-09T09:35:20",
+        "indice": 1,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA DECISAO"
+        ]
+      },
+      {
+        "data": "2020-01-09T09:35:19",
+        "indice": 0,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DISTRIBUIDO POR SORTEIO"
+        ]
+      }
+    ],
+    "classeProcessual": {
+      "codigoCNJ": "1116",
+      "nome": "EXECUCAO FISCAL"
+    },
+    "orgaoJulgador": "VARA ESP. DE EXECUCAO FISCAL ESTADUAL DE CUIABA",
+    "eProcessoDigital": true,
+    "numeroProcessoUnico": "10008226520208110041",
+    "assuntosCNJ": [
+      {
+        "codigoCNJ": "14",
+        "titulo": "DIREITO TRIBUTARIO"
+      },
+      {
+        "codigoCNJ": "5916",
+        "titulo": "IMPOSTOS"
+      },
+      {
+        "codigoCNJ": "5946",
+        "titulo": "ICMS/ IMPOSTO SOBRE CIRCULACAO DE MERCADORIAS"
+      }
+    ]
+  },
+  {
+    "numeroProcessoAntigo": "0028547-04.2018.4.01.3800",
+    "grauProcesso": 1,
+    "unidadeOrigem": "SECAO JUDICIARIA DE MINAS GERAIS",
+    "urlProcesso": "http://processual.trf1.jus.br/consultaProcessual/processo.php?proc=00285470420184013800&secao=MG&pg=1&enviar=Pesquisar",
+    "sistema": "TRF1",
+    "dataProcessamento": "2022-06-28T00:15:17.790769",
+    "partes": [
+      {
+        "tipo": "AUTOR",
+        "polo": "ATIVO",
+        "advogados": [
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "ADVOGADO",
+              "numero": 89781
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "03648882619",
+            "nome": "LEONARDO SIQUEIRA",
+            "cnpj": "04784878000116"
+          },
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "ADVOGADO",
+              "numero": 81638
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "03498545647",
+            "nome": "ANA PAULA MIRANDA SILVA SIQUEIRA",
+            "cnpj": "04784878000116"
+          }
+        ],
+        "nome": "PCBG FASHION EIRELI",
+        "cnpj": "03059234000100"
+      },
+      {
+        "tipo": "AUTOR",
+        "polo": "ATIVO",
+        "advogados": [
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "ADVOGADO",
+              "numero": 89781
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "03648882619",
+            "nome": "LEONARDO SIQUEIRA",
+            "cnpj": "04784878000116"
+          },
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "ADVOGADO",
+              "numero": 81638
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "03498545647",
+            "nome": "ANA PAULA MIRANDA SILVA SIQUEIRA",
+            "cnpj": "04784878000116"
+          }
+        ],
+        "nome": "YOUNG ROUPAS, CALCADOS E ACESSORIOS LTDA",
+        "cnpj": "15241263000160"
+      },
+      {
+        "tipo": "AUTOR",
+        "polo": "ATIVO",
+        "advogados": [
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "ADVOGADO",
+              "numero": 89781
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "03648882619",
+            "nome": "LEONARDO SIQUEIRA",
+            "cnpj": "04784878000116"
+          },
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "ADVOGADO",
+              "numero": 81638
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "03498545647",
+            "nome": "ANA PAULA MIRANDA SILVA SIQUEIRA",
+            "cnpj": "04784878000116"
+          }
+        ],
+        "nome": "JJ COMERCIO DE CONFECCOES EIRELI",
+        "cnpj": "07057506000186"
+      },
+      {
+        "tipo": "REU",
+        "polo": "PASSIVO",
+        "nome": "UNIAO FEDERAL",
+        "cnpj": "26994558000123"
+      }
+    ],
+    "tribunal": "JF-MG",
+    "juiz": "EDUARDO HENRIQUE LAUAR FILHO",
+    "uf": "MG",
+    "segmento": "JUSTICA FEDERAL",
+    "dataDistribuicao": "2018-07-18T00:00:00",
+    "movimentos": [
+      {
+        "data": "2022-06-21T15:54:07",
+        "indice": 47,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "MIGRACAO PJE ORDENADA"
+        ]
+      },
+      {
+        "data": "2022-06-21T14:25:02",
+        "indice": 46,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "MIGRACAO PJE CANCELADA"
+        ]
+      },
+      {
+        "data": "2022-06-21T14:24:24",
+        "indice": 45,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "MIGRACAO PJE CANCELADA"
+        ]
+      },
+      {
+        "data": "2022-05-31T12:47:28",
+        "indice": 44,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "MIGRACAO PJE ORDENADA"
+        ]
+      },
+      {
+        "data": "2022-04-26T19:17:49",
+        "indice": 43,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO/NOTIFICACAO: ENVIADA PELO E-CINT"
+        ]
+      },
+      {
+        "data": "2022-04-26T19:17:36",
+        "indice": 42,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO/NOTIFICACAO: ENVIADA PELO E-CINT"
+        ]
+      },
+      {
+        "data": "2022-04-26T19:17:23",
+        "indice": 41,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO/NOTIFICACAO: ENVIADA PELO E-CINT"
+        ]
+      },
+      {
+        "data": "2022-03-19T17:30:20",
+        "indice": 40,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO/NOTIFICACAO/VISTA ORDENADA: AUTOR (OUTROS)"
+        ]
+      },
+      {
+        "data": "2022-03-18T16:53:51",
+        "indice": 39,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AUTOS REMETIDOS: PELA CONTADORIA"
+        ]
+      },
+      {
+        "data": "2022-03-14T14:22:47",
+        "indice": 38,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AUTOS RECEBIDOS: CONTADORIA"
+        ]
+      },
+      {
+        "data": "2022-03-11T13:35:23",
+        "indice": 37,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AUTOS REMETIDOS: CONTADORIA"
+        ]
+      },
+      {
+        "data": "2022-03-11T13:18:23",
+        "indice": 36,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DEVOLVIDOS COM DESPACHO"
+        ]
+      },
+      {
+        "data": "2022-03-09T18:31:00",
+        "indice": 35,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS: PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2022-03-09T18:30:49",
+        "indice": 34,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PETICAO/OFICIO/DOCUMENTO: JUNTADO(O)"
+        ]
+      },
+      {
+        "data": "2022-03-09T18:30:35",
+        "indice": 33,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "TRANSITO EM JULGADO EM"
+        ]
+      },
+      {
+        "data": "2022-03-09T18:30:27",
+        "indice": 32,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AUTOS RECEBIDOS: DA TURMA RECURSAL"
+        ]
+      },
+      {
+        "data": "2019-06-25T15:02:32",
+        "indice": 31,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AUTOS REMETIDOS: PARA A TURMA RECURSAL (SEM BAIXA)"
+        ]
+      },
+      {
+        "data": "2019-06-25T15:02:10",
+        "indice": 30,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECURSO: CONTRA-RAZOES APRESENTADAS"
+        ]
+      },
+      {
+        "data": "2019-05-29T16:18:30",
+        "indice": 29,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PETICAO/OFICIO/DOCUMENTO: JUNTADO(O)"
+        ]
+      },
+      {
+        "data": "2019-04-16T10:08:33",
+        "indice": 28,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO/NOTIFICACAO: ENVIADA PELO E-CINT"
+        ]
+      },
+      {
+        "data": "2019-04-15T13:59:18",
+        "indice": 27,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO/NOTIFICACAO: ENVIADA PELO E-CINT"
+        ]
+      },
+      {
+        "data": "2019-04-15T13:59:07",
+        "indice": 26,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO/NOTIFICACAO: ENVIADA PELO E-CINT"
+        ]
+      },
+      {
+        "data": "2019-04-15T13:58:51",
+        "indice": 25,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO/NOTIFICACAO: ENVIADA PELO E-CINT"
+        ]
+      },
+      {
+        "data": "2019-03-25T20:09:25",
+        "indice": 24,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DEVOLVIDOS COM SENTENCA COM EXAME DO MERITO: PEDIDO IMPROCEDENTE"
+        ]
+      },
+      {
+        "data": "2018-10-17T19:02:18",
+        "indice": 23,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS: PARA SENTENCA"
+        ]
+      },
+      {
+        "data": "2018-10-17T13:06:17",
+        "indice": 22,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RESPOSTA: CONTESTACAO APRESENTADA"
+        ]
+      },
+      {
+        "data": "2018-09-14T15:24:30",
+        "indice": 21,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PETICAO/OFICIO/DOCUMENTO: JUNTADO(O)"
+        ]
+      },
+      {
+        "data": "2018-09-14T13:10:51",
+        "indice": 20,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PETICAO/OFICIO/DOCUMENTO: JUNTADO(O)"
+        ]
+      },
+      {
+        "data": "2018-09-12T15:49:54",
+        "indice": 19,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PETICAO/OFICIO/DOCUMENTO: JUNTADO(O)"
+        ]
+      },
+      {
+        "data": "2018-08-30T11:12:42",
+        "indice": 18,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO/NOTIFICACAO: REALIZADA/CERTIFICADA - OUTROS (ESPECIFICAR)"
+        ]
+      },
+      {
+        "data": "2018-08-30T11:12:33",
+        "indice": 17,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO/NOTIFICACAO: REALIZADA/CERTIFICADA - OUTROS (ESPECIFICAR)"
+        ]
+      },
+      {
+        "data": "2018-08-28T15:05:11",
+        "indice": 16,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO/NOTIFICACAO: REALIZADA/CERTIFICADA - OUTROS (ESPECIFICAR)"
+        ]
+      },
+      {
+        "data": "2018-08-28T15:05:02",
+        "indice": 15,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO/NOTIFICACAO: REALIZADA/CERTIFICADA - OUTROS (ESPECIFICAR)"
+        ]
+      },
+      {
+        "data": "2018-08-28T15:04:53",
+        "indice": 14,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO/NOTIFICACAO: REALIZADA/CERTIFICADA - OUTROS (ESPECIFICAR)"
+        ]
+      },
+      {
+        "data": "2018-08-17T15:16:09",
+        "indice": 13,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CITACAO: ENVIADA PELO E-CINT"
+        ]
+      },
+      {
+        "data": "2018-08-17T15:16:01",
+        "indice": 12,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO/NOTIFICACAO: ENVIADA PELO E-CINT"
+        ]
+      },
+      {
+        "data": "2018-08-16T18:49:05",
+        "indice": 11,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO/NOTIFICACAO: ENVIADA PELO E-CINT"
+        ]
+      },
+      {
+        "data": "2018-08-16T18:48:57",
+        "indice": 10,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO/NOTIFICACAO: ENVIADA PELO E-CINT"
+        ]
+      },
+      {
+        "data": "2018-08-16T18:48:50",
+        "indice": 9,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO/NOTIFICACAO: ENVIADA PELO E-CINT"
+        ]
+      },
+      {
+        "data": "2018-08-14T19:08:01",
+        "indice": 8,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO/NOTIFICACAO/VISTA ORDENADA: AUTOR (OUTROS)"
+        ]
+      },
+      {
+        "data": "2018-08-14T19:06:23",
+        "indice": 7,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DEVOLVIDOS COM DECISAO: LIMINAR INDEFERIDA"
+        ]
+      },
+      {
+        "data": "2018-08-14T16:12:51",
+        "indice": 6,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS: PARA DECISAO"
+        ]
+      },
+      {
+        "data": "2018-08-10T16:54:38",
+        "indice": 5,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PETICAO/OFICIO/DOCUMENTO: JUNTADO(O)"
+        ]
+      },
+      {
+        "data": "2018-07-20T20:15:34",
+        "indice": 4,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO/NOTIFICACAO/VISTA ORDENADA: AUTOR (OUTROS)"
+        ]
+      },
+      {
+        "data": "2018-07-20T20:14:58",
+        "indice": 3,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DEVOLVIDOS COM DECISAO: OUTROS (ESPECIFICAR)"
+        ]
+      },
+      {
+        "data": "2018-07-20T12:08:56",
+        "indice": 2,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS: PARA DECISAO"
+        ]
+      },
+      {
+        "data": "2018-07-19T15:51:01",
+        "indice": 1,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AUTOS REMETIDOS: PELA DISTRIBUICAO"
+        ]
+      },
+      {
+        "data": "2018-07-19T15:50:52",
+        "indice": 0,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DISTRIBUICAO AUTOMATICA"
+        ]
+      }
+    ],
+    "classeProcessual": {
+      "codigoCNJ": "436",
+      "nome": "PROCEDIMENTO DO JUIZADO ESPECIAL CIVEL"
+    },
+    "orgaoJulgador": "31ª VARA JEF - BELO HORIZONTE",
+    "numeroProcessoUnico": "00285470420184013800",
+    "assuntosCNJ": [
+      {
+        "codigoCNJ": "6085",
+        "titulo": "FGTS/FUNDO DE GARANTIA POR TEMPO DE SERVICO"
+      }
+    ]
+  },
+  {
+    "grauProcesso": 1,
+    "unidadeOrigem": "SECAO JUDICIARIA DE MATO GROSSO",
+    "urlProcesso": "https://pje1g.trf1.jus.br/consultapublica/ConsultaPublica/DetalheProcessoConsultaPublica/listView.seam?ca=f2a1b5f7b119f394be6a68cf68add94989385aec9e9e973c",
+    "sistema": "PJE-TRF1",
+    "dataProcessamento": "2022-11-12T16:55:33.456213549",
+    "partes": [
+      {
+        "tipo": "EXEQUENTE",
+        "polo": "ATIVO",
+        "advogados": [
+          {
+            "oab": {
+              "uf": "MT",
+              "numero": 11361
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "00349864136",
+            "nome": "THAIS PEREIRA SCHMIDT"
+          }
+        ],
+        "nome": "CONSELHO REG DOS REPRES COMERCIAIS DO ESTADO DE MT",
+        "cnpj": "03006392000194"
+      },
+      {
+        "tipo": "EXECUTADO",
+        "polo": "PASSIVO",
+        "nome": "J.J. COMERCIO DE CONFECCOES LTDA - ME",
+        "cnpj": "07057506000186"
+      }
+    ],
+    "tribunal": "TRF-1",
+    "segmento": "JUSTICA FEDERAL",
+    "dataDistribuicao": "2017-12-12T00:00:00",
+    "movimentos": [
+      {
+        "data": "2021-08-24T02:20:31",
+        "indice": 7,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DECORRIDO PRAZO DE CONSELHO REG DOS REPRES COMERCIAIS DO ESTADO DE MT EM 23/08/2021 23:59."
+        ]
+      },
+      {
+        "data": "2021-08-14T05:43:26",
+        "indice": 6,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DECORRIDO PRAZO DE J.J. COMERCIO DE CONFECCOES LTDA - ME EM 13/08/2021 23:59."
+        ]
+      },
+      {
+        "data": "2021-07-01T02:06:53",
+        "indice": 5,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PUBLICADO INTIMACAO - USUARIO DO SISTEMA EM 01/07/2021."
+        ]
+      },
+      {
+        "data": "2021-07-01T02:06:52",
+        "indice": 4,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DISPONIBILIZADO NO DJ ELETRONICO EM 01/07/2021"
+        ]
+      },
+      {
+        "data": "2021-06-29T21:31:37",
+        "indice": 3,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "EXPEDICAO DE OUTROS DOCUMENTOS."
+        ]
+      },
+      {
+        "data": "2021-06-29T21:31:37",
+        "indice": 2,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "EXPEDICAO DE OUTROS DOCUMENTOS."
+        ]
+      },
+      {
+        "data": "2021-06-29T21:31:15",
+        "indice": 1,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE CERTIDAO DE PROCESSO MIGRADO"
+        ]
+      },
+      {
+        "data": "2021-06-29T21:31:01",
+        "indice": 0,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE VOLUME"
+        ]
+      }
+    ],
+    "processosRelacionados": [
+      {
+        "numeroProcesso": "00158587720174013600"
+      }
+    ],
+    "classeProcessual": {
+      "codigoCNJ": "1116",
+      "nome": "EXECUCAO FISCAL"
+    },
+    "orgaoJulgador": "4ª VARA FEDERAL DE EXECUCAO FISCAL DA SJMT",
+    "eProcessoDigital": true,
+    "numeroProcessoUnico": "00158587720174013600",
+    "assuntosCNJ": [
+      {
+        "codigoCNJ": "14",
+        "titulo": "DIREITO TRIBUTARIO"
+      },
+      {
+        "codigoCNJ": "6031",
+        "titulo": "CONTRIBUICOES"
+      },
+      {
+        "codigoCNJ": "6044",
+        "titulo": "CONTRIBUICOES CORPORATIVAS"
+      },
+      {
+        "codigoCNJ": "6046",
+        "titulo": "CONSELHOS REGIONAIS E AFINS"
+      }
+    ]
+  },
+  {
+    "numeroProcessoAntigo": "0015858-77.2017.4.01.3600",
+    "grauProcesso": 1,
+    "unidadeOrigem": "SECAO JUDICIARIA DO MATO GROSSO",
+    "urlProcesso": "http://processual.trf1.jus.br/consultaProcessual/processo.php?proc=00158587720174013600&secao=MT&pg=1&enviar=Pesquisar",
+    "sistema": "TRF1",
+    "dataProcessamento": "2022-07-17T21:42:05.072837",
+    "partes": [
+      {
+        "tipo": "EXECUTADO",
+        "polo": "PASSIVO",
+        "nome": "JJ COMERCIO DE CONFECCOES LTDA ME",
+        "cnpj": "07057506000186"
+      },
+      {
+        "tipo": "EXEQUENTE",
+        "polo": "ATIVO",
+        "advogados": [
+          {
+            "oab": {
+              "uf": "MT",
+              "tipo": "ADVOGADO",
+              "numero": 11361
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "00349864136",
+            "nome": "THAIS PEREIRA SCHMIDT"
+          }
+        ],
+        "nome": "CONSELHO REGIONAL DOS REPRESENTANTES COMERCIAIS DO ESTADO DE MATO GROSSO COREMAT",
+        "cnpj": "03006392000194"
+      }
+    ],
+    "tribunal": "JF-MT",
+    "juiz": "PEDRO FRANCISCO DA SILVA",
+    "uf": "MT",
+    "segmento": "JUSTICA FEDERAL",
+    "dataDistribuicao": "2017-12-05T00:00:00",
+    "movimentos": [
+      {
+        "data": "2021-06-02T14:41:39",
+        "indice": 18,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROCESSO MIGRADO PARA O PJE"
+        ]
+      },
+      {
+        "data": "2021-06-02T13:12:05",
+        "indice": 17,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "MIGRACAO PJE ORDENADA"
+        ]
+      },
+      {
+        "data": "2021-05-24T16:37:32",
+        "indice": 16,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO NOTIFICACAO VISTA ORDENADA AUTOR OUTROS"
+        ]
+      },
+      {
+        "data": "2021-05-24T16:37:26",
+        "indice": 15,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DEVOLVIDOS C SENTENCA S EXAME DO MERITO INDEFERIMENTO DA PETICAO INICIAL"
+        ]
+      },
+      {
+        "data": "2021-05-20T16:22:26",
+        "indice": 14,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA SENTENCA"
+        ]
+      },
+      {
+        "data": "2021-03-29T16:22:26",
+        "indice": 13,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REMESSA ORDENADA OUTROS ESPECIFICAR"
+        ]
+      },
+      {
+        "data": "2020-02-24T10:12:10",
+        "indice": 12,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PETICAO OFICIO DOCUMENTO JUNTADOO"
+        ]
+      },
+      {
+        "data": "2020-02-19T17:03:01",
+        "indice": 11,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIDOS EM SECRETARIA"
+        ]
+      },
+      {
+        "data": "2019-11-25T14:40:45",
+        "indice": 10,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CARGA RETIRADOS ADVOGADO AUTOR"
+        ]
+      },
+      {
+        "data": "2018-07-27T13:39:57",
+        "indice": 9,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INTIMACAO NOTIFICACAO VISTA ORDENADA AUTOR OUTROS"
+        ]
+      },
+      {
+        "data": "2018-01-30T14:46:06",
+        "indice": 8,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "MANDADO DEVOLVIDO NAO CUMPRIDO OUTROS ESPECIFICAR"
+        ]
+      },
+      {
+        "data": "2017-12-15T13:53:46",
+        "indice": 7,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "MANDADO REMETIDO CENTRAL OUTROS ESPECIFICAR"
+        ]
+      },
+      {
+        "data": "2017-12-15T13:53:30",
+        "indice": 6,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "MANDADO EXPEDIDO OUTROS ESPECIFICAR"
+        ]
+      },
+      {
+        "data": "2017-12-15T13:52:57",
+        "indice": 5,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DEVOLVIDOS C DESPACHO"
+        ]
+      },
+      {
+        "data": "2017-12-13T14:10:49",
+        "indice": 4,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2017-12-12T17:09:45",
+        "indice": 3,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIDOS EM SECRETARIA"
+        ]
+      },
+      {
+        "data": "2017-12-12T14:55:20",
+        "indice": 2,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REMETIDOS VARA PELA DISTRIBUICAO"
+        ]
+      },
+      {
+        "data": "2017-12-12T14:55:16",
+        "indice": 1,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "INICIAL AUTUADA"
+        ]
+      },
+      {
+        "data": "2017-12-12T12:12:06",
+        "indice": 0,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DISTRIBUICAO AUTOMATICA"
+        ]
+      }
+    ],
+    "classeProcessual": {
+      "codigoCNJ": "1116",
+      "nome": "EXECUCAO FISCAL"
+    },
+    "orgaoJulgador": "4ª VARA CUIABA",
+    "numeroProcessoUnico": "00158587720174013600",
+    "assuntosCNJ": [
+      {
+        "codigoCNJ": "6046",
+        "titulo": "CONSELHOS REGIONAIS E AFINS ANUIDADE"
+      }
+    ]
+  },
+  {
+    "area": "CIVEL",
+    "grauProcesso": 1,
+    "unidadeOrigem": "CUIABA CIVEL",
+    "urlProcesso": "http://servicos.tjmt.jus.br/processos/comarcas/dadosProcessoPrint.aspx",
+    "sistema": "TJMT",
+    "dataProcessamento": "2021-04-09T14:48:25.483799",
+    "partes": [
+      {
+        "tipo": "EXEQUENTE",
+        "polo": "ATIVO",
+        "nome": "MUNICIPIO DE CUIABA",
+        "cnpj": "03533064000146"
+      },
+      {
+        "tipo": "EXECUTADOS",
+        "nome": "J.J. COMERCIO DE CONFECCOES LTDA - ME",
+        "cnpj": "07057506000186"
+      }
+    ],
+    "tribunal": "TJ-MT",
+    "uf": "MT",
+    "segmento": "JUSTICA ESTADUAL",
+    "dataDistribuicao": "2016-06-29T00:00:00",
+    "movimentos": [
+      {
+        "data": "2020-11-26T00:00:00",
+        "indice": 9,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO"
+        ]
+      },
+      {
+        "data": "2020-09-24T00:00:00",
+        "indice": 8,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CERTIDAO DE ABERTURA DE VOLUME"
+        ]
+      },
+      {
+        "data": "2020-06-16T00:00:00",
+        "indice": 7,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSO P/DESPACHO/DECISAO"
+        ]
+      },
+      {
+        "data": "2019-08-09T00:00:00",
+        "indice": 6,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE MANDADO DE INTIMACAO E CERTIDAO"
+        ]
+      },
+      {
+        "data": "2018-11-09T00:00:00",
+        "indice": 5,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "IMPULSIONAMENTO POR CERTIDAO - ATOS ORDINATORIOS"
+        ]
+      },
+      {
+        "data": "2017-11-10T00:00:00",
+        "indice": 4,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE MANDADO DE CITACAO E CERTIDAO"
+        ]
+      },
+      {
+        "data": "2017-11-10T00:00:00",
+        "indice": 3,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE MANDADO DE INTIMACAO E CERTIDAO"
+        ]
+      },
+      {
+        "data": "2017-09-08T00:00:00",
+        "indice": 2,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DESPACHO->MERO EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2016-06-29T00:00:00",
+        "indice": 1,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSO P/DESPACHO/DECISAO"
+        ]
+      },
+      {
+        "data": "2016-06-29T00:00:00",
+        "indice": 0,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DISTRIBUICAO DO PROCESSO"
+        ]
+      }
+    ],
+    "classeProcessual": {
+      "codigoCNJ": "1116",
+      "nome": "EXECUCAO FISCAL"
+    },
+    "orgaoJulgador": "VARA ESPECIALIZADA DE EXECUTIVO FISCAL",
+    "numeroProcessoUnico": "10096291620168110041"
+  },
+  {
+    "grauProcesso": 2,
+    "urlProcesso": "https://www4.tjmg.jus.br/juridico/sf/proc_resultado2.jsp?tipoPesquisa2=1&txtProcesso=03624588420168130000&comrCodigo=0&nomePessoa=&tipoPessoa=X&naturezaProcesso=0&situacaoParte=X&codigoOAB=&tipoOAB=N&ufOAB=MG&numero=1&select=1&tipoConsulta=1&natureza=0&ativoBaixado=X&listaProcessos=03624588420168130000",
+    "sistema": "TJMG-2G",
+    "dataProcessamento": "2019-02-18T00:00:00",
+    "partes": [
+      {
+        "tipo": "AGRAVANTE",
+        "polo": "ATIVO",
+        "advogados": [
+          {
+            "oab": {
+              "uf": "MG",
+              "numero": 108995
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "02515568670",
+            "nome": "VIVIANE RODRIGUES CARDOSO"
+          },
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "ADVOGADO",
+              "numero": 81722
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "04397748616",
+            "nome": "CYBELE CRISTINA DE ALMEIDA ALVES"
+          },
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "ADVOGADO",
+              "numero": 81638
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "03498545647",
+            "nome": "ANA PAULA MIRANDA SILVA SIQUEIRA"
+          }
+        ],
+        "nome": "JJ COMERCIO DE CONFECCOES LTDA",
+        "cnpj": "07057506000186"
+      },
+      {
+        "tipo": "AGRAVADO",
+        "polo": "PASSIVO",
+        "advogados": [
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "ADVOGADO",
+              "numero": 68008
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "80705030687",
+            "nome": "FABIANO CORDEIRO COZZI"
+          },
+          {
+            "oab": {
+              "uf": "MG",
+              "numero": 144139
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "09398174626",
+            "nome": "CLARICE FERNANDES SANTOS"
+          },
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "ADVOGADO",
+              "numero": 73169
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "00145059677",
+            "nome": "JOAO GILBERTO FREIRE GOULART"
+          },
+          {
+            "oab": {
+              "uf": "MG",
+              "numero": 63242
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "90173066615",
+            "nome": "RONALDO CARLOS FERREIRA"
+          },
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "ADVOGADO",
+              "numero": 60867
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "98019120653",
+            "nome": "KELLY AUXILIADORA PINTO REBELLO"
+          },
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "ADVOGADO",
+              "numero": 108129
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "01438269641",
+            "nome": "LETICIA MANSUR DE LIMA DORNELAS"
+          },
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "ADVOGADO",
+              "numero": 159783
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "02993097113",
+            "nome": "RAFAELLA MAX ALVES CARDOSO"
+          },
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "ADVOGADO",
+              "numero": 141342
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "01427602697",
+            "nome": "ANA RAQUEL RIBEIRO ARAUJO"
+          }
+        ],
+        "nome": "CONDOMINIO ITAUPOWER SHOPPING",
+        "cnpj": "05599839000101"
+      }
+    ],
+    "tribunal": "TJ-MG",
+    "juiz": "VINICIUS MIRANDA GOMES",
+    "relator": "LUIZ ARTUR HILARIO",
+    "uf": "MG",
+    "segmento": "JUSTICA ESTADUAL",
+    "dataDistribuicao": "2016-05-23T00:00:00",
+    "movimentos": [
+      {
+        "data": "2017-05-10T00:00:00",
+        "indice": 40,
+        "eMovimento": true
+      },
+      {
+        "data": "2017-04-25T00:00:00",
+        "indice": 39,
+        "eMovimento": true
+      },
+      {
+        "data": "2017-04-04T00:00:00",
+        "indice": 38,
+        "eMovimento": true
+      },
+      {
+        "data": "2017-04-04T00:00:00",
+        "indice": 37,
+        "eMovimento": true
+      },
+      {
+        "data": "2017-03-28T00:00:00",
+        "indice": 36,
+        "eMovimento": true
+      },
+      {
+        "data": "2017-03-28T00:00:00",
+        "indice": 35,
+        "eMovimento": true
+      },
+      {
+        "data": "2017-03-22T00:00:00",
+        "indice": 34,
+        "eMovimento": true
+      },
+      {
+        "data": "2017-03-22T00:00:00",
+        "indice": 33,
+        "eMovimento": true
+      },
+      {
+        "data": "2017-03-20T00:00:00",
+        "indice": 32,
+        "eMovimento": true
+      },
+      {
+        "data": "2017-03-16T00:00:00",
+        "indice": 31,
+        "eMovimento": true
+      },
+      {
+        "data": "2017-02-24T00:00:00",
+        "indice": 30,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-11-03T00:00:00",
+        "indice": 29,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-10-07T00:00:00",
+        "indice": 28,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-10-05T00:00:00",
+        "indice": 27,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-10-03T00:00:00",
+        "indice": 26,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-09-28T00:00:00",
+        "indice": 25,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-09-28T00:00:00",
+        "indice": 24,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-09-26T00:00:00",
+        "indice": 23,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-09-23T00:00:00",
+        "indice": 22,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-08-08T00:00:00",
+        "indice": 21,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-08-01T00:00:00",
+        "indice": 20,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-07-07T00:00:00",
+        "indice": 19,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-07-07T00:00:00",
+        "indice": 18,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-07-05T00:00:00",
+        "indice": 17,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-07-04T00:00:00",
+        "indice": 16,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-06-30T00:00:00",
+        "indice": 15,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-06-20T00:00:00",
+        "indice": 14,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-06-13T00:00:00",
+        "indice": 13,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-06-13T00:00:00",
+        "indice": 12,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-06-13T00:00:00",
+        "indice": 11,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-06-13T00:00:00",
+        "indice": 10,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-06-13T00:00:00",
+        "indice": 9,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-06-10T00:00:00",
+        "indice": 8,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-06-09T00:00:00",
+        "indice": 7,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-05-23T00:00:00",
+        "indice": 6,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-05-23T00:00:00",
+        "indice": 5,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-05-23T00:00:00",
+        "indice": 4,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-05-23T00:00:00",
+        "indice": 3,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-05-20T00:00:00",
+        "indice": 2,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-05-20T00:00:00",
+        "indice": 1,
+        "eMovimento": true
+      },
+      {
+        "data": "2016-05-20T00:00:00",
+        "indice": 0,
+        "eMovimento": true
+      }
+    ],
+    "classeProcessual": {
+      "nome": "AGRAVO DE INSTRUMENTO-CV"
+    },
+    "orgaoJulgador": "9ª CAMARA CIVEL",
+    "eProcessoDigital": true,
+    "numeroProcessoUnico": "03624588420168130000",
+    "statusObservacao": "BAIXADO",
+    "assuntosCNJ": [
+      {
+        "codigoCNJ": "9593",
+        "titulo": "LOCACAO DE IMOVEL"
+      },
+      {
+        "codigoCNJ": "9580",
+        "titulo": "ESPECIES DE CONTRATOS"
+      },
+      {
+        "codigoCNJ": "7681",
+        "titulo": "OBRIGACOES"
+      },
+      {
+        "codigoCNJ": "899",
+        "titulo": "DIREITO CIVIL"
+      }
+    ]
+  },
+  {
+    "area": "CIVEL",
+    "valorCausa": {
+      "moeda": "R$",
+      "valor": 117534.91
+    },
+    "grauProcesso": 1,
+    "unidadeOrigem": "CONTAGEM",
+    "urlProcesso": "https://www4.tjmg.jus.br/juridico/sf/proc_resultado.jsp?comrCodigo=79&numero=1&listaProcessos=04314880320158130079&btn_pesquisar=Pesquisar",
+    "sistema": "TJMG",
+    "dataProcessamento": "2022-06-12T22:28:53.841804",
+    "partes": [
+      {
+        "tipo": "AUTOR",
+        "polo": "ATIVO",
+        "advogados": [
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "N",
+              "numero": 81722
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "04397748616",
+            "nome": "CYBELE CRISTINA DE ALMEIDA ALVES"
+          },
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "E",
+              "numero": 44139
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "07278917662",
+            "nome": "FABIOLA GERALDA MENDES DE SOUZA"
+          },
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "N",
+              "numero": 108995
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "02515568670",
+            "nome": "VIVIANE RODRIGUES CARDOSO"
+          }
+        ],
+        "nome": "JJ COMERCIO DE CONFECCOES LTDA",
+        "cnpj": "07057506000186"
+      },
+      {
+        "tipo": "REU",
+        "polo": "PASSIVO",
+        "advogados": [
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "N",
+              "numero": 73169
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "00145059677",
+            "nome": "JOAO GILBERTO FREIRE GOULART"
+          },
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "N",
+              "numero": 159783
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "02993097113",
+            "nome": "RAFAELLA MAX ALVES CARDOSO"
+          }
+        ],
+        "nome": "CONDOMINIO ITAUPOWER SHOPPING",
+        "cnpj": "05599839000101"
+      }
+    ],
+    "tribunal": "TJ-MG",
+    "uf": "MG",
+    "segmento": "JUSTICA ESTADUAL",
+    "dataDistribuicao": "2015-07-10T00:00:00",
+    "movimentos": [
+      {
+        "data": "2017-06-13T00:00:00",
+        "indice": 37,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REMETIDOS OS AUTOS (OUTROS MOTIVOS) PARA O ARQUIVO DE FEITOS"
+        ]
+      },
+      {
+        "data": "2017-06-12T00:00:00",
+        "indice": 36,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO (OUTRAS)"
+        ]
+      },
+      {
+        "data": "2017-06-12T00:00:00",
+        "indice": 35,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2017-06-12T00:00:00",
+        "indice": 34,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIDOS OS AUTOS"
+        ]
+      },
+      {
+        "data": "2017-06-06T00:00:00",
+        "indice": 33,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REMESSA DO ARQUIVO PARA SECRETARIA DE JUIZO"
+        ]
+      },
+      {
+        "data": "2017-05-29T00:00:00",
+        "indice": 32,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ATO ORDINATORIO MERO EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2017-05-29T00:00:00",
+        "indice": 31,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ATO ORDINATORIO MERO EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2017-03-17T00:00:00",
+        "indice": 30,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "BAIXA DEFINITIVA"
+        ]
+      },
+      {
+        "data": "2017-03-16T00:00:00",
+        "indice": 29,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "TRANSITADO EM JULGADO EM"
+        ]
+      },
+      {
+        "data": "2016-12-13T00:00:00",
+        "indice": 28,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "HOMOLOGADA A TRANSACAO"
+        ]
+      },
+      {
+        "data": "2016-12-13T00:00:00",
+        "indice": 27,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA JULGAMENTO"
+        ]
+      },
+      {
+        "data": "2016-12-13T00:00:00",
+        "indice": 26,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROFERIDO DESPACHO - MERO EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2016-12-13T00:00:00",
+        "indice": 25,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2016-06-08T00:00:00",
+        "indice": 24,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO (OUTRAS)"
+        ]
+      },
+      {
+        "data": "2016-06-02T00:00:00",
+        "indice": 23,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2016-05-11T00:00:00",
+        "indice": 22,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO (OUTRAS)"
+        ]
+      },
+      {
+        "data": "2016-04-27T00:00:00",
+        "indice": 21,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PUBLICADO DESPACHO VISTA AS PARTES EM"
+        ]
+      },
+      {
+        "data": "2016-04-20T00:00:00",
+        "indice": 20,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROFERIDO DESPACHO - MERO EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2016-02-16T00:00:00",
+        "indice": 19,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2016-02-16T00:00:00",
+        "indice": 18,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO (OUTRAS)"
+        ]
+      },
+      {
+        "data": "2016-02-03T00:00:00",
+        "indice": 17,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIDOS OS AUTOS DO ADVOGADO"
+        ]
+      },
+      {
+        "data": "2016-01-28T00:00:00",
+        "indice": 16,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AUTOS ENTREGUES EM CARGA AO ADVOGADO DO AUTOR"
+        ]
+      },
+      {
+        "data": "2016-01-25T00:00:00",
+        "indice": 15,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PUBLICADO DESPACHO VISTA AO AUTOR EM"
+        ]
+      },
+      {
+        "data": "2016-01-07T00:00:00",
+        "indice": 14,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO DE CONTESTACAO"
+        ]
+      },
+      {
+        "data": "2015-12-11T00:00:00",
+        "indice": 13,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2015-11-18T00:00:00",
+        "indice": 12,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE AVISO DE RECEBIMENTO"
+        ]
+      },
+      {
+        "data": "2015-11-13T00:00:00",
+        "indice": 11,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2015-10-15T00:00:00",
+        "indice": 10,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "EXPEDICAO DE OFICIO"
+        ]
+      },
+      {
+        "data": "2015-10-08T00:00:00",
+        "indice": 9,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE COMPROVANTE GUIA DE DILIGENCIA"
+        ]
+      },
+      {
+        "data": "2015-10-01T00:00:00",
+        "indice": 8,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2015-09-24T00:00:00",
+        "indice": 7,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PUBLICADO DESPACHO VISTA AO AUTOR EM"
+        ]
+      },
+      {
+        "data": "2015-09-21T00:00:00",
+        "indice": 6,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO (OUTRAS)"
+        ]
+      },
+      {
+        "data": "2015-09-16T00:00:00",
+        "indice": 5,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2015-09-16T00:00:00",
+        "indice": 4,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROFERIDO DESPACHO - MERO EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2015-09-02T00:00:00",
+        "indice": 3,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2015-08-27T00:00:00",
+        "indice": 2,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROFERIDO DESPACHO - MERO EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2015-08-03T00:00:00",
+        "indice": 1,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2015-07-10T00:00:00",
+        "indice": 0,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DISTRIBUIDO POR DEPENDENCIA"
+        ]
+      }
+    ],
+    "processosRelacionados": [
+      {
+        "numeroProcesso": "00311053220118130079"
+      },
+      {
+        "numeroProcesso": "04314880320158130079"
+      }
+    ],
+    "classeProcessual": {
+      "codigoCNJ": "137",
+      "nome": "RENOVATORIA DE LOCACAO"
+    },
+    "orgaoJulgador": "1ª VARA CIVEL",
+    "eProcessoDigital": false,
+    "numeroProcessoUnico": "04314880320158130079",
+    "statusObservacao": "BAIXADO",
+    "assuntosCNJ": [
+      {
+        "titulo": "CIVIL"
+      },
+      {
+        "codigoCNJ": "7681",
+        "titulo": "OBRIGACOES"
+      },
+      {
+        "codigoCNJ": "9580",
+        "titulo": "ESPECIES DE CONTRATOS"
+      },
+      {
+        "codigoCNJ": "9593",
+        "titulo": "LOCACAO DE IMOVEL"
+      }
+    ]
+  },
+  {
+    "grauProcesso": 1,
+    "unidadeOrigem": "CUIABA CIVEL",
+    "urlProcesso": "https://pje.tjmt.jus.br/pje/ConsultaPublica/DetalheProcessoConsultaPublica/listView.seam?ca=eca06ba54a130e314542a2b3c289a80da9751a53c375a432",
+    "sistema": "PJE-TJMT",
+    "dataProcessamento": "2022-07-08T16:12:06.469639",
+    "partes": [
+      {
+        "tipo": "EXEQUENTE",
+        "polo": "ATIVO",
+        "nome": "ESTADO DE MATO GROSSO",
+        "cnpj": "03507415000306"
+      },
+      {
+        "tipo": "EXECUTADO",
+        "polo": "PASSIVO",
+        "nome": "J.J. COMERCIO DE CONFECCOES LTDA - ME",
+        "cnpj": "07057506000186"
+      },
+      {
+        "tipo": "EXECUTADO",
+        "polo": "PASSIVO",
+        "cpf": "52324010178",
+        "nome": "JAIRO DE SOUZA MARTINS"
+      },
+      {
+        "tipo": "EXECUTADO",
+        "polo": "PASSIVO",
+        "cpf": "41205790187",
+        "nome": "JOSE CARLOS DE LIMA"
+      }
+    ],
+    "tribunal": "TJ-MT",
+    "uf": "MT",
+    "segmento": "JUSTICA ESTADUAL",
+    "dataDistribuicao": "2015-03-12T00:00:00",
+    "movimentos": [
+      {
+        "data": "2021-02-13T03:42:01",
+        "indice": 30,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DECORRIDO PRAZO DE ESTADO DE MATO GROSSO EM 10/02/2021 23:59."
+        ]
+      },
+      {
+        "data": "2021-02-03T10:29:36",
+        "indice": 29,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO DE PETICAO"
+        ]
+      },
+      {
+        "data": "2020-12-16T18:41:13",
+        "indice": 28,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROFERIDO DESPACHO DE MERO EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2020-07-29T01:25:09",
+        "indice": 27,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PUBLICADO DISTRIBUICAO DE PROCESSOS DIGITALIZADOS EM 29/07/2020."
+        ]
+      },
+      {
+        "data": "2020-07-29T01:25:09",
+        "indice": 26,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DISPONIBILIZADO NO DJ ELETRONICO EM 29/07/2020"
+        ]
+      },
+      {
+        "data": "2020-07-26T22:51:28",
+        "indice": 25,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO DE EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2020-07-26T19:35:06",
+        "indice": 24,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "EXPEDICAO DE OUTROS DOCUMENTOS."
+        ]
+      },
+      {
+        "data": "2020-07-26T19:35:04",
+        "indice": 23,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA DECISAO"
+        ]
+      },
+      {
+        "data": "2018-12-03T00:00:00",
+        "indice": 22,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ENTREGA EM CARGA/VISTA (CARGA)"
+        ]
+      },
+      {
+        "data": "2018-09-24T00:00:00",
+        "indice": 21,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ENTREGA EM CARGA/VISTA (CARGA)"
+        ]
+      },
+      {
+        "data": "2018-09-24T00:00:00",
+        "indice": 20,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA (JUNTADA DE MANDADO E CERTIDAO)"
+        ]
+      },
+      {
+        "data": "2018-09-24T00:00:00",
+        "indice": 19,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "EXPEDICAO DE DOCUMENTO (CERTIDAO)"
+        ]
+      },
+      {
+        "data": "2018-08-16T00:00:00",
+        "indice": 18,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "EXPEDICAO DE DOCUMENTO (CERTIDAO DE OFICIAL DE JUSTICA)"
+        ]
+      },
+      {
+        "data": "2017-06-13T00:00:00",
+        "indice": 17,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA (JUNTADA DE PETICAO DO AUTOR)"
+        ]
+      },
+      {
+        "data": "2017-06-06T00:00:00",
+        "indice": 16,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ENTREGA EM CARGA/VISTA (CARGA)"
+        ]
+      },
+      {
+        "data": "2017-03-16T00:00:00",
+        "indice": 15,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ENTREGA EM CARGA/VISTA (CARGA)"
+        ]
+      },
+      {
+        "data": "2017-03-16T00:00:00",
+        "indice": 14,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ENTREGA EM CARGA/VISTA (CARGA)"
+        ]
+      },
+      {
+        "data": "2017-03-16T00:00:00",
+        "indice": 13,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ENTREGA EM CARGA/VISTA (CARGA)"
+        ]
+      },
+      {
+        "data": "2017-03-16T00:00:00",
+        "indice": 12,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ENTREGA EM CARGA/VISTA (CARGA)"
+        ]
+      },
+      {
+        "data": "2017-03-16T00:00:00",
+        "indice": 11,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ENTREGA EM CARGA/VISTA (CARGA)"
+        ]
+      },
+      {
+        "data": "2017-03-15T00:00:00",
+        "indice": 10,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "EXPEDICAO DE DOCUMENTO (CERTIDAO)"
+        ]
+      },
+      {
+        "data": "2016-08-22T00:00:00",
+        "indice": 9,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA (JUNTADA DE AR)"
+        ]
+      },
+      {
+        "data": "2015-08-04T00:00:00",
+        "indice": 8,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ENTREGA EM CARGA/VISTA (CARGA)"
+        ]
+      },
+      {
+        "data": "2015-07-27T00:00:00",
+        "indice": 7,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ENTREGA EM CARGA/VISTA (CARGA)"
+        ]
+      },
+      {
+        "data": "2015-04-10T00:00:00",
+        "indice": 6,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ENTREGA EM CARGA/VISTA (CARGA)"
+        ]
+      },
+      {
+        "data": "2015-04-07T00:00:00",
+        "indice": 5,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PUBLICACAO (CERTIDAO DE PUBLICACAO DE EXPEDIENTE)"
+        ]
+      },
+      {
+        "data": "2015-04-02T00:00:00",
+        "indice": 4,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "EXPEDICAO DE DOCUMENTO (CERTIDAO DE ENVIO DE MATERIA PARA IMPRENSA)"
+        ]
+      },
+      {
+        "data": "2015-04-01T00:00:00",
+        "indice": 3,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DETERMINACAO (DECISAO->DETERMINACAO)"
+        ]
+      },
+      {
+        "data": "2015-03-26T00:00:00",
+        "indice": 2,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSAO (CONCLUSO P/DESPACHO/DECISAO)"
+        ]
+      },
+      {
+        "data": "2015-03-18T00:00:00",
+        "indice": 1,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ENTREGA EM CARGA/VISTA (CARGA)"
+        ]
+      },
+      {
+        "data": "2015-03-18T00:00:00",
+        "indice": 0,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DISTRIBUICAO (DISTRIBUICAO DO PROCESSO)"
+        ]
+      }
+    ],
+    "processosRelacionados": [
+      {
+        "numeroProcesso": "00103935320158110041"
+      }
+    ],
+    "classeProcessual": {
+      "codigoCNJ": "1116",
+      "nome": "EXECUCAO FISCAL"
+    },
+    "orgaoJulgador": "VARA ESP. DE EXECUCAO FISCAL ESTADUAL DE CUIABA",
+    "eProcessoDigital": true,
+    "numeroProcessoUnico": "00103935320158110041",
+    "assuntosCNJ": [
+      {
+        "codigoCNJ": "14",
+        "titulo": "DIREITO TRIBUTARIO"
+      },
+      {
+        "codigoCNJ": "5916",
+        "titulo": "IMPOSTOS"
+      },
+      {
+        "codigoCNJ": "5946",
+        "titulo": "ICMS/ IMPOSTO SOBRE CIRCULACAO DE MERCADORIAS"
+      }
+    ]
+  },
+  {
+    "area": "CIVEL",
+    "grauProcesso": 1,
+    "unidadeOrigem": "CACADOR",
+    "urlProcesso": "https://esaj.tjsc.jus.br/cpopg/search.do?conversationId=&cbPesquisa=NUMPROC&numeroDigitoAnoUnificado=0002831-59.2011&foroNumeroUnificado=0012&dadosConsulta.valorConsultaNuUnificado=0002831-59.2011.8.24.0012&dadosConsulta.valorConsultaNuUnificado=UNIFICADO&dadosConsulta.valorConsulta=&dadosConsulta.tipoNuProcesso=UNIFICADO",
+    "sistema": "ESAJ-TJSC",
+    "dataProcessamento": "2022-09-06T19:20:54.480967",
+    "partes": [
+      {
+        "tipo": "AUTOR",
+        "polo": "ATIVO",
+        "nome": "CONFECCOES LETIANA LTDA ME",
+        "cnpj": "02065026000143"
+      },
+      {
+        "tipo": "REU",
+        "polo": "PASSIVO",
+        "nome": "J.J. COMERCIO DE CONFECCOES LTDA ME",
+        "cnpj": "07057506000186"
+      }
+    ],
+    "tribunal": "TJ-SC",
+    "juiz": "EMERSON CARLOS CITTOLIN DOS SANTOS",
+    "uf": "SC",
+    "segmento": "JUSTICA ESTADUAL",
+    "dataDistribuicao": "2011-05-20T00:00:00",
+    "movimentos": [
+      {
+        "data": "2011-05-30T00:00:00",
+        "indice": 5,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REMESSA A COMARCA/TRIBUNAL DE ORIGEM"
+        ]
+      },
+      {
+        "data": "2011-05-25T00:00:00",
+        "indice": 4,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CERTIFICADO PELO OFICIAL DE JUSTICA"
+        ]
+      },
+      {
+        "data": "2011-05-24T00:00:00",
+        "indice": 3,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO CUMPRIMENTO DO MANDADO"
+        ]
+      },
+      {
+        "data": "2011-05-24T00:00:00",
+        "indice": 2,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ATO ORDINATORIO-CUMPRIMENTO DE CARTA PRECATORIA"
+        ]
+      },
+      {
+        "data": "2011-05-23T00:00:00",
+        "indice": 1,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIMENTO"
+        ]
+      },
+      {
+        "data": "2011-05-20T00:00:00",
+        "indice": 0,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROCESSO DISTRIBUIDO POR SORTEIO"
+        ]
+      }
+    ],
+    "processosRelacionados": [
+      {
+        "numeroProcesso": "012110028319"
+      }
+    ],
+    "classeProcessual": {
+      "codigoCNJ": "261",
+      "nome": "CARTA PRECATORIA CIVEL"
+    },
+    "orgaoJulgador": "1ª VARA CIVEL",
+    "numeroProcessoUnico": "00028315920118240012",
+    "statusObservacao": "ENCAMINHADO A OUTRO TRIBUNAL",
+    "assuntosCNJ": [
+      {
+        "titulo": "CITACAO"
+      }
+    ]
+  },
+  {
+    "area": "CIVEL",
+    "valorCausa": {
+      "moeda": "R$",
+      "valor": 0.0
+    },
+    "grauProcesso": 1,
+    "unidadeOrigem": "CONTAGEM",
+    "urlProcesso": "https://www4.tjmg.jus.br/juridico/sf/proc_resultado.jsp?comrCodigo=79&numero=1&listaProcessos=00311053220118130079&btn_pesquisar=Pesquisar",
+    "sistema": "TJMG",
+    "dataProcessamento": "2022-07-19T18:09:34.57112",
+    "partes": [
+      {
+        "tipo": "IMPUGNANTE",
+        "polo": "ATIVO",
+        "advogados": [
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "N",
+              "numero": 73169
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "00145059677",
+            "nome": "JOAO GILBERTO FREIRE GOULART"
+          }
+        ],
+        "nome": "CONDOMINIO ITAUPOWER SHOPPING",
+        "cnpj": "05599839000101"
+      },
+      {
+        "tipo": "IMPUGNADO",
+        "polo": "PASSIVO",
+        "advogados": [
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "N",
+              "numero": 118244
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "01479692638",
+            "nome": "MOISES JORGE SARSUR NETO"
+          },
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "E",
+              "numero": 28000
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "08607256696",
+            "nome": "RAFAEL TAVARES DE FREITAS"
+          }
+        ],
+        "cpf": "04669717618",
+        "nome": "FABIO KYUNG MIN HONG"
+      },
+      {
+        "tipo": "IMPUGNADO",
+        "polo": "PASSIVO",
+        "advogados": [
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "N",
+              "numero": 118244
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "01479692638",
+            "nome": "MOISES JORGE SARSUR NETO"
+          }
+        ],
+        "nome": "JJ COMERCIO DE CONFECCOES LTDA",
+        "cnpj": "07057506000186"
+      }
+    ],
+    "tribunal": "TJ-MG",
+    "uf": "MG",
+    "segmento": "JUSTICA ESTADUAL",
+    "dataDistribuicao": "2011-01-13T00:00:00",
+    "movimentos": [
+      {
+        "data": "2022-07-19T00:00:00",
+        "indice": 34,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REMETIDOS DO ARQUIVO DA COMARCA PARA O ARQUIVO CENTRAL - GEARQ"
+        ]
+      },
+      {
+        "data": "2012-11-19T00:00:00",
+        "indice": 33,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "BAIXA DEFINITIVA"
+        ]
+      },
+      {
+        "data": "2012-11-14T00:00:00",
+        "indice": 32,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO (OUTRAS)"
+        ]
+      },
+      {
+        "data": "2012-11-12T00:00:00",
+        "indice": 31,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2012-10-31T00:00:00",
+        "indice": 30,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PUBLICADO DESPACHO INTIMACAO"
+        ]
+      },
+      {
+        "data": "2012-10-26T00:00:00",
+        "indice": 29,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIDOS OS AUTOS"
+        ]
+      },
+      {
+        "data": "2012-10-25T00:00:00",
+        "indice": 28,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REMETIDOS OS AUTOS DA DISTRIBUICAO A SECRETARIA DE JUIZO"
+        ]
+      },
+      {
+        "data": "2012-10-16T00:00:00",
+        "indice": 27,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIDO PELO DISTRIBUIDOR"
+        ]
+      },
+      {
+        "data": "2012-10-16T00:00:00",
+        "indice": 26,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REMETIDOS OS AUTOS A DISTRIBUICAO"
+        ]
+      },
+      {
+        "data": "2012-10-18T00:00:00",
+        "indice": 25,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REPUBLICADO RETIFICAR PUBLICACAO EM"
+        ]
+      },
+      {
+        "data": "2012-10-15T00:00:00",
+        "indice": 24,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO (OUTRAS)"
+        ]
+      },
+      {
+        "data": "2012-10-10T00:00:00",
+        "indice": 23,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2012-10-03T00:00:00",
+        "indice": 22,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PUBLICADO DESPACHO INTIMACAO"
+        ]
+      },
+      {
+        "data": "2012-09-27T00:00:00",
+        "indice": 21,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIDOS OS AUTOS"
+        ]
+      },
+      {
+        "data": "2012-09-27T00:00:00",
+        "indice": 20,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REMETIDOS OS AUTOS DA CONTADORIA A SECRETARIA DE JUIZO"
+        ]
+      },
+      {
+        "data": "2012-09-26T00:00:00",
+        "indice": 19,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REALIZADO CALCULO DE CUSTAS"
+        ]
+      },
+      {
+        "data": "2012-09-06T00:00:00",
+        "indice": 18,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIDOS OS AUTOS PELA CONTADORIA"
+        ]
+      },
+      {
+        "data": "2012-09-06T00:00:00",
+        "indice": 17,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REMETIDOS OS AUTOS AO CONTADOR-TESOUREIRO"
+        ]
+      },
+      {
+        "data": "2012-09-03T00:00:00",
+        "indice": 16,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIDOS OS AUTOS"
+        ]
+      },
+      {
+        "data": "2012-08-31T00:00:00",
+        "indice": 15,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REMETIDOS OS AUTOS DA DISTRIBUICAO A SECRETARIA DE JUIZO"
+        ]
+      },
+      {
+        "data": "2012-08-21T00:00:00",
+        "indice": 14,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIDO PELO DISTRIBUIDOR"
+        ]
+      },
+      {
+        "data": "2012-08-21T00:00:00",
+        "indice": 13,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REMETIDOS OS AUTOS A DISTRIBUICAO"
+        ]
+      },
+      {
+        "data": "2011-09-28T00:00:00",
+        "indice": 12,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ARQUIVADO PROVISORAMENTE"
+        ]
+      },
+      {
+        "data": "2011-08-26T00:00:00",
+        "indice": 11,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JULGADO PROCEDENTE O PEDIDO"
+        ]
+      },
+      {
+        "data": "2011-08-26T00:00:00",
+        "indice": 10,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA JULGAMENTO"
+        ]
+      },
+      {
+        "data": "2011-08-24T00:00:00",
+        "indice": 9,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROFERIDO DESPACHO - MERO EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2011-02-24T00:00:00",
+        "indice": 8,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2011-02-22T00:00:00",
+        "indice": 7,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO (OUTRAS)"
+        ]
+      },
+      {
+        "data": "2011-02-17T00:00:00",
+        "indice": 6,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2011-02-11T00:00:00",
+        "indice": 5,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIDOS OS AUTOS DO ADVOGADO"
+        ]
+      },
+      {
+        "data": "2011-02-01T00:00:00",
+        "indice": 4,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AUTOS ENTREGUES EM CARGA AO ADVOGADO DO REU"
+        ]
+      },
+      {
+        "data": "2011-02-01T00:00:00",
+        "indice": 3,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PUBLICADO DESPACHO VISTA AO REU EM"
+        ]
+      },
+      {
+        "data": "2011-01-27T00:00:00",
+        "indice": 2,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROFERIDO DESPACHO - MERO EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2011-01-26T00:00:00",
+        "indice": 1,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2011-01-13T00:00:00",
+        "indice": 0,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DISTRIBUIDO POR DEPENDENCIA"
+        ]
+      }
+    ],
+    "processosRelacionados": [
+      {
+        "numeroProcesso": "00311053220118130079"
+      },
+      {
+        "numeroProcesso": "04314880320158130079"
+      }
+    ],
+    "classeProcessual": {
+      "codigoCNJ": "12781",
+      "nome": "IMPUGNACAO AO VALOR DA CAUSA"
+    },
+    "orgaoJulgador": "1ª VARA CIVEL",
+    "eProcessoDigital": false,
+    "numeroProcessoUnico": "00311053220118130079",
+    "statusObservacao": "BAIXADO",
+    "assuntosCNJ": [
+      {
+        "titulo": "PROCESSUAL CIVIL"
+      },
+      {
+        "codigoCNJ": "8893",
+        "titulo": "ATOS PROCESSUAIS"
+      },
+      {
+        "codigoCNJ": "8934",
+        "titulo": "VALOR DA CAUSA"
+      }
+    ]
+  },
+  {
+    "area": "CIVEL",
+    "valorCausa": {
+      "moeda": "R$",
+      "valor": 64029.96
+    },
+    "grauProcesso": 1,
+    "unidadeOrigem": "CONTAGEM",
+    "urlProcesso": "https://www4.tjmg.jus.br/juridico/sf/proc_resultado.jsp?comrCodigo=79&numero=1&listaProcessos=06161135120108130079&btn_pesquisar=Pesquisar",
+    "sistema": "TJMG",
+    "dataProcessamento": "2022-07-28T08:45:16.097487",
+    "partes": [
+      {
+        "tipo": "AUTOR",
+        "polo": "ATIVO",
+        "advogados": [
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "N",
+              "numero": 81638
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "03498545647",
+            "nome": "ANA PAULA MIRANDA SILVA SIQUEIRA"
+          },
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "N",
+              "numero": 118244
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "01479692638",
+            "nome": "MOISES JORGE SARSUR NETO"
+          }
+        ],
+        "cpf": "04669717618",
+        "nome": "FABIO KYUNG MIN HONG"
+      },
+      {
+        "tipo": "AUTOR",
+        "polo": "ATIVO",
+        "advogados": [
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "N",
+              "numero": 81638
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "03498545647",
+            "nome": "ANA PAULA MIRANDA SILVA SIQUEIRA"
+          }
+        ],
+        "nome": "JJ COMERCIO DE CONFECCOES LTDA",
+        "cnpj": "07057506000186"
+      },
+      {
+        "tipo": "REU",
+        "polo": "PASSIVO",
+        "advogados": [
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "E",
+              "numero": 37677
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "26764407649",
+            "nome": "BRUNO GONCALVES PEREIRA"
+          },
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "N",
+              "numero": 81376
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "98960784672",
+            "nome": "CRISTIANO SILVA COLEPICOLO"
+          },
+          {
+            "oab": {
+              "uf": "MG",
+              "tipo": "N",
+              "numero": 73169
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "00145059677",
+            "nome": "JOAO GILBERTO FREIRE GOULART"
+          }
+        ],
+        "nome": "CONDOMINIO ITAUPOWER SHOPPING",
+        "cnpj": "05599839000101"
+      }
+    ],
+    "tribunal": "TJ-MG",
+    "uf": "MG",
+    "segmento": "JUSTICA ESTADUAL",
+    "dataDistribuicao": "2010-11-12T00:00:00",
+    "movimentos": [
+      {
+        "data": "2022-07-19T00:00:00",
+        "indice": 81,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REMETIDOS DO ARQUIVO DA COMARCA PARA O ARQUIVO CENTRAL - GEARQ"
+        ]
+      },
+      {
+        "data": "2017-03-17T00:00:00",
+        "indice": 80,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "BAIXA DEFINITIVA"
+        ]
+      },
+      {
+        "data": "2017-03-16T00:00:00",
+        "indice": 79,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "TRANSITADO EM JULGADO EM"
+        ]
+      },
+      {
+        "data": "2016-12-13T00:00:00",
+        "indice": 78,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "HOMOLOGADA A TRANSACAO"
+        ]
+      },
+      {
+        "data": "2016-12-13T00:00:00",
+        "indice": 77,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA JULGAMENTO"
+        ]
+      },
+      {
+        "data": "2016-12-13T00:00:00",
+        "indice": 76,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROFERIDO DESPACHO - MERO EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2016-11-28T00:00:00",
+        "indice": 75,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2016-11-28T00:00:00",
+        "indice": 74,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO (OUTRAS)"
+        ]
+      },
+      {
+        "data": "2016-11-11T00:00:00",
+        "indice": 73,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2016-11-09T00:00:00",
+        "indice": 72,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIDOS OS AUTOS"
+        ]
+      },
+      {
+        "data": "2016-10-27T00:00:00",
+        "indice": 71,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AUTOS ENTREGUES EM CARGA AO PERITO JOSE FERNANDO"
+        ]
+      },
+      {
+        "data": "2016-10-19T00:00:00",
+        "indice": 70,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROFERIDO DESPACHO - MERO EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2016-06-22T00:00:00",
+        "indice": 69,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2016-06-20T00:00:00",
+        "indice": 68,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO (OUTRAS)"
+        ]
+      },
+      {
+        "data": "2016-06-09T00:00:00",
+        "indice": 67,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2016-05-23T00:00:00",
+        "indice": 66,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO (OUTRAS)"
+        ]
+      },
+      {
+        "data": "2016-05-23T00:00:00",
+        "indice": 65,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2016-05-25T00:00:00",
+        "indice": 64,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PUBLICADO DESPACHO VISTA AS PARTES EM"
+        ]
+      },
+      {
+        "data": "2016-05-11T00:00:00",
+        "indice": 63,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO (OUTRAS)"
+        ]
+      },
+      {
+        "data": "2016-05-04T00:00:00",
+        "indice": 62,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2016-05-04T00:00:00",
+        "indice": 61,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIDOS OS AUTOS"
+        ]
+      },
+      {
+        "data": "2016-05-02T00:00:00",
+        "indice": 60,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AUTOS ENTREGUES EM CARGA AO PERITO CARGA PERITO"
+        ]
+      },
+      {
+        "data": "2016-04-27T00:00:00",
+        "indice": 59,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PUBLICADO DESPACHO PERITO EM"
+        ]
+      },
+      {
+        "data": "2016-04-20T00:00:00",
+        "indice": 58,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROFERIDO DESPACHO - MERO EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2016-04-20T00:00:00",
+        "indice": 57,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2016-02-03T00:00:00",
+        "indice": 56,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2015-10-15T00:00:00",
+        "indice": 55,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO (OUTRAS)"
+        ]
+      },
+      {
+        "data": "2015-09-16T00:00:00",
+        "indice": 54,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2015-07-22T00:00:00",
+        "indice": 53,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PUBLICADO DESPACHO VISTA AO REU EM"
+        ]
+      },
+      {
+        "data": "2015-07-01T00:00:00",
+        "indice": 52,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO (OUTRAS)"
+        ]
+      },
+      {
+        "data": "2015-06-15T00:00:00",
+        "indice": 51,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2015-06-12T00:00:00",
+        "indice": 50,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIDOS OS AUTOS"
+        ]
+      },
+      {
+        "data": "2015-06-03T00:00:00",
+        "indice": 49,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AUTOS ENTREGUES EM CARGA AO PERITO DRA VANESSA"
+        ]
+      },
+      {
+        "data": "2015-05-27T00:00:00",
+        "indice": 48,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PUBLICADO DESPACHO VISTA AS PARTES EM"
+        ]
+      },
+      {
+        "data": "2015-05-20T00:00:00",
+        "indice": 47,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROFERIDO DESPACHO - MERO EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2015-05-18T00:00:00",
+        "indice": 46,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2014-03-20T00:00:00",
+        "indice": 45,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROFERIDO DESPACHO - MERO EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2014-01-08T00:00:00",
+        "indice": 44,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2013-12-27T00:00:00",
+        "indice": 43,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO (OUTRAS)"
+        ]
+      },
+      {
+        "data": "2013-12-23T00:00:00",
+        "indice": 42,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2013-12-05T00:00:00",
+        "indice": 41,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PUBLICADO DESPACHO VISTA AO AUTOR EM"
+        ]
+      },
+      {
+        "data": "2013-12-02T00:00:00",
+        "indice": 40,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO (OUTRAS)"
+        ]
+      },
+      {
+        "data": "2013-11-25T00:00:00",
+        "indice": 39,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2013-11-21T00:00:00",
+        "indice": 38,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROFERIDO DESPACHO - MERO EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2013-11-06T00:00:00",
+        "indice": 37,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2013-11-05T00:00:00",
+        "indice": 36,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO (OUTRAS)"
+        ]
+      },
+      {
+        "data": "2013-10-29T00:00:00",
+        "indice": 35,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2013-10-25T00:00:00",
+        "indice": 34,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO (OUTRAS)"
+        ]
+      },
+      {
+        "data": "2013-10-17T00:00:00",
+        "indice": 33,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2013-10-16T00:00:00",
+        "indice": 32,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIDOS OS AUTOS DO ADVOGADO"
+        ]
+      },
+      {
+        "data": "2013-10-14T00:00:00",
+        "indice": 31,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AUTOS ENTREGUES EM CARGA AO ADVOGADO DO REU"
+        ]
+      },
+      {
+        "data": "2013-10-14T00:00:00",
+        "indice": 30,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE TELEGRAMA, FAX OU E-MAIL"
+        ]
+      },
+      {
+        "data": "2013-10-14T00:00:00",
+        "indice": 29,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2013-10-07T00:00:00",
+        "indice": 28,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIDOS OS AUTOS"
+        ]
+      },
+      {
+        "data": "2013-10-07T00:00:00",
+        "indice": 27,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REMETIDOS OS AUTOS AO SETOR DA OAB"
+        ]
+      },
+      {
+        "data": "2013-10-04T00:00:00",
+        "indice": 26,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PUBLICADO DESPACHO INTIMACAO"
+        ]
+      },
+      {
+        "data": "2013-10-02T00:00:00",
+        "indice": 25,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROFERIDO DESPACHO - MERO EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2013-06-30T00:00:00",
+        "indice": 24,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2013-08-09T00:00:00",
+        "indice": 23,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIDOS OS AUTOS SEM DESPACHO"
+        ]
+      },
+      {
+        "data": "2013-06-05T00:00:00",
+        "indice": 22,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2013-05-23T00:00:00",
+        "indice": 21,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO (OUTRAS)"
+        ]
+      },
+      {
+        "data": "2013-05-17T00:00:00",
+        "indice": 20,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2013-05-16T00:00:00",
+        "indice": 19,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIDOS OS AUTOS SEM DESPACHO"
+        ]
+      },
+      {
+        "data": "2013-04-01T00:00:00",
+        "indice": 18,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2013-03-26T00:00:00",
+        "indice": 17,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO DE ESPECIFICACAO DE PROVAS"
+        ]
+      },
+      {
+        "data": "2013-03-20T00:00:00",
+        "indice": 16,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2013-03-13T00:00:00",
+        "indice": 15,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PUBLICADO DESPACHO VISTA AS PARTES EM"
+        ]
+      },
+      {
+        "data": "2012-11-29T00:00:00",
+        "indice": 14,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIDOS OS AUTOS"
+        ]
+      },
+      {
+        "data": "2012-11-29T00:00:00",
+        "indice": 13,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REMETIDOS OS AUTOS AO SETOR DA OAB"
+        ]
+      },
+      {
+        "data": "2012-11-28T00:00:00",
+        "indice": 12,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PUBLICADO DESPACHO VISTA AO AUTOR EM"
+        ]
+      },
+      {
+        "data": "2011-09-28T00:00:00",
+        "indice": 11,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ARQUIVADO PROVISORAMENTE"
+        ]
+      },
+      {
+        "data": "2011-01-21T00:00:00",
+        "indice": 10,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2011-01-14T00:00:00",
+        "indice": 9,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE AVISO DE RECEBIMENTO"
+        ]
+      },
+      {
+        "data": "2011-01-12T00:00:00",
+        "indice": 8,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2010-12-03T00:00:00",
+        "indice": 7,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "EXPEDICAO DE OFICIO"
+        ]
+      },
+      {
+        "data": "2010-12-02T00:00:00",
+        "indice": 6,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO (OUTRAS)"
+        ]
+      },
+      {
+        "data": "2010-11-30T00:00:00",
+        "indice": 5,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROTOCOLIZADA PETICAO"
+        ]
+      },
+      {
+        "data": "2010-11-29T00:00:00",
+        "indice": 4,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "EXPEDICAO DE OFICIO"
+        ]
+      },
+      {
+        "data": "2010-11-29T00:00:00",
+        "indice": 3,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PUBLICADO DESPACHO INTIMACAO"
+        ]
+      },
+      {
+        "data": "2010-11-23T00:00:00",
+        "indice": 2,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROFERIDO DESPACHO - MERO EXPEDIENTE"
+        ]
+      },
+      {
+        "data": "2010-11-18T00:00:00",
+        "indice": 1,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSOS PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2010-11-12T00:00:00",
+        "indice": 0,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DISTRIBUIDO POR SORTEIO"
+        ]
+      }
+    ],
+    "processosRelacionados": [
+      {
+        "numeroProcesso": "00311053220118130079"
+      },
+      {
+        "numeroProcesso": "04314880320158130079"
+      }
+    ],
+    "classeProcessual": {
+      "codigoCNJ": "137",
+      "nome": "RENOVATORIA DE LOCACAO"
+    },
+    "orgaoJulgador": "1ª VARA CIVEL",
+    "eProcessoDigital": false,
+    "numeroProcessoUnico": "06161135120108130079",
+    "statusObservacao": "ATIVO",
+    "assuntosCNJ": [
+      {
+        "titulo": "CIVIL"
+      },
+      {
+        "codigoCNJ": "7681",
+        "titulo": "OBRIGACOES"
+      },
+      {
+        "codigoCNJ": "9580",
+        "titulo": "ESPECIES DE CONTRATOS"
+      },
+      {
+        "codigoCNJ": "9593",
+        "titulo": "LOCACAO DE IMOVEL"
+      }
+    ]
+  },
+  {
+    "area": "CIVEL",
+    "grauProcesso": 1,
+    "unidadeOrigem": "CACADOR",
+    "urlProcesso": "https://esaj.tjsc.jus.br/cpopg/search.do?conversationId=&cbPesquisa=NUMPROC&numeroDigitoAnoUnificado=0003026-15.2009&foroNumeroUnificado=0012&dadosConsulta.valorConsultaNuUnificado=0003026-15.2009.8.24.0012&dadosConsulta.valorConsultaNuUnificado=UNIFICADO&dadosConsulta.valorConsulta=&dadosConsulta.tipoNuProcesso=UNIFICADO",
+    "sistema": "ESAJ-TJSC",
+    "dataProcessamento": "2022-09-11T00:55:15.116912",
+    "partes": [
+      {
+        "tipo": "AUTOR",
+        "polo": "ATIVO",
+        "nome": "CONFECCOES LETIANA LTDA ME",
+        "cnpj": "02065026000143"
+      },
+      {
+        "tipo": "REU",
+        "polo": "PASSIVO",
+        "nome": "JJ COMERCIO DE CONFECCOES LDA ME",
+        "cnpj": "07057506000186"
+      }
+    ],
+    "tribunal": "TJ-SC",
+    "juiz": "GILBERTO KILIAN DOS ANJOS",
+    "uf": "SC",
+    "segmento": "JUSTICA ESTADUAL",
+    "dataDistribuicao": "2009-05-15T00:00:00",
+    "movimentos": [
+      {
+        "data": "2011-09-14T00:00:00",
+        "indice": 19,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REMESSA A COMARCA/TRIBUNAL DE ORIGEM"
+        ]
+      },
+      {
+        "data": "2011-09-14T00:00:00",
+        "indice": 18,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ATO ORDINATORIO-CUMPRIMENTO DE CARTA PRECATORIA"
+        ]
+      },
+      {
+        "data": "2011-07-19T00:00:00",
+        "indice": 17,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROCESSO REDISTRIBUIDO POR DIRECIONAMENTO"
+        ]
+      },
+      {
+        "data": "2011-04-20T00:00:00",
+        "indice": 16,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "OFICIO EXPEDIDO"
+        ]
+      },
+      {
+        "data": "2011-04-20T00:00:00",
+        "indice": 15,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO DECURSO DO PRAZO"
+        ]
+      },
+      {
+        "data": "2010-06-28T00:00:00",
+        "indice": 14,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "OFICIO EXPEDIDO"
+        ]
+      },
+      {
+        "data": "2010-06-28T00:00:00",
+        "indice": 13,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO DECURSO DO PRAZO"
+        ]
+      },
+      {
+        "data": "2010-06-14T00:00:00",
+        "indice": 12,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIMENTO"
+        ]
+      },
+      {
+        "data": "2010-06-07T00:00:00",
+        "indice": 11,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DESPACHO OUTROS"
+        ]
+      },
+      {
+        "data": "2010-06-07T00:00:00",
+        "indice": 10,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSO PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2010-06-04T00:00:00",
+        "indice": 9,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO ENVIO PARA O JUIZ"
+        ]
+      },
+      {
+        "data": "2010-02-03T00:00:00",
+        "indice": 8,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO ENVIO PARA O JUIZ"
+        ]
+      },
+      {
+        "data": "2010-02-03T00:00:00",
+        "indice": 7,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CERTIFICADO OUTROS"
+        ]
+      },
+      {
+        "data": "2009-06-15T00:00:00",
+        "indice": 6,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO DECURSO DO PRAZO"
+        ]
+      },
+      {
+        "data": "2009-06-15T00:00:00",
+        "indice": 5,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ATO ORDINATORIO-PAGAMENTO DE DILIGENCIA"
+        ]
+      },
+      {
+        "data": "2009-06-15T00:00:00",
+        "indice": 4,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIMENTO"
+        ]
+      },
+      {
+        "data": "2009-05-25T00:00:00",
+        "indice": 3,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CARGA A CONTADORIA"
+        ]
+      },
+      {
+        "data": "2009-05-18T00:00:00",
+        "indice": 2,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO ENVIO PARA O CONTADOR"
+        ]
+      },
+      {
+        "data": "2009-05-18T00:00:00",
+        "indice": 1,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIMENTO"
+        ]
+      },
+      {
+        "data": "2009-05-15T00:00:00",
+        "indice": 0,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROCESSO DISTRIBUIDO POR SORTEIO"
+        ]
+      }
+    ],
+    "processosRelacionados": [
+      {
+        "numeroProcesso": "012090030267"
+      }
+    ],
+    "classeProcessual": {
+      "codigoCNJ": "261",
+      "nome": "CARTA PRECATORIA CIVEL"
+    },
+    "orgaoJulgador": "2ª VARA CIVEL",
+    "numeroProcessoUnico": "00030261520098240012",
+    "statusObservacao": "ENCAMINHADO A OUTRO TRIBUNAL",
+    "assuntosCNJ": [
+      {
+        "titulo": "CITACAO"
+      }
+    ]
+  },
+  {
+    "area": "CIVEL",
+    "grauProcesso": 1,
+    "unidadeOrigem": "CACADOR",
+    "urlProcesso": "https://esaj.tjsc.jus.br/cpopg/search.do?conversationId=&cbPesquisa=NUMPROC&numeroDigitoAnoUnificado=0001653-17.2007&foroNumeroUnificado=0012&dadosConsulta.valorConsultaNuUnificado=0001653-17.2007.8.24.0012&dadosConsulta.valorConsultaNuUnificado=UNIFICADO&dadosConsulta.valorConsulta=&dadosConsulta.tipoNuProcesso=UNIFICADO",
+    "sistema": "ESAJ-TJSC",
+    "dataProcessamento": "2022-09-20T00:31:59.36171",
+    "partes": [
+      {
+        "tipo": "EXEQUENTE",
+        "polo": "ATIVO",
+        "advogados": [
+          {
+            "oab": {
+              "uf": "SC",
+              "tipo": "ADVOGADO",
+              "numero": 26054
+            },
+            "tipo": "ADVOGADO",
+            "cpf": "66585350197",
+            "nome": "FERNANDO ALVES FILGUEIRAS DA SILVA"
+          }
+        ],
+        "nome": "ESTADO DE SANTA CATARINA",
+        "cnpj": "82951229000176"
+      },
+      {
+        "tipo": "EXECUTADO",
+        "polo": "PASSIVO",
+        "nome": "J.J. COMERCIO DE CONFECCOES LTDA ME",
+        "cnpj": "07057506000186"
+      }
+    ],
+    "tribunal": "TJ-SC",
+    "juiz": "GILBERTO KILIAN DOS ANJOS",
+    "uf": "SC",
+    "segmento": "JUSTICA ESTADUAL",
+    "dataDistribuicao": "2007-03-28T00:00:00",
+    "movimentos": [
+      {
+        "data": "2015-03-26T00:00:00",
+        "indice": 58,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REMETIDO OS AUTOS AO ARQUIVO CENTRAL"
+        ]
+      },
+      {
+        "data": "2010-03-26T00:00:00",
+        "indice": 57,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "REMESSA AO ARQUIVO CENTRAL"
+        ]
+      },
+      {
+        "data": "2010-03-26T00:00:00",
+        "indice": 56,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROCESSO ARQUIVADO DEFINITIVAMENTE"
+        ]
+      },
+      {
+        "data": "2010-02-17T00:00:00",
+        "indice": 55,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO ENVIO PARA O PORTEIRO/LEILOEIRO"
+        ]
+      },
+      {
+        "data": "2010-01-19T00:00:00",
+        "indice": 54,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIMENTO"
+        ]
+      },
+      {
+        "data": "2010-01-19T00:00:00",
+        "indice": 53,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CARGA AO ADVOGADO"
+        ]
+      },
+      {
+        "data": "2010-01-19T00:00:00",
+        "indice": 52,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO ENVIO PARA O ADVOGADO"
+        ]
+      },
+      {
+        "data": "2009-09-04T00:00:00",
+        "indice": 51,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO ENVIO PARA O PORTEIRO/LEILOEIRO"
+        ]
+      },
+      {
+        "data": "2009-09-03T00:00:00",
+        "indice": 50,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIMENTO"
+        ]
+      },
+      {
+        "data": "2009-09-02T00:00:00",
+        "indice": 49,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DESPACHO OUTROS"
+        ]
+      },
+      {
+        "data": "2009-08-31T00:00:00",
+        "indice": 48,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSO PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2009-08-31T00:00:00",
+        "indice": 47,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO ENVIO PARA O JUIZ"
+        ]
+      },
+      {
+        "data": "2009-08-26T00:00:00",
+        "indice": 46,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO ENVIO PARA O JUIZ"
+        ]
+      },
+      {
+        "data": "2009-08-26T00:00:00",
+        "indice": 45,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO"
+        ]
+      },
+      {
+        "data": "2009-08-14T00:00:00",
+        "indice": 44,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO OUTROS"
+        ]
+      },
+      {
+        "data": "2009-08-13T00:00:00",
+        "indice": 43,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIMENTO"
+        ]
+      },
+      {
+        "data": "2009-07-20T00:00:00",
+        "indice": 42,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CARGA AO ADVOGADO"
+        ]
+      },
+      {
+        "data": "2009-07-20T00:00:00",
+        "indice": 41,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO ENVIO PARA O ADVOGADO"
+        ]
+      },
+      {
+        "data": "2009-07-17T00:00:00",
+        "indice": 40,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO DECURSO DO PRAZO"
+        ]
+      },
+      {
+        "data": "2009-07-17T00:00:00",
+        "indice": 39,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE AR"
+        ]
+      },
+      {
+        "data": "2009-07-01T00:00:00",
+        "indice": 38,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO JUNTADA DE AR"
+        ]
+      },
+      {
+        "data": "2009-07-01T00:00:00",
+        "indice": 37,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "OFICIO EXPEDIDO"
+        ]
+      },
+      {
+        "data": "2009-07-01T00:00:00",
+        "indice": 36,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ATO ORDINATORIO-INTIMACAO DA CERTIDAO"
+        ]
+      },
+      {
+        "data": "2009-06-30T00:00:00",
+        "indice": 35,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO CUMPRIR DESPACHO"
+        ]
+      },
+      {
+        "data": "2009-06-26T00:00:00",
+        "indice": 34,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE MANDADO"
+        ]
+      },
+      {
+        "data": "2009-06-23T00:00:00",
+        "indice": 33,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CERTIFICADO PELO OFICIAL DE JUSTICA"
+        ]
+      },
+      {
+        "data": "2009-06-10T00:00:00",
+        "indice": 32,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO CUMPRIMENTO DO MANDADO"
+        ]
+      },
+      {
+        "data": "2009-06-01T00:00:00",
+        "indice": 31,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "MANDADO EMITIDO"
+        ]
+      },
+      {
+        "data": "2009-05-18T00:00:00",
+        "indice": 30,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO CUMPRIR DESPACHO"
+        ]
+      },
+      {
+        "data": "2009-05-18T00:00:00",
+        "indice": 29,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIMENTO"
+        ]
+      },
+      {
+        "data": "2009-05-11T00:00:00",
+        "indice": 28,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DESPACHO OUTROS"
+        ]
+      },
+      {
+        "data": "2009-05-04T00:00:00",
+        "indice": 27,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSO PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2009-05-04T00:00:00",
+        "indice": 26,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO ENVIO PARA O JUIZ"
+        ]
+      },
+      {
+        "data": "2009-04-29T00:00:00",
+        "indice": 25,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO ENVIO PARA O JUIZ"
+        ]
+      },
+      {
+        "data": "2009-04-29T00:00:00",
+        "indice": 24,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE PETICAO"
+        ]
+      },
+      {
+        "data": "2009-04-27T00:00:00",
+        "indice": 23,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIMENTO"
+        ]
+      },
+      {
+        "data": "2009-04-22T00:00:00",
+        "indice": 22,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CARGA AO ADVOGADO"
+        ]
+      },
+      {
+        "data": "2009-04-22T00:00:00",
+        "indice": 21,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO ENVIO PARA O ADVOGADO"
+        ]
+      },
+      {
+        "data": "2009-04-14T00:00:00",
+        "indice": 20,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO DECURSO DO PRAZO"
+        ]
+      },
+      {
+        "data": "2009-04-13T00:00:00",
+        "indice": 19,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIMENTO"
+        ]
+      },
+      {
+        "data": "2009-04-08T00:00:00",
+        "indice": 18,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CARGA AO ADVOGADO"
+        ]
+      },
+      {
+        "data": "2009-04-08T00:00:00",
+        "indice": 17,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO ENVIO PARA O ADVOGADO"
+        ]
+      },
+      {
+        "data": "2009-04-08T00:00:00",
+        "indice": 16,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE AR"
+        ]
+      },
+      {
+        "data": "2009-03-30T00:00:00",
+        "indice": 15,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO JUNTADA DE AR"
+        ]
+      },
+      {
+        "data": "2009-03-30T00:00:00",
+        "indice": 14,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "ATO ORDINATORIO-BENS AVALIADOS"
+        ]
+      },
+      {
+        "data": "2009-03-30T00:00:00",
+        "indice": 13,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CERTIFICADO DECURSO DE PRAZO"
+        ]
+      },
+      {
+        "data": "2009-03-30T00:00:00",
+        "indice": 12,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "OFICIO EXPEDIDO"
+        ]
+      },
+      {
+        "data": "2007-11-23T00:00:00",
+        "indice": 11,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO DECURSO DO PRAZO"
+        ]
+      },
+      {
+        "data": "2007-11-20T00:00:00",
+        "indice": 10,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "JUNTADA DE MANDADO"
+        ]
+      },
+      {
+        "data": "2007-11-12T00:00:00",
+        "indice": 9,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CERTIFICADO PELO OFICIAL DE JUSTICA"
+        ]
+      },
+      {
+        "data": "2007-07-13T00:00:00",
+        "indice": 8,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO CUMPRIMENTO DO MANDADO"
+        ]
+      },
+      {
+        "data": "2007-04-03T00:00:00",
+        "indice": 7,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO CUMPRIMENTO DO MANDADO"
+        ]
+      },
+      {
+        "data": "2007-04-03T00:00:00",
+        "indice": 6,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "MANDADO EMITIDO"
+        ]
+      },
+      {
+        "data": "2007-04-02T00:00:00",
+        "indice": 5,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIMENTO"
+        ]
+      },
+      {
+        "data": "2007-03-30T00:00:00",
+        "indice": 4,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "DESPACHO OUTROS"
+        ]
+      },
+      {
+        "data": "2007-03-29T00:00:00",
+        "indice": 3,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "CONCLUSO PARA DESPACHO"
+        ]
+      },
+      {
+        "data": "2007-03-29T00:00:00",
+        "indice": 2,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "AGUARDANDO ENVIO PARA O JUIZ"
+        ]
+      },
+      {
+        "data": "2007-03-29T00:00:00",
+        "indice": 1,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "RECEBIMENTO"
+        ]
+      },
+      {
+        "data": "2007-03-28T00:00:00",
+        "indice": 0,
+        "eMovimento": true,
+        "nomeOriginal": [
+          "PROCESSO DISTRIBUIDO POR SORTEIO"
+        ]
+      }
+    ],
+    "processosRelacionados": [
+      {
+        "numeroProcesso": "012070016536"
+      }
+    ],
+    "classeProcessual": {
+      "codigoCNJ": "1116",
+      "nome": "EXECUCAO FISCAL"
+    },
+    "orgaoJulgador": "2ª VARA CIVEL",
+    "numeroProcessoUnico": "00016531720078240012",
+    "statusObservacao": "ARQUIVADO"
+  }
+]
