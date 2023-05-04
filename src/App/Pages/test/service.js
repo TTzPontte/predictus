@@ -42,7 +42,7 @@ export const generateBusinessReport = async () => {
   return axios
     .get(businessReportUrl, { headers, params })
     .then((response) => {
-      console.log(response.data);
+      console.log(response.data.optionalFeatures.partner.PartnerResponse.results);
       return response.data;
     })
     .catch((error) => {
@@ -53,8 +53,8 @@ export const generateBusinessReport = async () => {
 export const generateReport = async () => {
   const payload = {
     documentNumber: "00000197041",
-    reportName: "COMBO_CONCESSAO_COM_SCORE_POSITIVO",
-    optionalFeatures: []
+    reportName: "COMBO_CONCESSAO_COM_SCORE_FINTECH",
+    optionalFeatures: ["PARTICIPACAO_SOCIETARIA"]
   };
   const headers = {
     "Content-Type": "application/json",
@@ -64,6 +64,6 @@ export const generateReport = async () => {
   };
   const { data } = await axios.post(reportUrl, payload, { headers });
   console.log(data);
-  console.log(data.reports);
+  console.log(data.optionalFeatures.partner.partnershipResponse);
   return data;
 };
