@@ -40,7 +40,8 @@ function ReportForm() {
   const methods = useForm();
   const [state, setState] = useState([]);
   const [state2, setState2] = useState([]);
-  
+  const [isLoading, setIsLoading] = useState(false);
+
   const {
     control,
     handleSubmit,
@@ -49,18 +50,26 @@ function ReportForm() {
   } = methods;
 
   const onSubmit = (data) => {
+    setIsLoading(true); // Ativa a tela de carregamento
+  
     if (data.radioGroup === "PF") {
       generateReport().then((response) => {
         setState(response.reports);
         setState2(response.optionalFeatures.partner.partnershipResponse);
+        setIsLoading(false); // Desativa a tela de carregamento
       });
     } else if (data.radioGroup === "PJ") {
       generateBusinessReport().then((response) => {
         setState(response.reports);
         setState2(response.optionalFeatures.partner.PartnerResponse.results);
+        setIsLoading(false); // Desativa a tela de carregamento
       });
     }
+
+    
+
   }
+  
   
 
   const radioOptions = [
@@ -97,9 +106,12 @@ function ReportForm() {
         <br></br>
         <input type="submit" />
       </Form>
+
       <br></br>
-       
+
+      {isLoading ? <div><h2>Carregando...</h2></div> : null}
        <ResultView {...{state, setState}}/><br></br>
+       Clique aqui para baixar o PDF
        <ResultView2 {...{state2, setState2}}/>
     </FormProvider>
   );

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container, Table } from "react-bootstrap";
 // import { Table } from "@aws-amplify/ui-react";
+
 const TableBody = ({ list, header }) => (
   <tbody>
     {list.map((item, index) => (
@@ -30,7 +31,33 @@ const TableHeader = ({ header }) => {
     registration: "Registro",
     negativeData: "Dados Negativos",
     score: "Score",
-    facts: "Fatos"
+    facts: "Fatos",
+    
+    //Tradução Optional - PARTICIPAÇÃO SOCIETÁRIA
+    partner:"Sócio",
+    businessDocument:"CNPJ",
+    companyName:"Razão Social",
+    companyAlias:"Nome Fantasia",
+    sinceDate:"Data Referência",
+    participationPercentage:"% Participação",
+    companyStatusCode:"Código do status",
+    companyState:"Estado",
+    companyStatusDate:"Data do Status",
+    updateDate:"Data da atualização do status",
+
+    //Tradução Optional - SOCIOS
+    documentId:"Número de Documento",
+    name:"Nome",
+    inconsistent:"Inconsistente",
+    hasNegative:"Tem dados negativos?",
+    sinceDate:"Data Referência",
+    participationPercentage:"% Participação",
+    companyStatusCode:"Código do status",
+    companyState:"Estado",
+    companyStatusDate:"Data do Status",
+    updateDate:"Data da atualização do status",
+  
+
   };
 
   return (
@@ -79,6 +106,7 @@ const SimpleTable = ({ list }) => {
 };
 
 const translationMap = {
+  //Tradução Registro
   documentNumber: 'Número do documento',
   consumerName: 'Nome do consumidor',
   motherName: 'Nome da mãe',
@@ -98,15 +126,43 @@ const translationMap = {
   companyDocument:"CNPJ",
   companyName:"Razão Social",
   foundationDate:"Data de abertura da empresa",
+  
+  //Tradução Dados Negativo
   summary:"Resumo",
   count:"Contagem",
   balance:"Balanço",
   pefin:"Pefin",
+  pefinResponse:"Ocorrerências Pefin",
   refin:"Refin",
-  check:"Check",
+  refinResponse:"Ocorrerências Refin",
+  check:"Cheque sem fundo",
+  notaryResponse:"Ocorrerências Protestos",
+  notary:"Proteto Nacional",
+  checkResponse:"Ocorrerências Cheque sem fundo",
   collectionRecords:"Registros",
-
-
+  
+  //Tradução Score
+  score:"Pontuação Score",
+  scoreModel:"Modelo de Score",
+  range:"Classificação",
+  defaultRate:"Probalidade de Não Pagamento",
+  codeMessage:"Código de Mensagem",
+  message:"Mensagem",
+  
+  //Tradução Fatos
+  inquiry:"Consultas",
+  inquiryResponse:"Ocorrências Consultas",
+  occurrenceDate:"Data da ocorrência",
+  segmentDescription:"Segmento da empresa",
+  daysQuantity:"Quantidade de dias da última consulta",
+  stolenDocuments:"Documentos Roubados",
+  stolenDocumentsResponse:"Ocorrência Documentos Roubados",
+  inclusionDate:"Data de Inclusão",
+  documentType:"Tipo de documento",
+  detailedReason:"Emissor",
+  occurrenceState:"Estado",
+  judgementFilings:"Registro de Julgamentos",
+  bankrupts:"Falências",
 
 };
 
@@ -143,6 +199,10 @@ const Results = ({ list }) => {
   if (firstItem.reportName) {
     delete firstItem.reportName;
   }
+  if (firstItem.companyStatus){
+    delete firstItem.companyStatus;
+  }
+
   const header = Object.keys(firstItem);
   return (
     <Container fluid>
