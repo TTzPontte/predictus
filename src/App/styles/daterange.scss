@@ -1,0 +1,98 @@
+.date-range {
+  margin-top: 20px;
+  &-labels {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 6px;
+    &-content {
+      max-width: 255px;
+      width: 100%;
+      justify-content: space-between;
+      display: flex;
+      &-item {
+        flex: 1 1;
+        font: SemiBold 12px/1px Muli;
+        color: #A8A8A8;
+        &:nth-child(2) {
+          margin-left: 0.833em;
+        }
+      }
+    }
+  }
+  .rdrCalendarWrapper {
+    width: 100%;
+  }
+  .rdrDateDisplayWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .rdrDateDisplay {
+      max-width: 255px;
+      width: 100%;
+      padding: 0;
+      background: transparent;
+      .rdrDateDisplayItem {
+        border: 1px solid #CACACA;
+        border-radius: 5px;
+      }
+      input {
+        font: Bold 15px/16px Muli;
+        color: #03033A;
+      }
+    }
+  }
+  .rdrNextPrevButton {
+    background: #85008480;
+    i {
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 3px;
+      background: none;
+      width: 10px;
+      height: 10px;
+    }
+    &.rdrPprevButton {
+      i {
+        transform: rotate(135deg);
+        margin: 0 -4px 0 0;
+      }
+    }
+    &.rdrNextButton {
+      i {
+        margin: 0 0px 0 -4px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  .rdrMonths {
+    justify-content: center;
+    .rdrMonth {
+      margin: 0 0.833em 0.833em 0.833em;
+      padding: 0;
+      background: #f1f1f1;
+      .rdrMonthName {
+        color: #FFFFFF;
+        text-align: center;
+        background: #85008480;
+        border-radius: 5px;
+      }
+      .rdrDay {
+        color: #3E3E3E;
+        &.rdrDayPassive .rdrDayNumber span{
+          display: none;
+        }
+      }
+      .rdrInRange {
+        color: rgba(133, 0, 132, 0.2) !important;
+      }
+      .rdrDay:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span {
+        color: #3E3E3E;
+      }
+      .rdrEndEdge, .rdrStartEdge, .rdrDayStartPreview, .rdrDayHovered, .rdrDayInPreview, .rdrDayEndPreview {
+        color: #850084 !important;
+      }
+    }
+  }
+}

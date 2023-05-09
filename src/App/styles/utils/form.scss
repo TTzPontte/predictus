@@ -1,0 +1,136 @@
+$input: (
+  height: 30px,
+  textColor: #070532,
+  textColorFocus: #050532,
+  borderColor: #ced4da,
+  borderColorFocus: #bed4da,
+  placeholderColor: #000,
+  placeholderColorFocus: #999,
+  selectColor: #000,
+  selectColorFocus: #ccc,
+  submitColor: #fff,
+  errorColor: #ff0000,
+);
+
+.input {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  font-size: 16px;
+  span {
+    text-align: left;
+    font-weight: bold;
+    color: map-get($input, textColor);
+  }
+
+  &-col {
+    padding: 0 15px;
+    position: relative;
+    .input-label {
+      width: calc(41.66667%);
+    }
+    .input-value {
+      width: calc(58.33333%);
+      &.error {
+        border: 1px solid map-get($input, errorColor);
+        color: map-get($input, errorColor);
+      }
+    }
+  }
+
+  &-row {
+    position: relative;
+    flex-direction: column;
+    .input-label {
+      margin-top: 10px;
+      width: 100%;
+    }
+    .input-value {
+      margin-top: 5px;
+      width: 100%;
+    }
+  }
+
+  &.has-color {
+    input[type='text'] {
+      width: calc(90% - 5px);
+    }
+    input[type='color'] {
+      width: 10%;
+      margin-left: 5px;
+    }
+  }
+
+  input[type='text'],
+  input[type='tel'],
+  input[type='number'],
+  select {
+    height: map-get($input, height);
+    padding: 3px 10px;
+    background: #fff;
+    border: 1px solid map-get($input, borderColor);
+
+    font-size: 16px;
+    color: map-get($input, textColor);
+
+    width: 100%;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+
+    border-radius: 0;
+    border-radius: 5px;
+
+    &::placeholder {
+      color: rgba(map-get($input, placeholderColor), 0.9);
+    }
+
+    &:focus {
+      color: map-get($input, textColorFocus);
+      &::placeholder {
+        color: rgba(map-get($input, placeholderColorFocus), 0.8);
+      }
+    }
+
+    &:disabled {
+      background: #e6e6e6;
+      color: #868181;
+    }
+  }
+
+  &.error {
+    input[type='text'],
+    input[type='tel'],
+    input[type='number'],
+    select {
+      border: 1px solid map-get($input, errorColor);
+      color: map-get($input, errorColor);
+    }
+  }
+
+  &.select {
+    &:after {
+      content: '';
+      right: 25px;
+      position: absolute;
+      border: solid #03033a;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 3px;
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+    }
+  }
+
+  &.single-column {
+    max-width: 50%;
+  }
+
+  &.textarea {
+    height: 180px;
+  }
+}

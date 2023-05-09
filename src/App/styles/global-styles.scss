@@ -1,0 +1,514 @@
+@import url('https://fonts.googleapis.com/css?family=Muli');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Muli';
+  font-size: 14px;
+  color: #03033a;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+.btn {
+  position: relative;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #616161;
+  border: 2px solid #616161;
+  border-radius: 22px;
+  padding: 8px 16px;
+  text-decoration: none;
+
+  &__block {
+    width: 100%;
+    display: block;
+  }
+
+  &__color {
+    background: linear-gradient(to right, #820081, #6b0085, #310091, #00009c);
+    border: 1px solid transparent;
+    color: #fff;
+    opacity: 0.9;
+
+    &:hover {
+      border-color: #850084;
+      background: transparent;
+      color: #850084;
+    }
+  }
+
+  &__purple {
+    border-color: #850084;
+    background: #850084;
+    color: #fff;
+
+    &:hover {
+      background: #fff;
+      color: #850085;
+    }
+  }
+
+  &__dark {
+    border-color: #03033a;
+    background: #03033a;
+    color: #fff;
+
+    &:hover {
+      background: #fff;
+      color: #03033a;
+    }
+  }
+
+  &__inverted {
+    border-color: #03033a;
+    background: #fff;
+    color: #03033a;
+
+    &:hover:not([disabled]) {
+      background: #03033a;
+      color: #fff;
+    }
+
+    &:disabled {
+      border: 2px solid #9a9696;
+      color: #9a9696;
+    }
+  }
+
+  &__success {
+    border-color: #28a745;
+    background: #28a745;
+    color: #fff;
+
+    &:hover {
+      background: #218838;
+      border-color: #218838;
+      color: #fff;
+    }
+  }
+
+  &__danger {
+    border-color: #931000;
+    background: #931000;
+    color: #fff;
+
+    &:hover {
+      background: #770b00;
+      border-color: #770b00;
+      color: #fff;
+    }
+  }
+
+  &__primary {
+    border-color: #007bff;
+    background: #007bff;
+    color: #fff;
+
+    &:hover {
+      background: #0062cc;
+      border-color: #0062cc;
+      color: #fff;
+    }
+  }
+
+  &__less-radius {
+    border-radius: 5px;
+  }
+
+  .loader {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #555;
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    animation: spin 2s linear infinite;
+  }
+
+  &__dark-hover {
+    border-color: #03033a;
+    color: #03033a;
+
+    &:hover {
+      background: #03033a;
+      color: #fff;
+
+      .loader {
+        border: 3px solid #fff;
+        border-top: 3px solid #555;
+      }
+    }
+
+    .loader {
+      border: 3px solid #03033a;
+      border-top: 3px solid #555;
+    }
+  }
+
+  &__round {
+    border-radius: 50%;
+  }
+
+  &.plus-minus {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    background: #c0c0c0;
+    border-color: #c0c0c0;
+    opacity: 0.7;
+
+    &.closed {
+      .vertical {
+        transition: all 0.25s ease-in-out;
+        transform: rotate(-90deg);
+      }
+
+      .horizontal {
+        transition: all 0.25s ease-in-out;
+        transform: rotate(-90deg);
+        opacity: 1;
+      }
+    }
+
+    &.opened {
+      opacity: 1;
+
+      .vertical {
+        transition: all 0.25s ease-in-out;
+        transform: rotate(90deg);
+      }
+
+      .horizontal {
+        transition: all 0.25s ease-in-out;
+        transform: rotate(90deg);
+        opacity: 0;
+      }
+    }
+
+    .horizontal {
+      position: absolute;
+      background-color: #fff;
+      width: 15px;
+      height: 3px;
+      left: 50%;
+      margin-left: -7.5px;
+      top: 50%;
+      margin-top: -1.5px;
+    }
+
+    .vertical {
+      position: absolute;
+      background-color: #fff;
+      width: 3px;
+      height: 15px;
+      left: 50%;
+      margin-left: -1.5px;
+      top: 50%;
+      margin-top: -7.5px;
+    }
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.4;
+    border: 1px solid #6b6b6b;
+  }
+}
+
+textarea.textarea {
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #070532;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.img {
+  max-width: 100%;
+
+  &-round {
+    border-radius: 50%;
+  }
+}
+
+.input[type='text'] {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.col {
+  @for $s from 1 through 12 {
+    &-#{$s} {
+      width: calc(#{100% / 12 * $s});
+    }
+    &-#{$s}-margin {
+      width: calc((#{100% / 12 * $s}) - 30px);
+    }
+  }
+}
+
+body.react-confirm-alert-body-element {
+  overflow: hidden;
+}
+
+#react-confirm-alert {
+  .react-confirm-alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background: rgba(255, 255, 255, 0.9);
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
+    opacity: 0;
+    -webkit-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;
+    -moz-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;
+    -o-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;
+    animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;
+
+    .react-confirm-alert-body {
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      width: 500px;
+      padding: 40px;
+      background: #03033a;
+      box-shadow: 0 20px 75px rgba(0, 0, 0, 0.23);
+      color: #fff;
+      border-radius: 10px;
+      line-height: 22px;
+
+      h1 {
+        margin-bottom: 15px;
+      }
+
+      .react-confirm-alert-button-group {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+
+        button {
+          width: 160px;
+          padding: 10px;
+          border: 1px solid #fff;
+          margin: 10px;
+          cursor: pointer;
+          background: none;
+          color: #fff;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+.row {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+
+  &-reverse {
+    display: flex;
+    flex-flow: row-reverse;
+  }
+}
+
+.modal {
+  &.open {
+    display: block;
+  }
+
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+
+  &-header {
+    background: #f1f1f1;
+    padding: 5px 20px;
+    position: relative;
+
+    &-title {
+      font: Bold 20px Muli;
+      color: #03033a;
+      text-align: center;
+    }
+
+    .close {
+      color: #aaa;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      margin-top: -14px;
+      font-size: 28px;
+      font-weight: bold;
+
+      &:hover,
+      &:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 600px;
+  }
+
+  &-footer {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+  }
+
+  @media (max-width: 600px) {
+    .modal-header {
+      &-title {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+.ReactModal__Overlay {
+  background: rgba(0, 0, 0, 0.75) !important;
+  z-index: 101;
+
+  .ReactModal__Content {
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    border: 1px solid rgb(204, 204, 204);
+    background: rgb(255, 255, 255);
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .react-modal-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+
+    .close-button {
+      display: flex;
+      line-height: 20px;
+      justify-content: space-evenly;
+      align-self: flex-end;
+      background: #03033a;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      font-size: 11px;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}
+
+@-webkit-keyframes react-confirm-alert-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes react-confirm-alert-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes react-confirm-alert-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes react-confirm-alert-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.no-margin {
+  margin: 0px !important;
+}

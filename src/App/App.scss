@@ -1,13 +1,16 @@
 @import "~bootstrap/scss/bootstrap";
+@import "styles/theme";
 
 table {
   border: 1px solid lightgray;
   padding: 1em;
-table {
-  border: 2px solid lightgray;
-  //border-bottom: 2px solid lightgray;
-  padding: 1.5em;
-}
+
+  table {
+    border: 2px solid lightgray;
+    //border-bottom: 2px solid lightgray;
+    padding: 1.5em;
+  }
+
   th {
     border: 1px solid lightgray;
     padding: 1em;

@@ -1,0 +1,45 @@
+.react-tabs {
+  &__tab-list {
+    margin-bottom: 0px;
+    border: none;
+  }
+  &__tab {
+    padding: 14px;
+    font-size: 20px;
+    margin-right: 3px;
+    color: #FFFFFF;
+    background: #D2D2D2;
+    border: 1px solid #d2d2d2;
+    text-transform: uppercase;
+    border-bottom: 1px solid transparent;
+    border-radius: 0;
+    min-width: 150px;
+    text-align: center;
+    &:first-child {
+      margin-left: 10px;
+      &--selected {
+        margin-left: 0;
+      }
+    }
+    &--selected {
+      background: #F7F7F7;
+      color: #868181;
+      margin-left: 0 !important;
+    }
+
+    @include max-screen(mq('tablet')) {
+      font-size: 13px;
+      padding: 10px;
+      min-width: auto;
+    }
+  }
+  &__tab-panel {
+    background: #F7F7F7;
+    padding: 30px;
+    border: 1px solid #D2D2D2;
+    @include max-screen(mq('tablet')) {
+      font-size: 13px;
+      padding: 5px;
+    }
+  }
+}

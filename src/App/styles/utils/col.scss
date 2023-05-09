@@ -1,0 +1,55 @@
+@import './media-queries.scss';
+
+.col{
+  flex-basis: 0;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+
+  &.left {
+      float: left;
+  }
+  &.right {
+      float: right;
+  }
+
+  &.center-container{
+      text-align: center;
+  }
+
+  &.center-content{
+      float: none;
+      display: inline-block;
+  }
+
+  &.padded {
+    padding: 10px;
+  }
+}
+.col {
+    @for $s from 1 through 12 {
+        &.small-#{$s}{
+          width: #{100% / 12 * $s};
+        }
+    }
+
+    @include min-screen(mq('desktop')) {
+        @for $m from 1 through 12 {
+            &.mid-#{$m}{
+                width: #{100% / 12 * $m};
+            }
+        }
+    }
+
+    @include min-screen(mq('desktop-medium')) {
+        @for $l from 1 through 12 {
+            &.large-#{$l}{
+                width: #{100% / 12 * $l};
+            }
+        }
+    }
+}

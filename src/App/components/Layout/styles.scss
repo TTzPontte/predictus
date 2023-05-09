@@ -1,0 +1,19 @@
+.navbar {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .navbar-brand {
+    margin: 0;
+    h1 {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+}
+
+.wrapper {
+  padding: 20px;
+}

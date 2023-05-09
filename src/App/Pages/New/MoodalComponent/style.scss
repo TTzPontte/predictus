@@ -1,0 +1,39 @@
+.relation {
+  &-label {
+    margin-left: 8px;
+  }
+
+  &-participation {
+    padding: 0 !important;
+    display: flex;
+
+    .input-value {
+      margin: 0 0 0 15px;
+    }
+  }
+
+  &-fields {
+    .entity {
+      padding-bottom: 0.5rem;
+    }
+
+    .title {
+      display: flex;
+      line-height: 24px;
+      flex: auto 0 1;
+      width: 42%;
+    }
+
+    .flex {
+      display: flex;
+
+      &-row {
+        flex-flow: row;
+      }
+
+      &-col {
+        flex-flow: column;
+      }
+    }
+  }
+}
