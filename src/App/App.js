@@ -9,6 +9,7 @@ import Home from "./Pages/Home/Home";
 import Test from "./Pages/test/Test";
 import New from "./Pages/New";
 import Layout from "./components/Layout";
+import SerasaCreditScoreSearch from "./Pages/Serasa/SerasaCreditScoreSearch";
 // import { withAuthenticator } from "@aws-amplify/ui-react";
 
 // import awsExports from "../aws-exports";
@@ -23,6 +24,7 @@ function App(props) {
         <Route path={"/"} element={<Home />} />
         <Route path={"/test"} element={<Test />} />
         <Route path={"/new"} element={<New />} />
+        <Route path={"/serasa"} element={<SerasaCreditScoreSearch />} />
       </Route>
     </Routes>
   );
