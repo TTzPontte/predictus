@@ -22,10 +22,10 @@ const getToken = async () => {
   console.log(`Token gerado com sucesso!\n${accessToken}\n\n\n`);
   return accessToken;
 };
-export const generateBusinessReport = async () => {
+export const generateBusinessReport = async (numDocument) => {
   const reportName = "PACOTE_BASICO_FINTECH";
   const optionalFeatures = "QSA";
-  const documentId = "17997596000149";
+  const documentId = numDocument;
   const token = await getToken();
 
   const headers = {
@@ -42,7 +42,6 @@ export const generateBusinessReport = async () => {
   return axios
     .get(businessReportUrl, { headers, params })
     .then((response) => {
-      console.log(response.data.optionalFeatures.partner.PartnerResponse.results);
       return response.data;
     })
     .catch((error) => {
@@ -50,9 +49,9 @@ export const generateBusinessReport = async () => {
       throw new Error("Erro ao gerar relatório");
     });
 };
-export const generateReport = async () => {
+export const generateReport = async (numDocument) => {
   const payload = {
-    documentNumber: "00000197041",
+    documentNumber: numDocument,
     reportName: "COMBO_CONCESSAO_COM_SCORE_FINTECH",
     optionalFeatures: ["PARTICIPACAO_SOCIETARIA"]
   };

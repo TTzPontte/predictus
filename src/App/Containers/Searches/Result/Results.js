@@ -167,7 +167,7 @@ const translationMap = {
 };
 
 
-const TableRow = ({ item, header }) => {
+const TableRow = ({ item, header, hasCheckbox }) => {
   const renderTableCell = (value) => {
     if (typeof value === 'object' && value !== null) {
       return (
@@ -181,7 +181,7 @@ const TableRow = ({ item, header }) => {
         </ul>
       );
     }
-    return JSON.stringify(value);
+    return String(value);
   };
 
   return (
@@ -189,13 +189,20 @@ const TableRow = ({ item, header }) => {
       {header.map((key) => (
         <td key={key}>{renderTableCell(item[key])}</td>
       ))}
+      {hasCheckbox && <td style={{ textAlign: 'center' }}><input type="checkbox" /></td>}
     </tr>
   );
 };
 
-const Results = ({ list }) => {
-  const consultTitle = "Consulta - nomeConsulta";
+const Results = ({ list, pfOuPj}) => {
   const [firstItem] = list;
+  var consultTitle = "";
+
+  if (pfOuPj==="PJ"){
+    consultTitle = "Consulta Opcional"; 
+  } else {
+    consultTitle = "Consulta Principal"; 
+  }
   if (firstItem.reportName) {
     delete firstItem.reportName;
   }
@@ -204,14 +211,17 @@ const Results = ({ list }) => {
   }
 
   const header = Object.keys(firstItem);
+  const hasCheckbox = pfOuPj === 'PJ';
+  const newHeader = hasCheckbox ? [...header, 'Gerar Serasa'] : header;
+
   return (
     <Container fluid>
       <h3>{consultTitle}</h3><br></br>
       <Table striped bordered hover responsive="lg">
-        <TableHeader {...{ header }} />
+        <TableHeader {...{ header: newHeader }} />
         <tbody>
           {list.map((item) => (
-            <TableRow item={item} header={header} />
+            <TableRow item={item} header={header} hasCheckbox={hasCheckbox} />
           ))}
         </tbody>
       </Table>
