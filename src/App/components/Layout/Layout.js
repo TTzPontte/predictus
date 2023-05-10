@@ -2,6 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import Navigation from "./Navigation";
 import { Outlet } from "react-router-dom";
+import './styles.scss';
 
 const Layout = ({ children }) => {
   return (

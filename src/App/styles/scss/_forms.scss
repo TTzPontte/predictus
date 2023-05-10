@@ -1,0 +1,62 @@
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+
+.form-records {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  padding: 10px;
+
+  background: transparent;
+
+  &-fields {
+    display: grid;
+    grid-template-columns: 10fr 10fr;
+    grid-gap: 10px 20px;
+    justify-items: center;
+    align-items: center;
+    margin: 0;
+
+    @include media-breakpoint-down(sm) {
+      grid-template-columns: 10fr;
+    }
+
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    max-height: 6.5rem;
+
+    &-label {
+      color: #525f7f;
+      font-size: small;
+      font-weight: bold;
+      padding-left: 0.5rem;
+    }
+
+    &-value {
+      box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.02), 0px 1px 3px rgba(50, 50, 93, 0.15);
+      border-radius: 6px;
+      padding: 0.5rem;
+
+      font-style: normal;
+      font-weight: 400;
+      font-size: 0.8rem;
+      line-height: 19px;      
+      color: #8898AA;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      
+      height: 2.3rem;
+
+      margin: 5px;
+    }
+  }
+}
