@@ -1,0 +1,20 @@
+{
+  "serasa": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-predictus-serasa-155219-authRole",
+      "UnauthRoleArn": "arn:aws:iam::848638426587:role/amplify-predictus-serasa-155219-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::848638426587:role/amplify-predictus-serasa-155219-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-predictus-serasa-155219-deployment",
+      "UnauthRoleName": "amplify-predictus-serasa-155219-unauthRole",
+      "StackName": "amplify-predictus-serasa-155219",
+      "StackId": "arn:aws:cloudformation:us-east-1:848638426587:stack/amplify-predictus-serasa-155219/a5378150-ef4a-11ed-8e3b-0e323b025413",
+      "AmplifyAppId": "d24qjdvw7n7v9p"
+    },
+    "categories": {
+      "auth": {
+        "predictus": {}
+      }
+    }
+  }
+}

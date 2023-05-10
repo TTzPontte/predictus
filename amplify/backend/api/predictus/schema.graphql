@@ -1,0 +1,20 @@
+enum ReportStatus {
+  PROCESSING
+  SUCCESS
+  ERROR_SERASA
+  ERROR_PIPEFY
+}
+
+enum ClientType {
+  PF
+  PJ
+}
+
+type Report @model @auth(rules: [{allow: public}, {allow: owner, operations: [create, read, update]}]) {
+  id: ID!
+  documentNumber: String
+  pipefyId: String
+  type: ClientType
+  status: ReportStatus
+}
+ 
