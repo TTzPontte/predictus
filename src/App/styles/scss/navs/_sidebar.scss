@@ -1,8 +1,8 @@
 // Sidebar
 .sidebar {
   width: $sidebar-collapsed-width;
-  height: 80vh;
-  z-index: 999;
+  //height: 100vh;
+  //z-index: 999;
   background: #FFFFFF 0% 0% no-repeat padding-box !important;
   box-shadow: 6px 0px 18px #0000000F !important;
   border-radius: 0px 4px 4px 0px;
@@ -488,9 +488,3 @@
   }
 }
 
-@include media-breakpoint-down(md) {
-  .sidebar {
-    display: none;
-    width: auto;
-  }
-}

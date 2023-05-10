@@ -1,5 +1,5 @@
 import { React } from "react";
-import { Col } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import undraw_profile_1 from "../../../images/undraw_profile_1.svg";
 import undraw_profile_2 from "../../../images/undraw_profile_2.svg";
 import undraw_profile_3 from "../../../images/undraw_profile_3.svg";
@@ -7,9 +7,9 @@ import undraw_profile from "../../../images/undraw_profile.svg";
 
 const TopNavbar = ({ currentUser }) => {
   return (
-    <>
-      <nav
-        className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
+    <Container>
+      <Row
+        className="nav navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
         style={{ zIndex: 1 }}
       >
         <Col>
@@ -243,8 +243,8 @@ const TopNavbar = ({ currentUser }) => {
             </li>
           </ul>
         </Col>
-      </nav>
-    </>
+      </Row>
+    </Container>
   );
 };
 

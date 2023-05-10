@@ -1,28 +1,34 @@
 import { Outlet } from "react-router-dom";
 import React from "react";
 import TopNavbar from "../TopNavbar/TopNavbar";
-import { Sidebar } from "../Sidebar/Sidebar";
 import { Col, Container, Row } from "react-bootstrap";
+import { Sidebar } from "../Sidebar/Sidebar";
 
-// Pass currentUser as a prop to make it dynamic
-function Layout({ currentUser = { email: "lucas@pontte.com.br" } }) {
+function Layout({ currentUser }) {
+  const defaultUser = { email: "lucas@pontte.com.br" };
+  const user = currentUser || defaultUser;
+
   return (
-    <div id="wrapper" className="main-content-wrapper">
-      <Container fluid>
-        <Row>
-          <Col>
-            <Sidebar />
-          </Col>
-          <Col id="content-wrapper" className="d-flex flex-column" style={{flex: 5}}>
-            <Row>
-              <div id="content" className="h-100">
-              <TopNavbar currentUser={currentUser} />
-                <Outlet />
-              </div>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
+    <div style={{ backgroundColor: "#F0F0F7", height: "100vh" }}>
+      <div id="wrapper" className="main-content-wrapper">
+        <Container fluid>
+          <Row className="h-100">
+            <Col xs={2}>
+              <Sidebar />
+            </Col>
+            <Col xs={10}>
+              <TopNavbar currentUser={user} />
+              <Row>
+                <Col>
+                  <div id="content" >
+                    <Outlet />
+                  </div>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </div>
   );
 }

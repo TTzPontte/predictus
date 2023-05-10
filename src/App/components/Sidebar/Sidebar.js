@@ -106,7 +106,7 @@ const Menu = () => (
       {/*<Divider />*/}
     </>
 );
-const FixedSidebar = () => {
+export const Sidebar = (props) => {
   const [width, height] = useWindowSize();
   const collapsed = width <= 480 ? " collapse" : "";
   const toogleActions = () => ({
@@ -114,7 +114,6 @@ const FixedSidebar = () => {
   });
 
   return (
-      <>
         <ul
             className={`navbar-nav bg-gradient-primary sidebar sidebar-light accordion ${
                 collapsed ? "toggled " : ""
@@ -127,7 +126,7 @@ const FixedSidebar = () => {
           >
             <Row className="sidebar-brand-icon">
               <Col>
-              Logo
+                Logo
               </Col>
             </Row>
           </a>
@@ -143,15 +142,5 @@ const FixedSidebar = () => {
             />
           </div>
         </ul>
-      </>
-  );
-};
-export const Sidebar = (props) => {
-  return (
-      <>
-        <section>
-          <FixedSidebar />
-        </section>
-      </>
   );
 };
