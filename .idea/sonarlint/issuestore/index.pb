@@ -10,10 +10,6 @@ X
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
-T
-$src/App/Pages/Home/FirstPage/Help.js,c/7/c7681a98027a6ee62ad353742c88d988c266ff80
-@
-src/App/App.scss,c/6/c679cc158d07be3bf013a703796cbb420d0b63c0
 K
 src/App/Pages/Home/steps.md,2/4/24794ce5ea2413da89c0f69f4c17af0c4c161efc
 K
@@ -28,3 +24,10 @@ b
 2src/App/Pages/Home/SecondPage/tables/fileTables.js,c/3/c30ce306ccfd539cf76b887b8d504f6ce5d956ab
 a
 1src/App/Pages/Home/SecondPage/tables/BankTable.js,0/f/0fcec95042cd836226eaaaa900d6dd5c30c2448b
+T
+$src/App/Pages/Home/FirstPage/Help.js,c/7/c7681a98027a6ee62ad353742c88d988c266ff80
+[
++src/App/Pages/Home/FirstPage/FirstPage__.js,6/d/6d050a27493e2036ed630ef48f220810012a5de3
+:
+
+amplify.sh,5/9/595298df9725eb4236d0de3735b63dfade8613ef
