@@ -61,6 +61,10 @@ export const convertToPageUrls = async (pdfFile) => {
         canvas.width = viewport.width;
         canvas.height = viewport.height;
 
+        // Draw a white rectangle
+        context.fillStyle = '#fff';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
         const renderParams = {
             canvasContext: context,
             viewport: viewport,
