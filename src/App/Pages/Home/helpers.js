@@ -9,13 +9,12 @@ export const uploadFileToS3 = async (fileName, fileData, fileType) => {
         const fileKey = `${FILE_PREFIX}/${fileWithoutExtension}/${fileName}`;
 
         const uploadResult = await Storage.put(fileKey, fileData, {
-            contentType: fileType,
+            contentType: fileType
         });
 
-        console.log("File uploaded successfully:", uploadResult);
         return uploadResult.key;
     } catch (error) {
-        logError("Error uploading file:", error);
+        console.error("Error uploading file:", error);
         throw error;
     }
 };

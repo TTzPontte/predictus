@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import { mergePagesToImage, getPageWidth, getPageHeight } from './helpers';
 
 // Set the worker URL for PDF.js
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -40,46 +41,6 @@ const usePdfConversion = (pdfFile) => {
     }, [pdfFile]);
 
     return { numPages, mergedImageSrc };
-};
-
-const mergePagesToImage = async (pdf) => {
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
-    const mergedHeight = pdf.numPages * (await getPageHeight(pdf, 1));
-
-    canvas.width = await getPageWidth(pdf, 1);
-    canvas.height = mergedHeight;
-
-    let currentHeight = 0;
-
-    for (let i = 1; i <= pdf.numPages; i++) {
-        const page = await pdf.getPage(i);
-        const viewport = page.getViewport({ scale: 1.0 });
-        const pageCanvas = document.createElement('canvas');
-        const pageContext = pageCanvas.getContext('2d');
-
-        pageCanvas.width = viewport.width;
-        pageCanvas.height = viewport.height;
-
-        await page.render({ canvasContext: pageContext, viewport }).promise;
-
-        context.drawImage(pageCanvas, 0, currentHeight);
-        currentHeight += await getPageHeight(pdf, i);
-    }
-
-    return canvas.toDataURL('image/jpeg');
-};
-
-const getPageWidth = async (pdf, pageNumber) => {
-    const page = await pdf.getPage(pageNumber);
-    const viewport = page.getViewport({ scale: 1.0 });
-    return viewport.width;
-};
-
-const getPageHeight = async (pdf, pageNumber) => {
-    const page = await pdf.getPage(pageNumber);
-    const viewport = page.getViewport({ scale: 1.0 });
-    return viewport.height;
 };
 
 const PDFToImageConverter = () => {

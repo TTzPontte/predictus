@@ -1,66 +1,67 @@
 Page
+
 ```javascript
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './styles.scss';
-import { Helmet } from 'react-helmet';
+import {Helmet} from 'react-helmet';
 import OfxService from 'services/ofx';
 import FirstPage from './FirstPage';
-import SecondPage from './SecondPage/SecondPage';
+import SecondPage from './Pages/SecondPage/SecondPage';
 
 const Ofx = () => {
-  const [hasFile, setHasFile] = useState(false);
-  const [selectedFile, setFile] = useState({
-    bank: {
-      code: '',
-      name: '',
-    },
-    statement: {
-      startDate: '',
-      endDate: '',
-      balanceDate: '',
-      total: {
-        credit: '',
-        debit: '',
-        balance: '',
-      },
-      transactions: [],
-      monthlyTransactions: {},
-    },
-  });
+    const [hasFile, setHasFile] = useState(false);
+    const [selectedFile, setFile] = useState({
+        bank: {
+            code: '',
+            name: '',
+        },
+        statement: {
+            startDate: '',
+            endDate: '',
+            balanceDate: '',
+            total: {
+                credit: '',
+                debit: '',
+                balance: '',
+            },
+            transactions: [],
+            monthlyTransactions: {},
+        },
+    });
 
-  const handleUpload = async data => {
-    const { file } = await OfxService.uploadFile(data);
-    await setFile(file);
-    await setHasFile(true);
-  };
-  return (
-    <>
-      <article className="contractPage">
-        <Helmet>
-          <title>Ofx</title>
-          <meta name="description" content="Ofx" />
-        </Helmet>
-        <div className="contractPage--header" style={{ padding: '0 1em' }}>
-          <h1>Aferição de renda</h1>
-          <br />
-        </div>
-        <hr />
-        <div className="react-tabs__tab-panel react-tabs__tab-panel--selected">
-          <div className="ofx">
-            <div className="container">
-              {!hasFile ? (
-                <FirstPage handleUpload={handleUpload} />
-              ) : (
-                <>
-                  <SecondPage selectedFile={selectedFile} />
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-      </article>
-    </>
-  );
+    const handleUpload = async data => {
+        const {file} = await OfxService.uploadFile(data);
+        await setFile(file);
+        await setHasFile(true);
+    };
+    return (
+        <>
+            <article className="contractPage">
+                <Helmet>
+                    <title>Ofx</title>
+                    <meta name="description" content="Ofx"/>
+                </Helmet>
+                <div className="contractPage--header" style={{padding: '0 1em'}}>
+                    <h1>Aferição de renda</h1>
+                    <br/>
+                </div>
+                <hr/>
+                <div className="react-tabs__tab-panel react-tabs__tab-panel--selected">
+                    <div className="ofx">
+                        <div className="container">
+                            {!hasFile ? (
+                                <FirstPage handleUpload={handleUpload}/>
+                            ) : (
+                                <>
+                                    <SecondPage selectedFile={selectedFile}/>
+                                </>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </>
+    );
 };
 
 export default Ofx;

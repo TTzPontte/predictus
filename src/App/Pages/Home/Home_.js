@@ -1,190 +1,109 @@
-import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
-import { Container, Row, Col } from 'react-bootstrap';
-import { Document, Page, pdfjs } from 'react-pdf';
-import './styles.scss';
-import { callApiEndpoint, uploadFileToS3 } from './helpers';
-import SecondPage from './SecondPage';
-import FirstPage from './FirstPage/FirstPage';
-import Button from 'react-bootstrap/Button';
+import React, { useEffect, useRef, useState } from "react";
+import { pdfjs } from "react-pdf";
+import { Helmet } from "react-helmet";
+import { Button, Col, Row } from "react-bootstrap";
+import "./styles.scss";
+import { Storage } from "aws-amplify";
+import { InfoHelp } from "./Pages/FirstPage/Help";
 
-// Set the worker URL for PDF.js
+const FILE_PREFIX = "pdfs";
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-const usePdfConversion = (pdfFile) => {
-  const [numPages, setNumPages] = useState(null);
-  const [mergedImageSrc, setMergedImageSrc] = useState(null);
+const FirstPage = ({ onFileSelect }) => {
+    const fileInputRef = useRef();
 
-  useEffect(() => {
-    const convertToImage = async () => {
-      if (!pdfFile) {
-        console.error('No PDF file selected.');
-        return;
-      }
-
-      try {
-        const fileReader = new FileReader();
-
-        fileReader.onload = async function () {
-          const typedArray = new Uint8Array(this.result);
-          const pdfData = typedArray.buffer;
-
-          const pdf = await pdfjs.getDocument({ data: pdfData }).promise;
-          setNumPages(pdf.numPages);
-
-          const mergedImageSrc = await mergePagesToImage(pdf);
-          setMergedImageSrc(mergedImageSrc);
-        };
-
-        fileReader.readAsArrayBuffer(pdfFile);
-      } catch (error) {
-        console.error('Error converting PDF to image:', error);
-      }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const file = fileInputRef.current.files[0];
+        onFileSelect(file);
     };
 
-    convertToImage();
-  }, [pdfFile]);
+    return (
+        <section className="ofx2">
+            {/* Other elements ... */}
+            <form id="file-upload-form" onSubmit={handleSubmit}>
+                <input
+                    ref={fileInputRef}
+                    type="file"
+                    className="file-input"
+                    accept=".pdf"
+                    id="file-upload"
+                />
+                {/* Other elements ... */}
+            </form>
+            {/* Other elements ... */}
+        </section>
+    );
+};
 
-  const mergePagesToImage = async (pdf) => {
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
-    const mergedHeight = pdf.numPages * (await getPageHeight(pdf, 1));
+const useFileUpload = () => {
+    const [file, setFile] = useState(null);
 
-    canvas.width = await getPageWidth(pdf, 1);
-    canvas.height = mergedHeight;
+    const handleFileSelect = (selectedFile) => {
+        setFile(selectedFile);
+    };
 
-    let currentHeight = 0;
+    const uploadFile = async () => {
+        if (!file) return;
+        const { name: fileName, type: fileType } = file;
 
-    for (let i = 1; i <= pdf.numPages; i++) {
-      const page = await pdf.getPage(i);
-      const viewport = page.getViewport({ scale: 0.3 });
-      const pageCanvas = document.createElement('canvas');
-      const pageContext = pageCanvas.getContext('2d');
+        const fileWithoutExtension = fileName.slice(0, fileName.lastIndexOf("."));
+        const fileKey = `${FILE_PREFIX}/${fileWithoutExtension}/${fileName}`;
 
-      pageCanvas.width = viewport.width;
-      pageCanvas.height = viewport.height;
+        try {
+            await Storage.put(fileKey, file, { contentType: fileType });
+            return fileKey;
+        } catch (error) {
+            console.error("Error uploading file:", error);
+            throw error;
+        }
+    };
 
-      await page.render({ canvasContext: pageContext, viewport }).promise;
+    return { file, handleFileSelect, uploadFile };
+};
 
-      context.drawImage(pageCanvas, 0, currentHeight);
-      currentHeight += await getPageHeight(pdf, i);
-    }
+const usePdfConversion = (file) => {
+    const [thumbnailUrls, setThumbnailUrls] = useState([]);
 
-    return canvas.toDataURL('image/jpeg');
-  };
+    useEffect(() => {
+        const convertToThumbnails = async () => {
+            // File reading and thumbnail generation code...
+        };
+        convertToThumbnails();
+    }, [file]);
 
-  const getPageWidth = async (pdf, pageNumber) => {
-    const page = await pdf.getPage(pageNumber);
-    const viewport = page.getViewport({ scale: 0.3 });
-    return viewport.width;
-  };
-
-  const getPageHeight = async (pdf, pageNumber) => {
-    const page = await pdf.getPage(pageNumber);
-    const viewport = page.getViewport({ scale: 0.3 });
-    return viewport.height;
-  };
-
-  return { numPages, mergedImageSrc };
+    return thumbnailUrls;
 };
 
 const Ofx = () => {
-  const [hasFile, setHasFile] = useState(false);
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [reportDownloadUrl, setReportDownloadUrl] = useState(null);
-  const { numPages, mergedImageSrc } = usePdfConversion(selectedFile?.statement?.fileData);
+    const { file, handleFileSelect, uploadFile } = useFileUpload();
+    const thumbnailUrls = usePdfConversion(file);
 
-  const handleFileUpload = (event) => {
-    const file = event.target.files[0];
-    handleUpload(file);
-  };
+    const handleUpload = async () => {
+        // Rest of the code...
+    };
 
-  const handleUpload = async (file) => {
-    try {
-      const fileKey = await uploadFileToS3(file.name, file, file.type);
-      const response = await callApiEndpoint(fileKey);
-      setReportDownloadUrl(response.reportDownloadUrl);
-
-      setSelectedFile((prevState) => ({
-        ...prevState,
-        statement: {
-          ...prevState.statement,
-          s3Key: fileKey,
-          transactions: [],
-          monthlyTransactions: [],
-          fileData: file,
-        },
-      }));
-      setHasFile(true);
-    } catch (error) {
-      console.error("Error handling upload:", error);
-    }
-  };
-
-  const downloadImage = () => {
-    if (mergedImageSrc) {
-      const link = document.createElement("a");
-      link.href = mergedImageSrc;
-      link.download = "merged_image.jpg";
-      link.click();
-    }
-  };
-
-  return (
-      <div className="ofx">
-        <Helmet>
-          <title>Ofx</title>
-          <meta name="description" content="Ofx" />
-        </Helmet>
-        <div className="container">
-          <div className="contractPage">
-            <div className="contractPage--header" style={{ padding: "0 1em" }}>
-              <h1>Aferição de renda</h1>
-              <br />
-            </div>
-            <hr />
-            <div className="react-tabs__tab-panel react-tabs__tab-panel--selected">
-              {!hasFile ? (
-                  <Row>
-                    <Col>
-                      <input type="file" onChange={handleFileUpload} accept=".pdf" />
-                    </Col>
-                  </Row>
-              ) : (
-                  <>
-                    {mergedImageSrc && (
+    return (
+        <div className="ofx">
+            <Helmet>
+                <title>Ofx</title>
+                <meta name="description" content="Ofx" />
+            </Helmet>
+            <div className="container">
+                <div className="contractPage">
+                    {/* Rest of the code... */}
+                    {!file ? (
+                        <FirstPage onFileSelect={handleFileSelect} />
+                    ) : (
                         <>
-                          <Row>
-                            <Col>
-                              <img src={mergedImageSrc} alt="Merged Image" />
-                            </Col>
-                          </Row>
-                          <Row>
-                            <Col>
-                              <Button onClick={downloadImage} disabled={!mergedImageSrc}>
-                                Download Image
-                              </Button>
-                            </Col>
-                          </Row>
+                            {thumbnailUrls.length > 0 && <PdfThumbnails urls={thumbnailUrls} />}
+                            <PdfActions onClick={handleUpload} />
                         </>
                     )}
-                    <Row>
-                      <Col>
-                        <Document file={selectedFile?.statement?.fileData} renderMode="svg">
-                          {Array.from(new Array(numPages), (_, index) => (
-                              <Page key={`page_${index + 1}`} pageNumber={index + 1} width={300} />
-                          ))}
-                        </Document>
-                      </Col>
-                    </Row>
-                    <SecondPage selectedFile={selectedFile} reportDownloadUrl={reportDownloadUrl} />
-                  </>
-              )}
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-  );
+    );
 };
 
 export default Ofx;

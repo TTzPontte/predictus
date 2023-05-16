@@ -2,15 +2,16 @@ Merge component 1 and 2 together, keep the layout of the component 1 with the ex
 
 
 component 1
+
 ```javascript
-import React, { useState, useEffect } from "react";
-import { Helmet } from "react-helmet";
-import { Container, Row, Col } from "react-bootstrap";
-import { Document, Page, pdfjs } from "react-pdf";
+import React, {useState, useEffect} from "react";
+import {Helmet} from "react-helmet";
+import {Container, Row, Col} from "react-bootstrap";
+import {Document, Page, pdfjs} from "react-pdf";
 import "./styles.scss";
-import { callApiEndpoint, uploadFileToS3 } from "./helpers";
-import SecondPage from "./SecondPage";
-import FirstPage from "./FirstPage/FirstPage";
+import {callApiEndpoint, uploadFileToS3} from "./helpers";
+import SecondPage from "./Pages/SecondPage";
+import FirstPage from "./Pages/FirstPage/FirstPage";
 import Button from "react-bootstrap/Button";
 
 // Set the worker URL for PDF.js
@@ -34,7 +35,7 @@ const usePdfConversion = (pdfFile) => {
                     const typedArray = new Uint8Array(this.result);
                     const pdfData = typedArray.buffer;
 
-                    const pdf = await pdfjs.getDocument({ data: pdfData }).promise;
+                    const pdf = await pdfjs.getDocument({data: pdfData}).promise;
                     setNumPages(pdf.numPages);
 
                     const canvas = document.createElement("canvas");
@@ -48,14 +49,14 @@ const usePdfConversion = (pdfFile) => {
 
                     for (let i = 1; i <= pdf.numPages; i++) {
                         const page = await pdf.getPage(i);
-                        const viewport = page.getViewport({ scale: 1.0 });
+                        const viewport = page.getViewport({scale: 1.0});
                         const pageCanvas = document.createElement("canvas");
                         const pageContext = pageCanvas.getContext("2d");
 
                         pageCanvas.width = viewport.width;
                         pageCanvas.height = viewport.height;
 
-                        await page.render({ canvasContext: pageContext, viewport }).promise;
+                        await page.render({canvasContext: pageContext, viewport}).promise;
 
                         context.drawImage(pageCanvas, 0, currentHeight);
                         currentHeight += await getPageHeight(pdf, i);
@@ -74,18 +75,18 @@ const usePdfConversion = (pdfFile) => {
         convertToImage();
     }, [pdfFile]);
 
-    return { numPages, mergedImageSrc };
+    return {numPages, mergedImageSrc};
 };
 
 const getPageWidth = async (pdf, pageNumber) => {
     const page = await pdf.getPage(pageNumber);
-    const viewport = page.getViewport({ scale: 1.0 });
+    const viewport = page.getViewport({scale: 1.0});
     return viewport.width;
 };
 
 const getPageHeight = async (pdf, pageNumber) => {
     const page = await pdf.getPage(pageNumber);
-    const viewport = page.getViewport({ scale: 1.0 });
+    const viewport = page.getViewport({scale: 1.0});
     return viewport.height;
 };
 
@@ -93,9 +94,9 @@ const Ofx = () => {
     const [hasFile, setHasFile] = useState(false);
     const [selectedFile, setSelectedFile] = useState(null);
     const [reportDownloadUrl, setReportDownloadUrl] = useState(null);
-    const { numPages, mergedImageSrc } = usePdfConversion(selectedFile?.statement?.fileData);
+    const {numPages, mergedImageSrc} = usePdfConversion(selectedFile?.statement?.fileData);
 
-    const handleUpload = async ({ fileName, fileData, fileType }) => {
+    const handleUpload = async ({fileName, fileData, fileType}) => {
         try {
             const fileKey = await uploadFileToS3(fileName, fileData, fileType);
             const response = await callApiEndpoint(fileKey);
@@ -130,25 +131,25 @@ const Ofx = () => {
         <div className="ofx">
             <Helmet>
                 <title>Ofx</title>
-                <meta name="description" content="Ofx" />
+                <meta name="description" content="Ofx"/>
             </Helmet>
             <div className="container">
                 <div className="contractPage">
-                    <div className="contractPage--header" style={{ padding: "0 1em" }}>
+                    <div className="contractPage--header" style={{padding: "0 1em"}}>
                         <h1>Aferição de renda</h1>
-                        <br />
+                        <br/>
                     </div>
-                    <hr />
+                    <hr/>
                     <div className="react-tabs__tab-panel react-tabs__tab-panel--selected">
                         {!hasFile ? (
-                            <FirstPage handleUpload={handleUpload} />
+                            <FirstPage handleUpload={handleUpload}/>
                         ) : (
                             <>
                                 <Row>
                                     <Col>
                                         <Document file={selectedFile.statement.fileData} renderMode="svg">
                                             {Array.from(new Array(numPages), (_, index) => (
-                                                <Page key={`page_${index + 1}`} pageNumber={index + 1} />
+                                                <Page key={`page_${index + 1}`} pageNumber={index + 1}/>
                                             ))}
                                         </Document>
                                     </Col>

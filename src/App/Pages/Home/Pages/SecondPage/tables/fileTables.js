@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../styles.scss';
-import { Header, TRow, TableWrapper } from '../../../../components/Table/Table';
+import '../../../styles.scss';
+import { Header, TRow, TableWrapper } from '../../../../../components/Table/Table';
 
 const FileTable = ({ bodyColumns, title, headerColumns = [], tableFooter = [], active = true }) => (
   <>
