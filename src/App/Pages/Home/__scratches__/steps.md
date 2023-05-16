@@ -6,7 +6,7 @@ import './styles.scss';
 import {Helmet} from 'react-helmet';
 import OfxService from 'services/ofx';
 import FirstPage from './FirstPage';
-import SecondPage from './Pages/SecondPage/SecondPage';
+import SecondPage from './SecondPage';
 
 const Ofx = () => {
     const [hasFile, setHasFile] = useState(false);

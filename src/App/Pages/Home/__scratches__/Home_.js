@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import { pdfjs } from "react-pdf";
 import { Helmet } from "react-helmet";
 import { Button, Col, Row } from "react-bootstrap";
-import "./styles.scss";
+import "../styles.scss";
 import { Storage } from "aws-amplify";
-import { InfoHelp } from "./Pages/FirstPage/Help";
+import { InfoHelp } from "../Pages/FirstPage/Help";
 
 const FILE_PREFIX = "pdfs";
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;

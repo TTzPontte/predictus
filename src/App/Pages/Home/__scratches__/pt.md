@@ -10,8 +10,8 @@ import {Container, Row, Col} from "react-bootstrap";
 import {Document, Page, pdfjs} from "react-pdf";
 import "./styles.scss";
 import {callApiEndpoint, uploadFileToS3} from "./helpers";
-import SecondPage from "./Pages/SecondPage";
-import FirstPage from "./Pages/FirstPage/FirstPage";
+import SecondPage from "./index";
+import FirstPage from "./FirstPage";
 import Button from "react-bootstrap/Button";
 
 // Set the worker URL for PDF.js

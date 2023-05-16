@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import { mergePagesToImage, getPageWidth, getPageHeight } from './helpers';
+import { mergePagesToImage, getPageWidth, getPageHeight } from '../helpers';
 
 // Set the worker URL for PDF.js
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
