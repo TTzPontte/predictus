@@ -20,11 +20,15 @@ export const uploadFileToS3 = async (fileName, fileData, fileType) => {
     }
 };
 
-export const downloadFromS3 = async (s3Key) => {
+export const downloadFromS3 = async (fileName) => {
+    console.log("file:", fileName);
+    const fileWithoutExtension = fileName.slice(0, fileName.lastIndexOf("."));
+    const fileKey = `${FILE_PREFIX}/${fileWithoutExtension}/expense_report.xlsx`;
+
     try {
         // Get the signed URL for the file from S3
-        const signedUrl = await Storage.get(s3Key, { level: 'public', download: true });
-
+        const signedUrl = await Storage.get(fileKey, { level: 'public', download: false });
+        console.log({signedUrl})
         // Return the signed URL
         return signedUrl;
     } catch (error) {
