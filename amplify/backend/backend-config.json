@@ -53,25 +53,6 @@
       "service": "Cognito"
     }
   },
-  "function": {
-    "pdf2imgFn": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "pdfApi": {
-      "build": true,
-      "dependsOn": [],
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "triggerPdf2Img": {
-      "build": true,
-      "dependsOn": [],
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    }
-  },
   "storage": {
     "s3predictusocr": {
       "dependsOn": [],

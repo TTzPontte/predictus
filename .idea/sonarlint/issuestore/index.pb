@@ -26,6 +26,3 @@ T
 $src/App/Pages/Home/FirstPage/Help.js,c/7/c7681a98027a6ee62ad353742c88d988c266ff80
 [
 +src/App/Pages/Home/FirstPage/FirstPage__.js,6/d/6d050a27493e2036ed630ef48f220810012a5de3
-:
-
-amplify.sh,5/9/595298df9725eb4236d0de3735b63dfade8613ef
