@@ -17,11 +17,6 @@
       },
       "storage": {
         "s3predictusocr": {}
-      },
-      "function": {
-        "pdf2imgFn": {},
-        "triggerPdf2Img": {},
-        "pdfApi": {}
       }
     }
   }
