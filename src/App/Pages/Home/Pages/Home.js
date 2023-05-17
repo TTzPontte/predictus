@@ -8,72 +8,33 @@ import FirstPage from "./FirstPage/FirstPage";
 import { Storage } from "@aws-amplify/storage";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-
-const PdfToImageActions = ({ mergedImageSrc, pdfFileName, setUploadedMergedImageSrc }) => {
-  const downloadMergedPdf = async () => {
-    if (!mergedImageSrc) {
-      return;
-    }
-
-    try {
-      const response = await fetch(mergedImageSrc);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const blob = await response.blob();
-      const fileWithoutExtension = pdfFileName.slice(0, pdfFileName.lastIndexOf("."));
-      const fileName = `${fileWithoutExtension}.jpg`;
-      const fileKey = await uploadFileToS3(fileName, blob, "image/jpeg");
-      setUploadedMergedImageSrc(true);
-      console.log("fileKey", fileKey);
-    } catch (error) {
-      console.error("Error downloading merged image:", error);
-    }
-  };
-
-  return (
-    <Row className="my-4">
-      <Col>
-        <Button onClick={downloadMergedPdf} disabled={!mergedImageSrc}>
-          Enviar Imagem
-        </Button>
-      </Col>
-    </Row>
-  );
-};
-
 const ApiCaller = ({ selectedFile }) => {
   const [reportUrl, setReportUrl] = useState(null);
 
   const callApi = async () => {
     try {
-      const pdfFileName = selectedFile?.statement?.fileName;
-      const fileWithoutExtension = pdfFileName.slice(0, pdfFileName.lastIndexOf("."));
+      console.log({selectedFile})
+      const fileWithoutExtension = selectedFile.name.slice(0, selectedFile.name.lastIndexOf("."));
 
-      const requestOptions = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*"
-        },
-        body: JSON.stringify({ file: fileWithoutExtension })
+      const doIt = async () => {
+        const headers = new Headers();
+        headers.append("Content-Type", "application/json");
+        // headers.append(" Access-Control-Allow-Origin", "*");
+
+        const options = {
+          method: "POST",
+          headers,
+          // mode: "no-cors",
+          body: JSON.stringify({ file_name: fileWithoutExtension })
+        };
+        // const url = '"https://75sh91wz4i.execute-api.us-east-1.amazonaws.com/Prod/hello/"'
+        const url = 'https://v6v4s76qhmeqzlex7ial2kmtxi0hriio.lambda-url.us-east-1.on.aws/'
+        const response =await fetch(url, options)
+        console.log({response})
+        return response
+
       };
-
-      const response = await fetch("https://eovdxkiwg4u4s8v.m.pipedream.net", requestOptions);
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const storageData = await Storage.get(`pdfs/${fileWithoutExtension}/${fileWithoutExtension}.xlsx`, {
-        // download: true,
-        validateObjectExistence: true,
-        level: "public"
-      });
-      console.log({storageData})
-      setReportUrl('');
-      console.log(storageData);
+        await doIt()
     } catch (error) {
       console.error("Error calling API:", error);
     }
@@ -89,13 +50,11 @@ const ApiCaller = ({ selectedFile }) => {
 
 const Ofx = () => {
   const [selectedFile, setSelectedFile] = useState(null);
-  const [uploadedMergedImageSrc, setUploadedMergedImageSrc] = useState(false);
-  const pdfFile = selectedFile?.statement?.fileData;
-  const mergedImageSrc = usePdfConversionAndMerge(pdfFile);
 
   const handleUpload = async ({ fileName, fileData, fileType }) => {
     try {
       const fileKey = await uploadFileToS3(fileName, fileData, fileType);
+
       setSelectedFile((prevState) => ({
         ...prevState,
         statement: {
@@ -127,32 +86,8 @@ const Ofx = () => {
           <hr />
 
           <div className="react-tabs__tab-panel react-tabs__tab-panel--selected">
-            {!mergedImageSrc && <FirstPage handleUpload={handleUpload} />}
-            {mergedImageSrc && (
-              <>
-                <Row>
-                  <Col>
-                    <Card>
-                      <embed src={mergedImageSrc} type="application/pdf" width="100%" height="600px" />
-                    </Card>
-                  </Col>
-                </Row>
-                <Row>
-                  {selectedFile?.statement?.fileData && mergedImageSrc && uploadedMergedImageSrc && (
-                    <ApiCaller selectedFile={selectedFile} />
-                  )}
-                  <>
-                    {mergedImageSrc && !uploadedMergedImageSrc && (
-                      <PdfToImageActions
-                        setUploadedMergedImageSrc={setUploadedMergedImageSrc}
-                        mergedImageSrc={mergedImageSrc}
-                        pdfFileName={selectedFile?.statement?.fileName}
-                      />
-                    )}
-                  </>
-                </Row>
-              </>
-            )}
+            <FirstPage handleUpload={handleUpload} />
+            {selectedFile?.statement?.fileData&&(<ApiCaller selectedFile={selectedFile?.statement?.fileData}/>)}
           </div>
         </div>
       </div>
