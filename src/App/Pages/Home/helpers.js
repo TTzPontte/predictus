@@ -49,12 +49,12 @@ export const readFileAsArrayBuffer = async (file) => {
 export const convertToPageUrls = async (pdfFile) => {
     const typedArray = await readFileAsArrayBuffer(pdfFile);
     const pdfData = typedArray.buffer;
-    const pdf = await pdfjs.getDocument({data: pdfData}).promise;
+    const pdf = await pdfjs.getDocument({ data: pdfData }).promise;
 
     const pageUrls = [];
     for (let i = 1; i <= pdf.numPages; i++) {
         const page = await pdf.getPage(i);
-        const viewport = page.getViewport({scale: 1});
+        const viewport = page.getViewport({ scale: 2 }); // Increase scale for higher resolution
         const canvas = document.createElement("canvas");
         const context = canvas.getContext("2d");
 
