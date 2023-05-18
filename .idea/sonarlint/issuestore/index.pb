@@ -1,6 +1,4 @@
 
-<
-src/index.js,f/9/f900edc44cb929c2267a16100a32851f6d5b477d
 X
 (src/App/Containers/Searches/GetLambda.js,0/5/05e005042cf406ade527aa02f8f6715bd914ee12
 :
