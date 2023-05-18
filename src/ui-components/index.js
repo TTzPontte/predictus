@@ -5,5 +5,7 @@
  **************************************************************************/
 
 export { default as studioTheme } from "./studioTheme";
+export { default as ReportCreateForm } from "./ReportCreateForm";
+export { default as ReportUpdateForm } from "./ReportUpdateForm";
 export { default as UsersCreateForm } from "./UsersCreateForm";
 export { default as UsersUpdateForm } from "./UsersUpdateForm";

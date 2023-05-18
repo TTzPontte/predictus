@@ -18,8 +18,8 @@
       "storage": {
         "s3predictusocr": {}
       },
-      "function": {
-        "ocrTest": {}
+      "api": {
+        "predictus": {}
       }
     }
   }

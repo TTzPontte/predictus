@@ -33,12 +33,13 @@
     "xlsx": "^0.17.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "html2canvas": "^1.4.1",
     "prettier": "2.8.1"
   },
