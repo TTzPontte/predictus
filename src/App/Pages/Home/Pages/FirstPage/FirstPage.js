@@ -1,15 +1,23 @@
-import React, { useRef, useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { Row } from 'react-bootstrap';
-import './styles.scss'
+import React, { useRef, useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import { Row, Spinner } from "react-bootstrap";
+import "./styles.scss";
+
 const FirstPage = ({ handleUpload }) => {
   const [file, setFile] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const uploadInputRef = useRef(null);
 
-  const handleUploadImage = (ev) => {
+  const handleUploadImage = async (ev) => {
     ev.preventDefault();
+    setLoading(true);
+
     const file = uploadInputRef.current.files[0];
-    handleUpload({ fileType: file.type, fileData: file, fileName: file.name });
+    await handleUpload({ fileType: file.type, fileData: file, fileName: file.name });
+
+    setLoading(false);
+    setSubmitted(true);
   };
 
   const handleChange = (ev) => {
@@ -20,11 +28,9 @@ const FirstPage = ({ handleUpload }) => {
 
   const renderSubmitButton = () => {
     return (
-        isFileSelected() && (
-            <button type="submit">
-          <span id="file-upload-btn" className="btn btn-primary">
-            Submit
-          </span>
+        isFileSelected() && !submitted && (
+            <button type="submit" id="file-upload-btn" className="btn btn-primary">
+              {loading ? <Spinner animation="border" color={'white'} size="md" /> : "Submit"}
             </button>
         )
     );
@@ -32,7 +38,7 @@ const FirstPage = ({ handleUpload }) => {
 
   useEffect(() => {
     // Reset file input on component mount
-    uploadInputRef.current.value = '';
+    uploadInputRef.current.value = "";
   }, []);
 
   return (
@@ -58,7 +64,7 @@ const FirstPage = ({ handleUpload }) => {
                       <i
                           className={`fa fa-download`}
                           aria-hidden="true"
-                          style={isFileSelected() ? { color: 'rebeccapurple' } : {}}
+                          style={isFileSelected() ? { color: "rebeccapurple" } : {}}
                       />
                       <p>Select a file</p>
                     </div>
@@ -66,6 +72,7 @@ const FirstPage = ({ handleUpload }) => {
                 </label>
                 <div>{renderSubmitButton()}</div>
               </form>
+              {submitted && <p>Form submitted successfully!</p>}
             </Row>
           </div>
         </div>
