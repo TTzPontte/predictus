@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useCallback } from "react";
-import { Button } from "react-bootstrap";
-import { DataStore } from "aws-amplify";
-import { Report } from "../../../../models";
-import { downloadFromS3 } from "../helpers";
+import React, {useCallback, useEffect, useState} from "react";
+import {Button} from "react-bootstrap";
+import {DataStore} from "aws-amplify";
+import {Report} from "../../../../models";
+import {downloadFromS3} from "../helpers";
 import "../styles.scss";
 
 const API_URL = "https://75sh91wz4i.execute-api.us-east-1.amazonaws.com/Prod/hello/";
@@ -22,6 +22,8 @@ const ApiCaller = ({ selectedFileName }) => {
   const fetchApi = useCallback(async (fileWithoutExtension, reportId) => {
     const options = {
       method: "POST",
+      mode: "no-cors",
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ file_name: fileWithoutExtension, report_id: reportId }),
     };
 
@@ -32,22 +34,23 @@ const ApiCaller = ({ selectedFileName }) => {
     return response;
   }, []);
 
-  const subscribeToReport = useCallback(async (fileWithoutExtension) => {
-    const subscription = DataStore.observe(Report, reportId).subscribe((msg) => {
-      if (msg.model && msg.model.status === "COMPLETE") {
-        downloadFile(fileWithoutExtension);
-      }
+  const downloadFile = useCallback(async (fileWithoutExtension) => {
+    const reportUrl = await downloadFromS3(fileWithoutExtension);
+    window.open(reportUrl, "_blank");
+  }, []);
+
+  const subscribeToReport = useCallback((fileWithoutExtension) => {
+    const subscription = DataStore.observe(Report, reportId).subscribe({
+      next: (msg) => {
+        if (msg.model && msg.model.status === "COMPLETE") {
+          downloadFile(fileWithoutExtension);
+        }
+      },
+      error: (error) => console.error(error),
     });
 
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, [reportId]);
-
-  const downloadFile = useCallback(async (fileWithoutExtension) => {
-    const reportUrl = await downloadFromS3(selectedFileName);
-    window.open(reportUrl, "_blank");
-  }, [selectedFileName]);
+    return () => subscription.unsubscribe();
+  }, [reportId, downloadFile]);
 
   const handleClick = useCallback(async () => {
     try {
@@ -63,10 +66,7 @@ const ApiCaller = ({ selectedFileName }) => {
   useEffect(() => {
     if (reportId) {
       const fileWithoutExtension = selectedFileName.slice(0, selectedFileName.lastIndexOf("."));
-      const cleanupSubscription = subscribeToReport(fileWithoutExtension);
-      return () => {
-        cleanupSubscription();
-      };
+      return subscribeToReport(fileWithoutExtension);
     }
   }, [selectedFileName, reportId, subscribeToReport]);
 

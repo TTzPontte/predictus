@@ -7,6 +7,7 @@ import { withAuthenticator } from "@aws-amplify/ui-react";
 import Home from "./Pages/Home";
 
 import awsExports from "../aws-exports";
+import ListReport from "./Pages/ListReport";
 
 Amplify.configure(awsExports);
 
@@ -32,6 +33,7 @@ function App(props) {
     <Routes>
       <Route element={<Layout />}>
         <Route path={"/"} element={<Home />} />
+        <Route path={"/list"} element={<ListReport />} />
       </Route>
     </Routes>
   );
