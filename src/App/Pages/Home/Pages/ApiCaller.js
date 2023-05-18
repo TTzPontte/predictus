@@ -5,7 +5,7 @@ import { Report } from "../../../../models";
 import { downloadFromS3 } from "../helpers";
 import "../styles.scss";
 
-const API_URL = "http://127.0.0.1:8080/hello";
+const API_URL = "https://75sh91wz4i.execute-api.us-east-1.amazonaws.com/Prod/hello/";
 
 const ApiCaller = ({ selectedFileName }) => {
   const [reportId, setReportId] = useState(null);
