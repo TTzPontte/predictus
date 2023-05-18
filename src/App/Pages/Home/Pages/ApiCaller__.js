@@ -28,11 +28,15 @@ const ApiCaller = ({ selectedFileName }) => {
       body: JSON.stringify({ file_name: fileWithoutExtension, report_id: reportId }),
     };
 
-    fetch(API_URL, options).then(r=>console.log(r)).catch(e=>console.log(e))
+    const response = await fetch(API_URL, options);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response;
   }, []);
 
-  const downloadFile = useCallback(async (reportUrl) => {
-    // const reportUrl = await downloadFromS3(fileWithoutExtension);
+  const downloadFile = useCallback(async (fileWithoutExtension) => {
+    const reportUrl = await downloadFromS3(fileWithoutExtension);
     window.open(reportUrl, "_blank");
     setLoading(false);
   }, []);
@@ -40,9 +44,8 @@ const ApiCaller = ({ selectedFileName }) => {
   const subscribeToReport = useCallback((fileWithoutExtension) => {
     const subscription = DataStore.observe(Report, reportId).subscribe({
       next: (msg) => {
-        console.log({msg})
-        if (msg.model && msg.savedElement.status === "COMPLETED") {
-          downloadFile(msg.savedElement.link);
+        if (msg.model && msg.model.status === "COMPLETE") {
+          downloadFile(fileWithoutExtension);
         }
       },
       error: (error) => console.error(error),
