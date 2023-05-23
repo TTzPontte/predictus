@@ -1,0 +1,147 @@
+{
+    "reports": [
+        {
+            "reportName": "COMBO_CONCESSAO_COM_SCORE_FINTECH",
+            "registration": {
+                "documentNumber": "00000000353",
+                "consumerName": "FOIJEORIJFREOIJFR",
+                "motherName": "OFIJEROFIJREOIJF",
+                "birthDate": "1977-12-05",
+                "statusRegistration": "REGULAR",
+                "statusDate": "2022-11-04"
+            },
+            "negativeData": {
+                "pefin": {
+                    "pefinResponse": [],
+                    "summary": {
+                        "count": 0,
+                        "balance": 0.0
+                    }
+                },
+                "refin": {
+                    "refinResponse": [],
+                    "summary": {
+                        "count": 0,
+                        "balance": 0.0
+                    }
+                },
+                "notary": {
+                    "notaryResponse": [
+                        {
+                            "occurrenceDate": "2020-12-12",
+                            "amount": 8921.38,
+                            "officeNumber": "01",
+                            "officeName": "1 TABELIAO DE PROTESTO DE LETRAS E TITULOS",
+                            "city": "SAO PAULO",
+                            "federalUnit": "SP"
+                        }
+                    ],
+                    "summary": {
+                        "count": 1,
+                        "balance": 8921.38
+                    }
+                },
+                "check": {
+                    "checkResponse": [
+                        {
+                            "occurrenceDate": "2018-05-30",
+                            "legalSquare": "CRU",
+                            "bankId": 748,
+                            "bankName": "BCO SICREDI",
+                            "bankAgencyId": 2206,
+                            "checkCount": 6,
+                            "city": "CARUARU",
+                            "federalUnit": "PE",
+                            "checkNumber": "CCF-BB",
+                            "alinea": 0
+                        }
+                    ],
+                    "summary": {
+                        "count": 1,
+                        "balance": 0.0
+                    }
+                }
+            },
+            "score": {
+                "score": 840,
+                "scoreModel": "HFIN",
+                "defaultRate": "11,3",
+                "message": "ESPACO RESERVADO PARA MENSAGEM DA INSTITUICAO                                   "
+            },
+            "facts": {
+                "inquiry": {
+                    "inquiryResponse": [
+                        {
+                            "occurrenceDate": "2023-05-19",
+                            "segmentDescription": "INDUSTRIA DE INSUMOS",
+                            "daysQuantity": 2
+                        },
+                        {
+                            "occurrenceDate": "2023-05-18",
+                            "segmentDescription": "",
+                            "daysQuantity": 1
+                        },
+                        {
+                            "occurrenceDate": "2023-05-18",
+                            "segmentDescription": "",
+                            "daysQuantity": 1
+                        },
+                        {
+                            "occurrenceDate": "2023-05-18",
+                            "segmentDescription": "",
+                            "daysQuantity": 1
+                        },
+                        {
+                            "occurrenceDate": "2023-05-17",
+                            "segmentDescription": "",
+                            "daysQuantity": 1
+                        }
+                    ],
+                    "summary": {
+                        "count": 5
+                    }
+                },
+                "stolenDocuments": {
+                    "stolenDocumentsResponse": [],
+                    "summary": {
+                        "count": 0,
+                        "balance": 0.0
+                    }
+                }
+            }
+        }
+    ],
+    "optionalFeatures": {
+        "partner": {
+            "partnershipResponse": [
+                {
+                    "businessDocument": "00277106000137",
+                    "companyName": "PERSONAL SERVICE RECURSOS HUMANOS E ASSESSORIA EMPRESARIAL LTDA",
+                    "sinceDate": "1994-11-03",
+                    "participationPercentage": 0.0,
+                    "companyStatus": "SITUACAO DO CNPJ EM 19/05/2022: INAPTA",
+                    "companyStatusCode": "INAPTA",
+                    "companyState": "RJ",
+                    "companyStatusDate": "19/05/2022",
+                    "updateDate": "2022-12-14"
+                },
+                {
+                    "businessDocument": "01191803000133",
+                    "companyName": "EWONUJFG NFLTKSUCY DVCK",
+                    "companyAlias": "EWONUJFG NFLTKSUCY",
+                    "sinceDate": "1996-05-14",
+                    "participationPercentage": 0.0,
+                    "companyStatus": "SITUACAO DO CNPJ EM 17/04/2023: ATIVA",
+                    "companyStatusCode": "ATIVA",
+                    "companyState": "MS",
+                    "companyStatusDate": "17/04/2023",
+                    "updateDate": "2023-03-30"
+                }
+            ],
+            "summary": {
+                "count": 2,
+                "balance": 0.0
+            }
+        }
+    }
+}
