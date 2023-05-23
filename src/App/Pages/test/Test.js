@@ -4,7 +4,7 @@ import { generateBusinessReport, generateReport } from "./service";
 import { Col, Form, FormGroup, Row } from "react-bootstrap";
 import Radio from "../../components/Form/Radio";
 import Results from "../../Containers/Searches/Result/Results";
-
+import {createPDF} from "../../servicer/convertToPDF"
 
 
 
@@ -128,8 +128,8 @@ function ReportForm() {
 
   const handleBaixarPDF = () => {
     console.log('Baixar PDF clicado');
-    //const pdfData = PFJsonToPdf(state3);
-    //console.log(pdfData);
+    const pdfData = createPDF();
+    console.log(pdfData);
   }
 
   const radioOptions = [
