@@ -12,7 +12,6 @@ import Layout from "./components/Layout";
 
 Amplify.configure(awsExports);
 
-
 function App(props) {
   return (
     <Routes>
@@ -25,4 +24,3 @@ function App(props) {
 }
 
 export default withAuthenticator(App);
-// export default App;
