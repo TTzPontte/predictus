@@ -58,7 +58,7 @@ const FirstPage = ({ handleUpload }) => {
                 <label htmlFor="file-upload" id="file-drag">
                   <div>
                     <p className="lead">
-                      Escolha um Arquivo <b>OFX</b>
+                      Escolha um Arquivo <b>PDF</b>
                     </p>
                     <div id="start">
                       <i

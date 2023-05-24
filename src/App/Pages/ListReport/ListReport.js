@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { DataStore } from "aws-amplify";
 import { Report } from "../../../models";
-import { Table, Button, Container, Col, Row } from "react-bootstrap";
-import {Frame514Collection, ItemList} from "../../../ui-components";
+import { Button, Col, Container, Row } from "react-bootstrap";
+import { ItemList } from "../../../ui-components";
+import { downloadFromS3 } from "../Home/helpers";
 
 const ListReport = () => {
   const [reports, setReports] = useState([]);
@@ -19,18 +20,24 @@ const ListReport = () => {
     return () => subscription.unsubscribe();
   }, []);
 
-  const downloadFile = (url) => {
-    window.open(url, "_blank");
+  const downloadFile = async (fileName) => {
+    const reportUrlLink = await downloadFromS3(fileName);
+    window.open(reportUrlLink, "_blank");
+    // setLoading(false);
   };
-
   return (
     <Container fluid>
       <Row>
         <Col>
-          <ItemList  overrideItems={({ item, index }) => ({
-
-            DownloadButton: <Button onClick={()=>    window.open("https://www.google.com", "_blank")} />
-          })} />
+          <ItemList
+            DownLoadButton={() => <h1>hello</h1>}
+            overrideItems={({ item, index }) => {
+              console.log({ item });
+              return {
+                DownLoadButton: <Button onClick={() => downloadFile(item.fileName)}>Download xlsx</Button>
+              };
+            }}
+          />
         </Col>
       </Row>
     </Container>

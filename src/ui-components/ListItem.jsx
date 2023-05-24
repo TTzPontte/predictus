@@ -8,9 +8,8 @@
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Flex, Icon, Text, View } from "@aws-amplify/ui-react";
-import DownloadButton from "./DownloadButton";
 export default function ListItem(props) {
-  const { report, overrides, ...rest } = props;
+  const { report, DownLoadButton, overrides, ...rest } = props;
   return (
     <Flex
       gap="24px"
@@ -206,14 +205,14 @@ export default function ListItem(props) {
           position="relative"
           borderRadius="50px"
           padding="6px 6px 6px 6px"
-          backgroundColor="rgba(229,245,228,1)"
+          backgroundColor={report?.status == "PENDING" ? "#f7cb73" : "green"}
           {...getOverrideProps(overrides, "Exhibit38452722")}
         >
           <Text
             fontFamily="Montserrat"
             fontSize="12px"
             fontWeight="600"
-            color="rgba(63,139,53,1)"
+            color="black"
             lineHeight="12px"
             textAlign="left"
             display="block"
@@ -317,22 +316,9 @@ export default function ListItem(props) {
         shrink="0"
         position="relative"
         padding="16px 16px 16px 0px"
+        children={DownLoadButton}
         {...getOverrideProps(overrides, "Frame 512")}
-      >
-        <DownloadButton
-          display="flex"
-          gap="10px"
-          direction="column"
-          width="unset"
-          height="unset"
-          justifyContent="flex-start"
-          alignItems="flex-start"
-          shrink="0"
-          position="relative"
-          padding="8px 6px 8px 6px"
-          {...getOverrideProps(overrides, "DownloadButton")}
-        ></DownloadButton>
-      </Flex>
+      ></Flex>
     </Flex>
   );
 }

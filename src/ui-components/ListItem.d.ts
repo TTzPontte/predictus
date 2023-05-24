@@ -8,7 +8,6 @@ import * as React from "react";
 import { Report } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { FlexProps, IconProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
-import { DownloadButtonProps } from "./DownloadButton";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type ListItemOverridesProps = {
     ListItem?: PrimitiveOverrideProps<FlexProps>;
@@ -30,10 +29,11 @@ export declare type ListItemOverridesProps = {
     "Frame 511"?: PrimitiveOverrideProps<FlexProps>;
     "05/01/2023"?: PrimitiveOverrideProps<TextProps>;
     "Frame 512"?: PrimitiveOverrideProps<FlexProps>;
-    DownloadButton?: DownloadButtonProps;
+    Download?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
 export declare type ListItemProps = React.PropsWithChildren<Partial<FlexProps> & {
     report?: Report;
+    DownLoadButton?: React.ReactNode;
 } & {
     overrides?: ListItemOverridesProps | undefined | null;
 }>;

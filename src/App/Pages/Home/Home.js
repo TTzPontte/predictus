@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import {Helmet} from "react-helmet";
-import {uploadFileToS3} from "../helpers";
+import {uploadFileToS3} from "./helpers";
 import {pdfjs} from "react-pdf";
-import "../styles.scss";
-import FirstPage from "./FirstPage/FirstPage";
-import ApiCaller from "./ApiCaller";
+import "./styles.scss";
+import FirstPage from "./Pages/FirstPage/FirstPage";
+import ApiCaller from "./Pages/ApiCaller";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -30,8 +30,8 @@ const Ofx = () => {
     return (
         <div className="ofx">
             <Helmet>
-                <title>Ofx</title>
-                <meta name="description" content="Ofx"/>
+                <title>OCR</title>
+                <meta name="description" content="OCR"/>
             </Helmet>
             <div className="container">
                 <div className="contractPage">

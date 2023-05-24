@@ -8,25 +8,10 @@ import Home from "./Pages/Home";
 
 import awsExports from "../aws-exports";
 import ListReport from "./Pages/ListReport";
+import Layout from "./components/Layout";
 
 Amplify.configure(awsExports);
 
-const Layout = ({ children }) => (
-  <main id="main" className="main">
-    <Container fluid>
-      <header className="header header--sticky-default header--unlogged">
-        <Navbar bg="light" variant="light">
-          <Navbar.Brand>
-            <h1 className="">Teste </h1>
-          </Navbar.Brand>
-        </Navbar>
-      </header>
-      <div className="wrapper">
-        <Outlet />
-      </div>
-    </Container>
-  </main>
-);
 
 function App(props) {
   return (

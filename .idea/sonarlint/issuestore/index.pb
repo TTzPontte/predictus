@@ -4,8 +4,6 @@ X
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
-K
-src/App/Pages/Home/index.js,9/6/96382e339cf9476cb8e0f30e99eb2ad8dbbea8d8
 C
 src/App/App.test.js,3/0/307dcfbdee9926a2948dc6e2676d85cc01583bdb
 S
