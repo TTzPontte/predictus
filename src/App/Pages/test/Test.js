@@ -43,33 +43,20 @@ function ReportForm() {
       <Container className="my-4">
         <Card>
           <Card.Body>
-            <FormProvider {...methods}>
-              <Form onSubmit={handleSubmit(onSubmit)}>
-                <ReportCreateForm onSubmit={handleSubmit}>
-                  <ReportCreateForm.Field
-                      label="Select report type"
-                      name="radioGroup"
-                      control={control}
-                      options={radioOptions}
-                      inline
-                  />
-                  <ReportCreateForm.Field
-                      label="Document number"
-                      name="documentNumber"
-                      control={control}
-                      placeholder="Enter document number"
-                      rules={{ required: true }}
-                  />
-
-                  {errors.documentNumber && (
-                      <p className="text-danger font-weight-bold">{errors.documentNumber.message}</p>
-                  )}
-                  <Button type="submit" className="mt-3">
-                    Generate Report
-                  </Button>
-                </ReportCreateForm>
-              </Form>
-            </FormProvider>
+          <ReportCreateForm
+            onSubmit={(fields) => {
+                // Example function to trim all string inputs
+                const updatedFields = {}
+                Object.keys(fields).forEach(key => {
+                    if (typeof fields[key] === 'string') {
+                        updatedFields[key] = fields[key].trim()
+                    } else {
+                        updatedFields[key] = fields[key]
+                    }
+                })
+                return updatedFields
+            }}
+          />
           </Card.Body>
         </Card>
 
