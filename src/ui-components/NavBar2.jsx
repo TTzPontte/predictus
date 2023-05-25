@@ -12,13 +12,10 @@ import {
 } from "@aws-amplify/ui-react/internal";
 import { Flex, Icon, Image, Text, View } from "@aws-amplify/ui-react";
 export default function NavBar2(props) {
-  const { listUrl, createUrl = "", overrides, ...rest } = props;
-  const vectorThreeEightSixOneTwoFourSixNineOnClick = useNavigateAction({
-    type: "url",
-    url: createUrl,
-  });
+  const { createUrl, listUrl, avatarUrl, overrides, ...rest } = props;
   const createOnClick = useNavigateAction({ type: "url", url: createUrl });
-  const listOnClick = useNavigateAction({ type: "url", url: listUrl });
+  const frameOneZeroZeroOneThreeSevenFourEightTwoSevenZeroZeroOnClick =
+    useNavigateAction({ type: "url", url: listUrl });
   return (
     <Flex
       gap="20px"
@@ -40,104 +37,118 @@ export default function NavBar2(props) {
         height="unset"
         justifyContent="center"
         alignItems="center"
-        shrink="0"
+        grow="1"
+        shrink="1"
+        basis="0"
         alignSelf="stretch"
         position="relative"
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "Logo")}
       >
         <Flex
-          padding="0px 0px 0px 0px"
-          width="53px"
-          height="44.16px"
-          display="block"
-          gap="unset"
-          alignItems="unset"
-          justifyContent="unset"
-          shrink="0"
-          position="relative"
-          {...getOverrideProps(overrides, "Group")}
-        >
-          <Icon
-            width="41.89px"
-            height="24.66px"
-            viewBox={{
-              minX: 0,
-              minY: 0,
-              width: 41.886962890625,
-              height: 24.65625,
-            }}
-            paths={[
-              {
-                d: "M8.26198 15.291C8.70508 16.0318 9.76852 16.6491 10.637 16.6491L16.9822 16.6491C17.8507 16.6491 18.9141 17.2664 19.3395 18.0071L22.3526 23.2981C22.778 24.0565 23.8414 24.6561 24.7099 24.6561L40.9096 24.6561C41.7781 24.6561 42.1326 24.0389 41.7072 23.2981L28.9814 1.35803C28.5383 0.599649 27.4748 0 26.6063 0L0.977407 0C0.10893 0 -0.24555 0.617285 0.179826 1.37566L8.26198 15.291Z",
-                fill: "rgba(92,59,107,1)",
-                fillRule: "nonzero",
-              },
-            ]}
-            display="block"
-            gap="unset"
-            alignItems="unset"
-            justifyContent="unset"
-            position="absolute"
-            top="0%"
-            bottom="44.17%"
-            left="20.97%"
-            right="0%"
-            {...getOverrideProps(overrides, "Vector38612468")}
-          ></Icon>
-          <Icon
-            width="41.89px"
-            height="24.66px"
-            viewBox={{
-              minX: 0,
-              minY: 0,
-              width: 41.886962890625,
-              height: 24.65625,
-            }}
-            paths={[
-              {
-                d: "M8.26198 15.291C8.70508 16.0318 9.76852 16.6491 10.637 16.6491L16.9822 16.6491C17.8507 16.6491 18.9141 17.2664 19.3395 18.0071L22.3526 23.2981C22.778 24.0565 23.8414 24.6561 24.7099 24.6561L40.9096 24.6561C41.7781 24.6561 42.1326 24.0389 41.7072 23.2981L28.9814 1.35803C28.5383 0.599649 27.4748 0 26.6063 0L0.977407 0C0.10893 0 -0.24555 0.617286 0.179826 1.37567L8.26198 15.291Z",
-                fill: "rgba(92,59,107,1)",
-                fillRule: "nonzero",
-              },
-            ]}
-            display="block"
-            gap="unset"
-            alignItems="unset"
-            justifyContent="unset"
-            position="absolute"
-            top="44.17%"
-            bottom="0%"
-            left="0%"
-            right="20.97%"
-            onClick={() => {
-              vectorThreeEightSixOneTwoFourSixNineOnClick();
-            }}
-            {...getOverrideProps(overrides, "Vector38612469")}
-          ></Icon>
-        </Flex>
-        <Text
-          fontFamily="Inter"
-          fontSize="20px"
-          fontWeight="600"
-          color="rgba(0,0,0,1)"
-          textTransform="capitalize"
-          lineHeight="24.204544067382812px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
+          gap="7px"
+          direction="row"
           width="unset"
           height="unset"
-          gap="unset"
-          alignItems="unset"
-          shrink="0"
+          justifyContent="flex-start"
+          alignItems="center"
+          grow="1"
+          shrink="1"
+          basis="0"
           position="relative"
           padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="Pontte"
-          {...getOverrideProps(overrides, "Pontte")}
-        ></Text>
+          {...getOverrideProps(overrides, "Frame 100137482691")}
+        >
+          <Flex
+            padding="0px 0px 0px 0px"
+            width="53px"
+            height="44.16px"
+            display="block"
+            gap="unset"
+            alignItems="unset"
+            justifyContent="unset"
+            shrink="0"
+            position="relative"
+            {...getOverrideProps(overrides, "Group")}
+          >
+            <Icon
+              width="41.89px"
+              height="24.66px"
+              viewBox={{
+                minX: 0,
+                minY: 0,
+                width: 41.886962890625,
+                height: 24.65625,
+              }}
+              paths={[
+                {
+                  d: "M8.26198 15.291C8.70508 16.0318 9.76852 16.6491 10.637 16.6491L16.9822 16.6491C17.8507 16.6491 18.9141 17.2664 19.3395 18.0071L22.3526 23.2981C22.778 24.0565 23.8414 24.6561 24.7099 24.6561L40.9096 24.6561C41.7781 24.6561 42.1326 24.0389 41.7072 23.2981L28.9814 1.35803C28.5383 0.599649 27.4748 0 26.6063 0L0.977407 0C0.10893 0 -0.24555 0.617285 0.179826 1.37566L8.26198 15.291Z",
+                  fill: "rgba(92,59,107,1)",
+                  fillRule: "nonzero",
+                },
+              ]}
+              display="block"
+              gap="unset"
+              alignItems="unset"
+              justifyContent="unset"
+              position="absolute"
+              top="0%"
+              bottom="44.17%"
+              left="20.97%"
+              right="0%"
+              {...getOverrideProps(overrides, "Vector37482693")}
+            ></Icon>
+            <Icon
+              width="41.89px"
+              height="24.66px"
+              viewBox={{
+                minX: 0,
+                minY: 0,
+                width: 41.886962890625,
+                height: 24.65625,
+              }}
+              paths={[
+                {
+                  d: "M8.26198 15.291C8.70508 16.0318 9.76852 16.6491 10.637 16.6491L16.9822 16.6491C17.8507 16.6491 18.9141 17.2664 19.3395 18.0071L22.3526 23.2981C22.778 24.0565 23.8414 24.6561 24.7099 24.6561L40.9096 24.6561C41.7781 24.6561 42.1326 24.0389 41.7072 23.2981L28.9814 1.35803C28.5383 0.599649 27.4748 0 26.6063 0L0.977407 0C0.10893 0 -0.24555 0.617286 0.179826 1.37567L8.26198 15.291Z",
+                  fill: "rgba(92,59,107,1)",
+                  fillRule: "nonzero",
+                },
+              ]}
+              display="block"
+              gap="unset"
+              alignItems="unset"
+              justifyContent="unset"
+              position="absolute"
+              top="44.17%"
+              bottom="0%"
+              left="0%"
+              right="20.97%"
+              {...getOverrideProps(overrides, "Vector37482694")}
+            ></Icon>
+          </Flex>
+          <Text
+            fontFamily="Inter"
+            fontSize="20px"
+            fontWeight="600"
+            color="rgba(0,0,0,1)"
+            textTransform="capitalize"
+            lineHeight="24.204544067382812px"
+            textAlign="left"
+            display="block"
+            direction="column"
+            justifyContent="unset"
+            width="unset"
+            height="unset"
+            gap="unset"
+            alignItems="unset"
+            shrink="0"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            whiteSpace="pre-wrap"
+            children="Pontte"
+            {...getOverrideProps(overrides, "Pontte")}
+          ></Text>
+        </Flex>
       </Flex>
       <Flex
         gap="40px"
@@ -151,36 +162,34 @@ export default function NavBar2(props) {
         basis="0"
         position="relative"
         padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "Frame 32138582584")}
+        {...getOverrideProps(overrides, "Frame 32137482696")}
       >
         <Flex
           gap="10px"
           direction="column"
           width="unset"
-          height="26px"
+          height="unset"
           justifyContent="flex-start"
           alignItems="flex-start"
           shrink="0"
           position="relative"
           border="1px SOLID rgba(174,179,183,1)"
           padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "Frame 100138622466")}
+          {...getOverrideProps(overrides, "Frame 100137482697")}
         >
           <Flex
             gap="12px"
             direction="row"
             width="unset"
-            height="unset"
+            height="24px"
             justifyContent="flex-start"
             alignItems="flex-start"
-            grow="1"
-            shrink="1"
-            basis="0"
+            shrink="0"
             alignSelf="stretch"
             position="relative"
             padding="0px 14px 0px 14px"
             backgroundColor="rgba(4,125,149,1)"
-            {...getOverrideProps(overrides, "Frame 100138622468")}
+            {...getOverrideProps(overrides, "Frame 100137482698")}
           >
             <Text
               fontFamily="Inter"
@@ -213,7 +222,7 @@ export default function NavBar2(props) {
           gap="12px"
           direction="column"
           width="unset"
-          height="24px"
+          height="unset"
           justifyContent="flex-start"
           alignItems="flex-start"
           shrink="0"
@@ -221,22 +230,23 @@ export default function NavBar2(props) {
           border="1px SOLID rgba(174,179,183,1)"
           padding="0px 13px 0px 13px"
           backgroundColor="rgba(4,125,149,1)"
-          {...getOverrideProps(overrides, "Frame 100138622467")}
+          onClick={() => {
+            frameOneZeroZeroOneThreeSevenFourEightTwoSevenZeroZeroOnClick();
+          }}
+          {...getOverrideProps(overrides, "Frame 100137482700")}
         >
           <Flex
             gap="10px"
             direction="row"
             width="unset"
-            height="unset"
+            height="24px"
             justifyContent="flex-start"
             alignItems="flex-start"
-            grow="1"
-            shrink="1"
-            basis="0"
+            shrink="0"
             alignSelf="stretch"
             position="relative"
             padding="0px 0px 0px 0px"
-            {...getOverrideProps(overrides, "Frame 100138622469")}
+            {...getOverrideProps(overrides, "Frame 100137482701")}
           >
             <Text
               fontFamily="Inter"
@@ -258,9 +268,6 @@ export default function NavBar2(props) {
               padding="0px 0px 0px 0px"
               whiteSpace="pre-wrap"
               children="List"
-              onClick={() => {
-                listOnClick();
-              }}
               {...getOverrideProps(overrides, "List")}
             ></Text>
           </Flex>
@@ -269,14 +276,16 @@ export default function NavBar2(props) {
       <Flex
         gap="32px"
         direction="row"
-        width="163px"
+        width="unset"
         height="unset"
         justifyContent="flex-end"
         alignItems="center"
-        shrink="0"
+        grow="1"
+        shrink="1"
+        basis="0"
         position="relative"
         padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "Frame 32138582587")}
+        {...getOverrideProps(overrides, "Frame 32137482703")}
       >
         <View
           width="24px"
@@ -311,7 +320,7 @@ export default function NavBar2(props) {
             bottom="8.33%"
             left="16.67%"
             right="16.67%"
-            {...getOverrideProps(overrides, "Vector38582589")}
+            {...getOverrideProps(overrides, "Vector37482705")}
           ></Icon>
         </View>
         <Image
@@ -326,6 +335,7 @@ export default function NavBar2(props) {
           borderRadius="160px"
           padding="0px 0px 0px 0px"
           objectFit="cover"
+          src={avatarUrl}
           {...getOverrideProps(overrides, "image")}
         ></Image>
       </Flex>

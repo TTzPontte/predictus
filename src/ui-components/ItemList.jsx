@@ -33,11 +33,12 @@ export default function ItemList(props) {
   return (
     <Collection
       type="list"
-      isSearchable={true}
+      isSearchable="true"
       isPaginated={true}
       searchPlaceholder="Search..."
       itemsPerPage={6}
       direction="column"
+      alignItems="stretch"
       justifyContent="stretch"
       items={items || []}
       {...getOverrideProps(overrides, "ItemList")}

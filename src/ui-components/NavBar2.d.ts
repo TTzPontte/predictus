@@ -11,25 +11,27 @@ export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes
 export declare type NavBar2OverridesProps = {
     NavBar2?: PrimitiveOverrideProps<FlexProps>;
     Logo?: PrimitiveOverrideProps<FlexProps>;
+    "Frame 100137482691"?: PrimitiveOverrideProps<FlexProps>;
     Group?: PrimitiveOverrideProps<FlexProps>;
-    Vector38612468?: PrimitiveOverrideProps<IconProps>;
-    Vector38612469?: PrimitiveOverrideProps<IconProps>;
+    Vector37482693?: PrimitiveOverrideProps<IconProps>;
+    Vector37482694?: PrimitiveOverrideProps<IconProps>;
     Pontte?: PrimitiveOverrideProps<TextProps>;
-    "Frame 32138582584"?: PrimitiveOverrideProps<FlexProps>;
-    "Frame 100138622466"?: PrimitiveOverrideProps<FlexProps>;
-    "Frame 100138622468"?: PrimitiveOverrideProps<FlexProps>;
+    "Frame 32137482696"?: PrimitiveOverrideProps<FlexProps>;
+    "Frame 100137482697"?: PrimitiveOverrideProps<FlexProps>;
+    "Frame 100137482698"?: PrimitiveOverrideProps<FlexProps>;
     Create?: PrimitiveOverrideProps<TextProps>;
-    "Frame 100138622467"?: PrimitiveOverrideProps<FlexProps>;
-    "Frame 100138622469"?: PrimitiveOverrideProps<FlexProps>;
+    "Frame 100137482700"?: PrimitiveOverrideProps<FlexProps>;
+    "Frame 100137482701"?: PrimitiveOverrideProps<FlexProps>;
     List?: PrimitiveOverrideProps<TextProps>;
-    "Frame 32138582587"?: PrimitiveOverrideProps<FlexProps>;
+    "Frame 32137482703"?: PrimitiveOverrideProps<FlexProps>;
     Icon?: PrimitiveOverrideProps<ViewProps>;
-    Vector38582589?: PrimitiveOverrideProps<IconProps>;
+    Vector37482705?: PrimitiveOverrideProps<IconProps>;
     image?: PrimitiveOverrideProps<ImageProps>;
 } & EscapeHatchProps;
 export declare type NavBar2Props = React.PropsWithChildren<Partial<FlexProps> & {
-    listUrl?: String;
     createUrl?: String;
+    listUrl?: String;
+    avatarUrl?: String;
 } & {
     overrides?: NavBar2OverridesProps | undefined | null;
 }>;
