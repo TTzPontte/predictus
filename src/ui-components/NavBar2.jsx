@@ -12,7 +12,14 @@ import {
 } from "@aws-amplify/ui-react/internal";
 import { Flex, Icon, Image, Text, View } from "@aws-amplify/ui-react";
 export default function NavBar2(props) {
-  const { createUrl, listUrl, avatarUrl, overrides, ...rest } = props;
+  const {
+    createUrl,
+    listUrl,
+    avatarUrl = "https://img.freepik.com/premium-psd/3d-cartoon-character-avatar-isolated-3d-rendering_235528-548.jpg?w=2000",
+    onClickAvatar,
+    overrides,
+    ...rest
+  } = props;
   const createOnClick = useNavigateAction({ type: "url", url: createUrl });
   const frameOneZeroZeroOneThreeSevenFourEightTwoSevenZeroZeroOnClick =
     useNavigateAction({ type: "url", url: listUrl });
@@ -25,7 +32,9 @@ export default function NavBar2(props) {
       justifyContent="center"
       alignItems="center"
       position="relative"
-      padding="24px 32px 24px 32px"
+      border="1px SOLID rgba(174,179,183,1)"
+      boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+      padding="23px 31px 23px 31px"
       backgroundColor="rgba(255,255,255,1)"
       {...getOverrideProps(overrides, "NavBar2")}
       {...rest}
@@ -126,28 +135,6 @@ export default function NavBar2(props) {
               {...getOverrideProps(overrides, "Vector37482694")}
             ></Icon>
           </Flex>
-          <Text
-            fontFamily="Inter"
-            fontSize="20px"
-            fontWeight="600"
-            color="rgba(0,0,0,1)"
-            textTransform="capitalize"
-            lineHeight="24.204544067382812px"
-            textAlign="left"
-            display="block"
-            direction="column"
-            justifyContent="unset"
-            width="unset"
-            height="unset"
-            gap="unset"
-            alignItems="unset"
-            shrink="0"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children="Pontte"
-            {...getOverrideProps(overrides, "Pontte")}
-          ></Text>
         </Flex>
       </Flex>
       <Flex
@@ -181,7 +168,7 @@ export default function NavBar2(props) {
             gap="12px"
             direction="row"
             width="unset"
-            height="24px"
+            height="unset"
             justifyContent="flex-start"
             alignItems="flex-start"
             shrink="0"
@@ -219,7 +206,7 @@ export default function NavBar2(props) {
           </Flex>
         </Flex>
         <Flex
-          gap="12px"
+          gap="10px"
           direction="column"
           width="unset"
           height="unset"
@@ -228,7 +215,7 @@ export default function NavBar2(props) {
           shrink="0"
           position="relative"
           border="1px SOLID rgba(174,179,183,1)"
-          padding="0px 13px 0px 13px"
+          padding="0px 0px 0px 0px"
           backgroundColor="rgba(4,125,149,1)"
           onClick={() => {
             frameOneZeroZeroOneThreeSevenFourEightTwoSevenZeroZeroOnClick();
@@ -236,16 +223,16 @@ export default function NavBar2(props) {
           {...getOverrideProps(overrides, "Frame 100137482700")}
         >
           <Flex
-            gap="10px"
+            gap="12px"
             direction="row"
             width="unset"
-            height="24px"
+            height="unset"
             justifyContent="flex-start"
             alignItems="flex-start"
             shrink="0"
             alignSelf="stretch"
             position="relative"
-            padding="0px 0px 0px 0px"
+            padding="0px 14px 0px 14px"
             {...getOverrideProps(overrides, "Frame 100137482701")}
           >
             <Text
@@ -336,6 +323,7 @@ export default function NavBar2(props) {
           padding="0px 0px 0px 0px"
           objectFit="cover"
           src={avatarUrl}
+          onClick={onClickAvatar}
           {...getOverrideProps(overrides, "image")}
         ></Image>
       </Flex>

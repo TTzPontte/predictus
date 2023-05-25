@@ -7,6 +7,7 @@
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { FlexProps, IconProps, ImageProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { SyntheticEvent } from "react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type NavBar2OverridesProps = {
     NavBar2?: PrimitiveOverrideProps<FlexProps>;
@@ -15,7 +16,6 @@ export declare type NavBar2OverridesProps = {
     Group?: PrimitiveOverrideProps<FlexProps>;
     Vector37482693?: PrimitiveOverrideProps<IconProps>;
     Vector37482694?: PrimitiveOverrideProps<IconProps>;
-    Pontte?: PrimitiveOverrideProps<TextProps>;
     "Frame 32137482696"?: PrimitiveOverrideProps<FlexProps>;
     "Frame 100137482697"?: PrimitiveOverrideProps<FlexProps>;
     "Frame 100137482698"?: PrimitiveOverrideProps<FlexProps>;
@@ -32,6 +32,7 @@ export declare type NavBar2Props = React.PropsWithChildren<Partial<FlexProps> & 
     createUrl?: String;
     listUrl?: String;
     avatarUrl?: String;
+    onClickAvatar?: (event: SyntheticEvent) => void;
 } & {
     overrides?: NavBar2OverridesProps | undefined | null;
 }>;

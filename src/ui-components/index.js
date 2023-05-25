@@ -11,6 +11,7 @@ export { default as ItemCard } from "./ItemCard";
 export { default as ProductDetail } from "./ProductDetail";
 export { default as FormCheckout } from "./FormCheckout";
 export { default as Ampligram } from "./Ampligram";
+export { default as LogOutButton } from "./LogOutButton";
 export { default as HeroLayout3 } from "./HeroLayout3";
 export { default as ProductCard } from "./ProductCard";
 export { default as FeaturesText2x2 } from "./FeaturesText2x2";
