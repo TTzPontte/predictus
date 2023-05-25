@@ -1,100 +1,88 @@
 {
     "reports": [
         {
-            "reportName": "COMBO_CONCESSAO_COM_SCORE_FINTECH",
             "registration": {
-                "documentNumber": "00000000353",
-                "consumerName": "FOIJEORIJFREOIJFR",
-                "motherName": "OFIJEROFIJREOIJF",
-                "birthDate": "1977-12-05",
+                "documentNumber": "00000006637",
+                "consumerName": "JOAO PAULO DE CAMPOS",
+                "birthDate": "2015-02-22",
                 "statusRegistration": "REGULAR",
-                "statusDate": "2022-11-04"
+                "statusDate": "2021-10-22"
             },
             "negativeData": {
                 "pefin": {
-                    "pefinResponse": [],
+                    "pefinResponse": [
+                        {
+                            "occurrenceDate": "2018-07-26",
+                            "legalNatureId": "OO",
+                            "legalNature": "OUTRAS OPER",
+                            "contractId": "0005094400615692",
+                            "creditorName": "YR UXGFU G.C. - HU LNNPLHOCKCO OQSZNKHA",
+                            "amount": 90,
+                            "city": "",
+                            "federalUnit": "MG",
+                            "principal": true
+                        }
+                    ],
                     "summary": {
-                        "count": 0,
-                        "balance": 0.0
+                        "count": 1,
+                        "balance": 90
                     }
                 },
                 "refin": {
                     "refinResponse": [],
                     "summary": {
                         "count": 0,
-                        "balance": 0.0
+                        "balance": 0
                     }
                 },
                 "notary": {
-                    "notaryResponse": [
-                        {
-                            "occurrenceDate": "2020-12-12",
-                            "amount": 8921.38,
-                            "officeNumber": "01",
-                            "officeName": "1 TABELIAO DE PROTESTO DE LETRAS E TITULOS",
-                            "city": "SAO PAULO",
-                            "federalUnit": "SP"
-                        }
-                    ],
+                    "notaryResponse": [],
                     "summary": {
-                        "count": 1,
-                        "balance": 8921.38
+                        "count": 0,
+                        "balance": 0
                     }
                 },
                 "check": {
-                    "checkResponse": [
-                        {
-                            "occurrenceDate": "2018-05-30",
-                            "legalSquare": "CRU",
-                            "bankId": 748,
-                            "bankName": "BCO SICREDI",
-                            "bankAgencyId": 2206,
-                            "checkCount": 6,
-                            "city": "CARUARU",
-                            "federalUnit": "PE",
-                            "checkNumber": "CCF-BB",
-                            "alinea": 0
-                        }
-                    ],
+                    "checkResponse": [],
                     "summary": {
-                        "count": 1,
-                        "balance": 0.0
+                        "count": 0,
+                        "balance": 0
                     }
                 }
             },
             "score": {
-                "score": 840,
+                "score": 860,
                 "scoreModel": "HFIN",
-                "defaultRate": "11,3",
+                "defaultRate": "9,0",
                 "message": "ESPACO RESERVADO PARA MENSAGEM DA INSTITUICAO                                   "
             },
             "facts": {
                 "inquiry": {
                     "inquiryResponse": [
                         {
-                            "occurrenceDate": "2023-05-19",
-                            "segmentDescription": "INDUSTRIA DE INSUMOS",
+                            "occurrenceDate": "2022-09-13",
+                            "segmentDescription": "",
                             "daysQuantity": 2
                         },
                         {
-                            "occurrenceDate": "2023-05-18",
+                            "occurrenceDate": "2022-08-16",
                             "segmentDescription": "",
                             "daysQuantity": 1
                         },
                         {
-                            "occurrenceDate": "2023-05-18",
+                            "occurrenceDate": "2022-08-09",
+                            "segmentDescription": "",
+                            "daysQuantity": 2
+                        },
+                        {
+                            "occurrenceDate": "2022-08-04",
                             "segmentDescription": "",
                             "daysQuantity": 1
                         },
                         {
-                            "occurrenceDate": "2023-05-18",
+                            "occurrenceDate": "2022-08-04",
                             "segmentDescription": "",
-                            "daysQuantity": 1
-                        },
-                        {
-                            "occurrenceDate": "2023-05-17",
-                            "segmentDescription": "",
-                            "daysQuantity": 1
+                            "daysQuantity": 31
                         }
                     ],
                     "summary": {
@@ -105,7 +93,7 @@
                     "stolenDocumentsResponse": [],
                     "summary": {
                         "count": 0,
-                        "balance": 0.0
+                        "balance": 0
                     }
                 }
             }
@@ -113,34 +101,9 @@
     ],
     "optionalFeatures": {
         "partner": {
-            "partnershipResponse": [
-                {
-                    "businessDocument": "00277106000137",
-                    "companyName": "PERSONAL SERVICE RECURSOS HUMANOS E ASSESSORIA EMPRESARIAL LTDA",
-                    "sinceDate": "1994-11-03",
-                    "participationPercentage": 0.0,
-                    "companyStatus": "SITUACAO DO CNPJ EM 19/05/2022: INAPTA",
-                    "companyStatusCode": "INAPTA",
-                    "companyState": "RJ",
-                    "companyStatusDate": "19/05/2022",
-                    "updateDate": "2022-12-14"
-                },
-                {
-                    "businessDocument": "01191803000133",
-                    "companyName": "EWONUJFG NFLTKSUCY DVCK",
-                    "companyAlias": "EWONUJFG NFLTKSUCY",
-                    "sinceDate": "1996-05-14",
-                    "participationPercentage": 0.0,
-                    "companyStatus": "SITUACAO DO CNPJ EM 17/04/2023: ATIVA",
-                    "companyStatusCode": "ATIVA",
-                    "companyState": "MS",
-                    "companyStatusDate": "17/04/2023",
-                    "updateDate": "2023-03-30"
-                }
-            ],
             "summary": {
-                "count": 2,
-                "balance": 0.0
+                "count": 0,
+                "balance": 0
             }
         }
     }
