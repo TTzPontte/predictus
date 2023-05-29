@@ -5,6 +5,8 @@ import {pdfjs} from "react-pdf";
 import "./styles.scss";
 import FirstPage from "./Pages/FirstPage/FirstPage";
 import ApiCaller from "./Pages/ApiCaller";
+import Button from "react-bootstrap/Button";
+import {Col, Row} from "react-bootstrap";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -39,6 +41,10 @@ const Ofx = () => {
                         <h1>Aferição de renda</h1>
                         <br/>
                     </div>
+                    <Row><Col>                        {selectedFile?.statement?.fileData && (<Button onClick={() => {
+                        window.location.reload()
+                    }}> fazer outra consulta</Button>)}
+                    </Col></Row>
                     <hr/>
                     <div className="react-tabs__tab-panel react-tabs__tab-panel--selected">
                         <FirstPage handleUpload={handleUpload}/>
