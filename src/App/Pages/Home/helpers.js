@@ -2,15 +2,15 @@ import { Storage } from "@aws-amplify/storage";
 
 const FILE_PREFIX = "pdfs";
 
-export const uploadFileToS3 = async (fileName, fileData, fileType) => {
-  const fileKey = getFileKey(fileName);
+export const uploadFileToS3 = async (fileName, fileData) => {
+  const fileKey = getFileKey1(fileName);
 
   try {
     const uploadResult = await Storage.put(fileKey, fileData, {
-      contentType: fileType
+      contentType: 'pdf'
     });
 
-    console.log(uploadResult);
+    console.log({uploadResult});
     return uploadResult.key;
   } catch (error) {
     throw new Error(`Failed to upload ${fileName} to S3: ${error}`);
@@ -29,6 +29,10 @@ export const downloadFromS3 = async (fileName) => {
   }
 };
 
+const getFileKey1 = (fileName) => {
+  const fileWithoutExtension = fileName.slice(0, fileName.lastIndexOf("."));
+  return `${FILE_PREFIX}/${fileWithoutExtension}/${fileWithoutExtension}.pdf`;
+};
 const getFileKey = (fileName) => {
   const fileWithoutExtension = fileName.slice(0, fileName.lastIndexOf("."));
   return `${FILE_PREFIX}/${fileWithoutExtension}/expense_report.xlsx`;

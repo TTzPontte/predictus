@@ -20,14 +20,14 @@ const Layout = ({ children }) => {
     return (
         <div className="layout">
             <NavBar2 {...props} width={"100"}></NavBar2>
-            <Container fluid className={"justify-content-end"} style={{display: show? 'block': 'none'}}>
-                <Col>
-                    <Row className={"justify-content-end"}>
+            <Container fluid className={"justify-content-end"} >
+                <Col style={{display: show? 'block': 'none', zIndex: 99999}}>
+                    <Row className={"justify-content-end"} >
                         <LogOutButton />
                     </Row>
                 </Col>
             </Container>
-            <Container fluid className="content">
+            <Container fluid className="content my-lg-5">
                 <Row>
                     <Col>
                         <Outlet/>

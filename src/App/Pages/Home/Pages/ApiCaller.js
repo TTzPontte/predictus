@@ -6,8 +6,8 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles.scss";
 
-const API_URL = "https://75sh91wz4i.execute-api.us-east-1.amazonaws.com/Prod/hello/";
-// const API_URL = "http://127.0.0.1:8080/hello/";
+// const API_URL = "https://75sh91wz4i.execute-api.us-east-1.amazonaws.com/Prod/hello/";
+const API_URL = "http://127.0.0.1:8080/hello";
 
 const ApiCaller = ({ selectedFileName }) => {
     const [reportId, setReportId] = useState(null);
@@ -27,7 +27,7 @@ const ApiCaller = ({ selectedFileName }) => {
         const options = {
             method: "POST",
             mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
+            // headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ file_name: fileWithoutExtension, report_id: reportId }),
         };
 
