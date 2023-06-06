@@ -214,12 +214,30 @@
     events "^3.1.0"
     tslib "^1.8.0"
 
+"@aws-amplify/ui-react-core-notifications@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/ui-react-core-notifications/-/ui-react-core-notifications-1.0.0.tgz#b146c0afdd6f17a352aa003983e620caecd47f84"
+  integrity sha512-perIfLK+JQKZV1XxQ4wpQjaNTRH4X/9lPjT+A0GJjTaxG81LWMACxz84aggV+8Icv1Jis5+9sUb0+3tEUEr7sw==
+  dependencies:
+    "@aws-amplify/ui" "5.6.4"
+    "@aws-amplify/ui-react-core" "2.1.23"
+
 "@aws-amplify/ui-react-core@2.1.22":
   version "2.1.22"
   resolved "https://registry.yarnpkg.com/@aws-amplify/ui-react-core/-/ui-react-core-2.1.22.tgz#4b117cc2364233db022712ef280d802ff4504f4a"
   integrity sha512-ezckNi+e27F7z2vstEsk2Ye1onQbQQr8kaLOsJtrOCcIRC+9KviOW9ySHDrbczmsZzPfCRSli+CwXpj6MdXcGw==
   dependencies:
     "@aws-amplify/ui" "5.6.3"
+    "@xstate/react" "3.0.1"
+    lodash "4.17.21"
+    xstate "^4.33.6"
+
+"@aws-amplify/ui-react-core@2.1.23":
+  version "2.1.23"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/ui-react-core/-/ui-react-core-2.1.23.tgz#e27f8e7ec3a86dba7828e8b69cc036a5b6b2a435"
+  integrity sha512-qKoPcLpKpniwlji0mTiTXdwOdFSTD/LO//T5iLsE+uyu/BzsEFpbznl/XdRsCbHrtLDrMlygf25OczTLPNQtQg==
+  dependencies:
+    "@aws-amplify/ui" "5.6.4"
     "@xstate/react" "3.0.1"
     lodash "4.17.21"
     xstate "^4.33.6"
@@ -236,7 +254,7 @@
     lodash "4.17.21"
     tslib "2.4.1"
 
-"@aws-amplify/ui-react@4.6.3", "@aws-amplify/ui-react@^4.6.0":
+"@aws-amplify/ui-react@4.6.3":
   version "4.6.3"
   resolved "https://registry.yarnpkg.com/@aws-amplify/ui-react/-/ui-react-4.6.3.tgz#077c5785a807efda986ed9cddae648ddc00d42c9"
   integrity sha512-TNnSQCxzM9516spQrTyJy4simkMYeTCDdJYmCuyHQxqIN+rVNLaEx3BblmoDp/C34hUYfkohmGQFudSNIdxpJA==
@@ -261,10 +279,46 @@
     tinycolor2 "1.4.2"
     tslib "2.4.1"
 
+"@aws-amplify/ui-react@^4.6.0":
+  version "4.6.4"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/ui-react/-/ui-react-4.6.4.tgz#879485d4d99f6125b3d0d0439d858d81acf1f00c"
+  integrity sha512-6OF4F7CFm2fs3y3GO1vy9eTAXCGuh4d+rQ+DiLnIKMkOsKnzYLXzk20wUeL4aceVR0NkZVyolgBAf3+yfTVbMw==
+  dependencies:
+    "@aws-amplify/ui" "5.6.4"
+    "@aws-amplify/ui-react-core" "2.1.23"
+    "@aws-amplify/ui-react-core-notifications" "1.0.0"
+    "@radix-ui/react-accordion" "1.0.0"
+    "@radix-ui/react-direction" "1.0.0"
+    "@radix-ui/react-dropdown-menu" "1.0.0"
+    "@radix-ui/react-slider" "1.0.0"
+    "@radix-ui/react-tabs" "1.0.0"
+    "@xstate/react" "3.0.0"
+    classnames "2.3.1"
+    deepmerge "4.2.2"
+    lodash "4.17.21"
+    mapbox-gl "1.13.1"
+    maplibre-gl "2.1.9"
+    maplibre-gl-js-amplify "3.0.5"
+    qrcode "1.5.0"
+    react-generate-context "1.0.1"
+    react-map-gl "7.0.23"
+    tinycolor2 "1.4.2"
+    tslib "2.4.1"
+
 "@aws-amplify/ui@5.6.3":
   version "5.6.3"
   resolved "https://registry.yarnpkg.com/@aws-amplify/ui/-/ui-5.6.3.tgz#fdca70f0a9084b7748aa1efa3971ba4a79c33c5c"
   integrity sha512-Sx+4MyIaHqJmwJdgdemOgrYnw/kktQKJKWc/JHjS3PKwMmLUl75KvqnIwxwJHbLtFyfEuPJdldN+Ozb9PMrFrg==
+  dependencies:
+    csstype "^3.1.1"
+    lodash "4.17.21"
+    style-dictionary "3.7.1"
+    tslib "2.4.1"
+
+"@aws-amplify/ui@5.6.4":
+  version "5.6.4"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/ui/-/ui-5.6.4.tgz#ff7723d57668e435ce374e09169573355dbada99"
+  integrity sha512-6xXHWMMZ9OGNcRq/FoW8KrHC5dsX841O/fOeFDi5a7aHLPTqGdc9PNLFjzrlaqAQT6Sj9QMfCPAJcLT6UcUG3g==
   dependencies:
     csstype "^3.1.1"
     lodash "4.17.21"
@@ -3233,10 +3287,17 @@
   resolved "https://registry.yarnpkg.com/@babel/regjsgen/-/regjsgen-0.8.0.tgz#f0ba69b075e1f05fb2825b7fad991e7adbb18310"
   integrity sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.16.3", "@babel/runtime@^7.20.7", "@babel/runtime@^7.21.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.3", "@babel/runtime@^7.20.7", "@babel/runtime@^7.21.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
   version "7.21.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.21.5.tgz#8492dddda9644ae3bda3b45eabe87382caee7200"
   integrity sha512-8jI69toZqqcsnqGGqwGS4Qb1VwLOEp4hz+CXPywcvjs60u3B4Pom/U/7rm4W8tMOYEB+E9wgD0mW1l3r8qlI9Q==
+  dependencies:
+    regenerator-runtime "^0.13.11"
+
+"@babel/runtime@^7.13.10":
+  version "7.22.3"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.22.3.tgz#0a7fce51d43adbf0f7b517a71f4c3aaca92ebcbb"
+  integrity sha512-XsDuspWKLUsxwCp6r7EhsExHtYfbe5oAGQ19kqngTdCPUoPQzOPdUbD/pB9PJiwb2ptYKQDjSJT3R6dC+EPqfQ==
   dependencies:
     regenerator-runtime "^0.13.11"
 
@@ -13541,7 +13602,12 @@ tslib@^1.11.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.3:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
-tslib@^2.0.0, tslib@^2.0.3, tslib@^2.1.0, tslib@^2.3.1, tslib@^2.4.0, tslib@^2.5.0:
+tslib@^2.0.0, tslib@^2.0.3, tslib@^2.1.0:
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.5.3.tgz#24944ba2d990940e6e982c4bea147aba80209913"
+  integrity sha512-mSxlJJwl3BMEQCUNnxXBU9jP4JBktcEGhURcPR6VQVlnP0FdDEsIaz0C35dXNGLyRfrATNofF0F5p2KPxQgB+w==
+
+tslib@^2.3.1, tslib@^2.4.0, tslib@^2.5.0:
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.5.2.tgz#1b6f07185c881557b0ffa84b111a0106989e8338"
   integrity sha512-5svOrSA2w3iGFDs1HibEVBGbDrAY82bFQ3HZ3ixB+88nsbsWQoKqDRb5UBYAUPEzbBn6dAp5gRNXglySbx1MlA==

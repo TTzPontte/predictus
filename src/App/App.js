@@ -9,6 +9,7 @@ import Home from "./Pages/Home";
 import awsExports from "../aws-exports";
 import ListReport from "./Pages/ListReport";
 import Layout from "./components/Layout";
+import NewDocument from "./Pages/NewDocuments";
 
 Amplify.configure(awsExports);
 
@@ -18,6 +19,7 @@ function App(props) {
       <Route element={<Layout />}>
         <Route path={"/"} element={<Home />} />
         <Route path={"/list"} element={<ListReport />} />
+        <Route path={"/new"} element={<NewDocument />} />
       </Route>
     </Routes>
   );
