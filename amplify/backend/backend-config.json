@@ -53,7 +53,14 @@
       "service": "Cognito"
     }
   },
-  "function": {},
+  "function": {
+    "ocrNodeFn": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
   "storage": {
     "s3predictusocr": {
       "dependsOn": [],

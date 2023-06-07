@@ -18,8 +18,8 @@
       "storage": {
         "s3predictusocr": {}
       },
-      "api": {
-        "predictus": {}
+      "function": {
+        "ocrNodeFn": {}
       }
     }
   }
