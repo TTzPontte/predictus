@@ -4,7 +4,7 @@ import { generateBusinessReport, generateReport } from "./service";
 import { Col, Form, FormGroup, Row } from "react-bootstrap";
 import Radio from "../../components/Form/Radio";
 import Results from "../../Containers/Searches/Result/Results";
-import {createPDF} from "../../servicer/convertToPDF"
+import {createPDF, createPDFPJ} from "../../servicer/convertToPDF"
 
 
 
@@ -47,9 +47,8 @@ function ReportForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [isResultViewVisible, setIsResultViewVisible] = useState(false);
   const [isResultView2Visible, setIsResultView2Visible] = useState(false);
-  const [personType, setPersonType] = useState("PF");
-  const [stateOpcional, setStateOpcional] = useState([]);
-
+  const [personType, setPersonType] = useState("");
+  
   const {
     control,
     handleSubmit,
@@ -58,19 +57,24 @@ function ReportForm() {
   } = methods;
 
   const onSubmit = (data) => {
+    console.log('form: ',data)
+    setPersonType(data.radioGroup);
     setIsLoading(true);
-    console.log('DATA: ', data)
     if (data.radioGroup === "PF") {
       generateReport(data.documentNumber).then((response) => {
-        console.log("RESPOSTA: ", response);
+
         setState3(response);
         setState(response.reports);
         setIsResultViewVisible(true)
-        setState2(response.optionalFeatures.partner.partnershipResponse);
-        setIsLoading(false);
-        if(response.optionalFeatures.partner.partnershipResponse!==undefined){
-          setIsResultView2Visible(true);
+        try{
+          if(response.optionalFeatures.partner.partnershipResponse!==undefined){
+            setState2(response.optionalFeatures.partner.partnershipResponse);
+            setIsResultView2Visible(true);
+          }
+        }catch(error){
+          console.log('erro: ',error)
         }
+        setIsLoading(false);
       }).catch((error) => {
         console.error("Erro ao gerar relatório:", error);
         setIsLoading(false);
@@ -78,7 +82,8 @@ function ReportForm() {
       });
     } else if (data.radioGroup === "PJ") {
       generateBusinessReport(data.documentNumber).then((response) => {
-        console.log("RESPOSTA: ", response);
+        setState3(response);
+        console.log('json: ', response)
         setState(response.reports);
         setIsResultViewVisible(true)
         setState2(response.optionalFeatures.partner.PartnerResponse.results);
@@ -109,27 +114,32 @@ function ReportForm() {
           if (documento.length <= 12) {
             console.log('CPF');
             const responseOpcional = await generateReport(documento);
-            setStateOpcional(responseOpcional);
-            console.log(setStateOpcional);
+            //console.log(responseOpcional);
+            createPDF(JSON.stringify(responseOpcional));
           } else {
             console.log('CNPJ');
             const responseOpcional = await generateBusinessReport(documento);
-            setStateOpcional(responseOpcional);
-            console.log(setStateOpcional);
+            //console.log(responseOpcional);
+            createPDFPJ(JSON.stringify(responseOpcional));
           }
         } catch (error) {
           console.error('Ocorreu um erro na requisição:', error);
+          alert(`Erro ao gerar relatório para: ${documento}. Detalhes do erro: ${error.message}`);
           // Tratar o erro de acordo com a necessidade
         }
       }
     }
   };
   
-
   const handleBaixarPDF = () => {
-    console.log('Baixar PDF clicado');
-    const pdfData = createPDF();
-    console.log(pdfData);
+    console.log('Baixar PDF clicado ', personType);
+    if(personType==="PF"){
+      console.log('clicado em PF')
+      createPDF(JSON.stringify(state3));
+    } else{
+      console.log('clicado em PJ')
+      createPDFPJ(JSON.stringify(state3));
+    }
   }
 
   const radioOptions = [
@@ -140,7 +150,13 @@ function ReportForm() {
   return (
     <FormProvider {...methods}>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Radio label="Tipo de Pessoa" name="radioGroup" options={radioOptions} inline control={control}  onChange={(e) => setPersonType(e.target.value)}/>
+      <Radio
+          label="Tipo de Pessoa"
+          name="radioGroup"
+          options={radioOptions}
+          inline
+          control={control}
+        />
         <Row>
           <Col sm={4}>
             <Input

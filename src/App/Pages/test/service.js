@@ -1,20 +1,17 @@
 import axios from "axios";
 
-// const loginUrl =
-//     "https://uat-api.serasaexperian.com.br/security/iam/v1/client-identities/login";
-// const reportUrl =
-//     "https://uat-api.serasaexperian.com.br/credit-services/person-information-report/v1/creditreport";
+//Endpoint's
 const loginUrl = "/security/iam/v1/client-identities/login";
 const reportUrl = "/credit-services/person-information-report/v1/creditreport";
 const businessReportUrl ="/credit-services/business-information-report/v1/reports"
 
+//Gerar Token
 const getToken = async () => {
   const payload = {};
   const headers = {
     "Content-Type": "application/json",
-    Authorization: "Basic NjQwOGRiOGYxMzI5NzY1ZWIyYTk0YmYyOjBmYjQ5YTJiZTU2NzkyMzFmOGJkODA0Ng=="
-    // Cookie:
-    //     "SESSION=OWMzODk0MGEtMWZhYi00N2QyLWE3MjYtMWNlMzE5ZmY2NjYw; incap_ses_1614_1333078=kgSgJJV/9Di5JiRnrxRmFr91HGQAAAAAsrQB3faK+02As+NBIH6ZbQ==; nlbi_1333078=y6l7CfV6m2HsBStNfcLIDAAAAACJtOGgAlUakypIaHwXfP4c; visid_incap_1333078=ClGuHHMHR5Kwn94q12Qlfc5CB2QAAAAAQUIPAAAAAAALzTSbnxQ4wB+p9g4qWVaT",
+    //Authorization: "Basic NjQwOGRiOGYxMzI5NzY1ZWIyYTk0YmYyOjBmYjQ5YTJiZTU2NzkyMzFmOGJkODA0Ng==" // DEV
+    Authorization: "Basic NjQ4NzA4M2E0ZGU1Y2U0ZTgxZGM4YmNlOmRjYjhjZDE4ZTRlYzVlZDRhMzgwNzg0Ng==" //Prod
   };
   const {
     data: { accessToken }
@@ -22,6 +19,8 @@ const getToken = async () => {
   console.log(`Token gerado com sucesso!\n${accessToken}\n\n\n`);
   return accessToken;
 };
+
+//Relatório PJ
 export const generateBusinessReport = async (numDocument) => {
   const reportName = "PACOTE_BASICO_FINTECH";
   const optionalFeatures = "QSA";
@@ -49,6 +48,8 @@ export const generateBusinessReport = async (numDocument) => {
       throw new Error("Erro ao gerar relatório");
     });
 };
+
+//Relatório PF
 export const generateReport = async (numDocument) => {
   const payload = {
     documentNumber: numDocument,
@@ -58,11 +59,10 @@ export const generateReport = async (numDocument) => {
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${await getToken()}`
-    // Cookie:
-    //     "SESSION=OWMzODk0MGEtMWZhYi00N2QyLWE3MjYtMWNlMzE5ZmY2NjYw; incap_ses_1614_1333078=kgSgJJV/9Di5JiRnrxRmFr91HGQAAAAAsrQB3faK+02As+NBIH6ZbQ==; nlbi_1333078=y6l7CfV6m2HsBStNfcLIDAAAAACJtOGgAlUakypIaHwXfP4c; visid_incap_1333078=ClGuHHMHR5Kwn94q12Qlfc5CB2QAAAAAQUIPAAAAAAALzTSbnxQ4wB+p9g4qWVaT",
   };
+  //console.log(payload)
   const { data } = await axios.post(reportUrl, payload, { headers });
-  console.log(data);
-  console.log(data.optionalFeatures.partner.partnershipResponse);
+  console.log('dados: ',data);
+  //console.log(data.optionalFeatures.partner.partnershipResponse);
   return data;
 };

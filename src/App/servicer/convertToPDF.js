@@ -58,8 +58,7 @@ export function createPDF(jsonFile) {
   const check = data.reports[0].negativeData.check;
   const checkResponse = check.checkResponse || [];
 
-  // Salvar Variável dos Dados de Sociedade // 
-  const dadosSociedades = data.optionalFeatures.partner.partnershipResponse;
+  
 
   // Salvar Variáveis consultas Serasa //
   const inquiry = data.reports[0].facts.inquiry;
@@ -235,34 +234,41 @@ export function createPDF(jsonFile) {
     dd.content.push({ text: '', fontSize: 12 });
   }
 
-  // Dados de Sociedade
-  if(dadosSociedades!==undefined){
-    dd.content.push({ text: '\n\nDados de Sociedades\n\n', fontSize: 14, bold: true });
-    
-    const tableBody = [];
+  // Salvar Variável dos Dados de Sociedade // 
+  try{
+    const dadosSociedades = data.optionalFeatures.partner.partnershipResponse;
 
-  for (let partner of dadosSociedades) {
-    const tableRow = [
-      { text: partner.companyName, fontSize: 11 },
-      { text: partner.businessDocument, fontSize: 11 },
-      { text: `${partner.participationPercentage}%`, fontSize: 11 },
-    ];
+    // Dados de Sociedade
+    if(dadosSociedades!==undefined){
+      dd.content.push({ text: '\n\nDados de Sociedades\n\n', fontSize: 14, bold: true });
+      
+      const tableBody = [];
 
-    tableBody.push(tableRow);
-  }
+    for (let partner of dadosSociedades) {
+      const tableRow = [
+        { text: partner.companyName, fontSize: 11 },
+        { text: partner.businessDocument, fontSize: 11 },
+        { text: `${partner.participationPercentage}%`, fontSize: 11 },
+      ];
 
-  const table = {
-    table: {
-      widths: ['*', '*', '*'],
-      body: [
-        [{ text: 'Razão Social', fontSize: 14, bold: true, alignment: 'center' }, { text: 'CNPJ', fontSize: 14, bold: true, alignment: 'center' }, { text: 'Participação', fontSize: 14, bold: true, alignment: 'center' }],
-        ...tableBody,
-      ],
-    },
-  };
+      tableBody.push(tableRow);
+    }
 
-  dd.content.push(table);
+    const table = {
+      table: {
+        widths: ['*', '*', '*'],
+        body: [
+          [{ text: 'Razão Social', fontSize: 14, bold: true, alignment: 'center' }, { text: 'CNPJ', fontSize: 14, bold: true, alignment: 'center' }, { text: 'Participação', fontSize: 14, bold: true, alignment: 'center' }],
+          ...tableBody,
+        ],
+      },
+    };
 
+    dd.content.push(table);
+
+    }
+  }catch(error){
+    console.log('erro sociedade pf: ',error)
   }
 
   //Dados Adicionais
