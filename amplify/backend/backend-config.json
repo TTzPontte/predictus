@@ -1,4 +1,41 @@
 {
+  "api": {
+    "predictus": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "predictus"
+        }
+      ],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            },
+            {
+              "apiKeyConfig": {
+                "apiKeyExpirationDays": 30,
+                "description": "api key description"
+              },
+              "authenticationType": "API_KEY"
+            }
+          ],
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authpredictus"
+            }
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  },
   "auth": {
     "predictus": {
       "customAuth": false,
@@ -31,10 +68,28 @@
     }
   },
   "function": {
-    "serasaCreateFN": {
+    "ApiSerasa": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_ApiSerasa_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ApiSerasa"
+        }
+      ]
+    },
+    "AMPLIFY_function_ApiSerasa_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ApiSerasa"
+        }
+      ]
     }
   }
 }
