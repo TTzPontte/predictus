@@ -5,7 +5,35 @@ import { Col, Form, FormGroup, Row } from "react-bootstrap";
 import Radio from "../../components/Form/Radio";
 import Results from "../../Containers/Searches/Result/Results";
 import {createPDF, createPDFPJ} from "../../servicer/convertToPDF"
+import { Auth } from "aws-amplify";
+import Lambda from "aws-sdk/clients/lambda";
 
+const useLambda = () => {
+  const [response, setResponse] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  
+  const invokeLambda = async (functionName, payload) => {
+    try {
+      setLoading(true);
+      const credentials = await Auth.currentCredentials();
+      console.log("---",{credentials});
+      const lambda = new Lambda({ region: "us-east-1", credentials });
+      const params = {
+        FunctionName: functionName,
+        Payload: JSON.stringify(payload),
+      };
+      const result = await lambda.invoke(params).promise();
+      console.log({response})
+      setResponse(result);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  return { response, error, loading, invokeLambda };
+};
 
 
 function Input({ label, name, type, placeholder, required, register }) {
@@ -56,13 +84,37 @@ function ReportForm() {
     formState: { errors }
   } = methods;
 
-  const onSubmit = (data) => {
+  const getEnvironment = () => {
+    const isLocal = window.location.hostname === 'localhost';
+    return isLocal ? 'dev' : 'prod';
+  };
+  
+
+  const { response, error, loading, invokeLambda } = useLambda();
+
+  const onSubmit = async (data) => {
     console.log('form: ',data)
+    const environment = getEnvironment();
+    const payload = { numDocument: data.documentNumber, tipoPessoa: data.radioGroup, ambiente: environment };
+    console.log({payload})
+    const functionName = "ApiSerasa-serasa";
     setPersonType(data.radioGroup);
     setIsLoading(true);
     if (data.radioGroup === "PF") {
-      generateReport(data.documentNumber).then((response) => {
 
+      const respostas = await invokeLambda(functionName, payload)
+      console.log({response, error})
+
+      const result = JSON.parse(response.Payload);
+      console.log({result});
+      const responseSerasa = result.response;
+      console.log({responseSerasa});
+
+
+
+
+      /*     
+      generateReport(data.documentNumber).then((response) => {
         setState3(response);
         setState(response.reports);
         setIsResultViewVisible(true)
@@ -80,6 +132,7 @@ function ReportForm() {
         setIsLoading(false);
         alert(`Erro ao gerar relatório. Tente novamente mais tarde. Detalhes do erro: ${error.message}`);
       });
+      */
     } else if (data.radioGroup === "PJ") {
       generateBusinessReport(data.documentNumber).then((response) => {
         setState3(response);

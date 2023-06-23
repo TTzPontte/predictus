@@ -18,7 +18,7 @@ const useLambda = () => {
         Payload: JSON.stringify(payload),
       };
       const result = await lambda.invoke(params).promise();
-      console.log({response})
+      //console.log({response})
       setResponse(result);
     } catch (error) {
       setError(error);
@@ -28,11 +28,18 @@ const useLambda = () => {
   };
   return { response, error, loading, invokeLambda };
 };
+
+const getEnvironment = () => {
+  const isLocal = window.location.hostname === 'localhost';
+  return isLocal ? 'dev' : 'prod';
+};
+
 const LambdaTeste = () => {
   const { response, error, loading, invokeLambda } = useLambda();
   const handleButtonClick = async () => {
+    const environment = getEnvironment();
     const functionName = "ApiSerasa-serasa";
-    const payload = { numDocument: "44569144837", tipoPessoa: "PF" };
+    const payload = { numDocument: "00000197041", tipoPessoa: "PF", ambiente: environment };
     console.log("step 1")
     const response = await invokeLambda(functionName, payload);
     console.log({ response });

@@ -18,7 +18,7 @@
       "function": {
         "ApiSerasa": {
           "deploymentBucketName": "amplify-predictus-serasa-155219-deployment",
-          "s3Key": "amplify-builds/ApiSerasa-5a79764d5034486b5461-build.zip"
+          "s3Key": "amplify-builds/ApiSerasa-655a3068754f586f456e-build.zip"
         }
       },
       "api": {
