@@ -106,13 +106,22 @@ function ReportForm() {
       console.log({response, error})
 
       const result = JSON.parse(response.Payload);
-      console.log({result});
+      //console.log({result});
       const responseSerasa = result.response;
       console.log({responseSerasa});
-
-
-
-
+      setState3(responseSerasa);
+      setState(responseSerasa.reports);
+      setIsResultViewVisible(true)
+      try{
+        if(responseSerasa.optionalFeatures.partner.partnershipResponse!==undefined){
+          setState2(responseSerasa.optionalFeatures.partner.partnershipResponse);
+          setIsResultView2Visible(true);
+        }
+      }catch(error){
+        console.log('erro: ',error)
+      }
+      setIsLoading(false);
+      
       /*     
       generateReport(data.documentNumber).then((response) => {
         setState3(response);
@@ -134,6 +143,23 @@ function ReportForm() {
       });
       */
     } else if (data.radioGroup === "PJ") {
+      const respostas = await invokeLambda(functionName, payload)
+      console.log({response, error})
+      const result = JSON.parse(response.Payload);
+      //console.log({result});
+      const responseSerasa = result.response;
+      console.log({responseSerasa});
+
+      setState3(responseSerasa);
+      setState(responseSerasa.reports);
+      setIsResultViewVisible(true)
+      setState2(responseSerasa.optionalFeatures.partner.PartnerResponse.results);
+      setIsLoading(false);
+      if(responseSerasa.optionalFeatures.partner.PartnerResponse.results !== undefined){
+        setIsResultView2Visible(true);
+      }
+    
+      /*
       generateBusinessReport(data.documentNumber).then((response) => {
         setState3(response);
         console.log('json: ', response)
@@ -149,10 +175,12 @@ function ReportForm() {
         setIsLoading(false);
         alert(`Erro ao gerar relatório. Tente novamente mais tarde. Detalhes do erro: ${error.message}`);
       });
+      */
     }
   }
   
   const handleConsultarSocios = async () => {
+    const functionName = "ApiSerasa-serasa";
     console.log('Consultar Sócios clicado');
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
   
@@ -161,19 +189,27 @@ function ReportForm() {
       const row = checkbox.closest('tr');
       const documento = row.querySelector('td:first-child').textContent;
       
+      const getEnvironment = () => {
+        const isLocal = window.location.hostname === 'localhost';
+        return isLocal ? 'dev' : 'prod';
+      };
+
       if (status === true) {
         console.log(documento);
         try {
           if (documento.length <= 12) {
-            console.log('CPF');
-            const responseOpcional = await generateReport(documento);
-            //console.log(responseOpcional);
-            createPDF(JSON.stringify(responseOpcional));
+            const payloadSociosPF = { numDocument: documento, tipoPessoa: "PF", ambiente: getEnvironment() };
+            const responseOpcional = await invokeLambda(functionName, payloadSociosPF)
+            const result = JSON.parse(response.Payload);
+            const responseSerasa = result.response;
+            createPDF(JSON.stringify(responseSerasa));
           } else {
             console.log('CNPJ');
-            const responseOpcional = await generateBusinessReport(documento);
-            //console.log(responseOpcional);
-            createPDFPJ(JSON.stringify(responseOpcional));
+            const payloadSociosPJ = { numDocument: documento, tipoPessoa: "PJ", ambiente: getEnvironment() };
+            const responseOpcional = await invokeLambda(functionName, payloadSociosPJ)
+            const result = JSON.parse(response.Payload);
+            const responseSerasa = result.response;
+            createPDF(JSON.stringify(responseSerasa));
           }
         } catch (error) {
           console.error('Ocorreu um erro na requisição:', error);
