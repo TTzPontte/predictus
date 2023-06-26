@@ -202,6 +202,7 @@ function ReportForm() {
             const responseOpcional = await invokeLambda(functionName, payloadSociosPF)
             const result = JSON.parse(response.Payload);
             const responseSerasa = result.response;
+            console.log({responseSerasa})
             createPDF(JSON.stringify(responseSerasa));
           } else {
             console.log('CNPJ');
@@ -209,7 +210,8 @@ function ReportForm() {
             const responseOpcional = await invokeLambda(functionName, payloadSociosPJ)
             const result = JSON.parse(response.Payload);
             const responseSerasa = result.response;
-            createPDF(JSON.stringify(responseSerasa));
+            console.log({responseSerasa})
+            createPDFPJ(JSON.stringify(responseSerasa));
           }
         } catch (error) {
           console.error('Ocorreu um erro na requisição:', error);

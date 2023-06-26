@@ -14,6 +14,7 @@ function formatarData(data) {
 export function createPDF(jsonFile) {
   //Receber Valores do JSon
   const data = JSON.parse(jsonFile);
+  console.log({data})
   //const data = require('./teste.json');
   
   // Salvar Variáveis de Registro //
