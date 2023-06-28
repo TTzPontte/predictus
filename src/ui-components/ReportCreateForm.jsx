@@ -10,8 +10,7 @@ import {
   Button,
   Flex,
   Grid,
-  Radio,
-  RadioGroupField,
+  SelectField,
   TextField,
 } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
@@ -30,26 +29,30 @@ export default function ReportCreateForm(props) {
     ...rest
   } = props;
   const initialValues = {
-    type: undefined,
     documentNumber: "",
     pipefyId: "",
+    type: "",
+    status: "",
   };
-  const [type, setType] = React.useState(initialValues.type);
   const [documentNumber, setDocumentNumber] = React.useState(
     initialValues.documentNumber
   );
   const [pipefyId, setPipefyId] = React.useState(initialValues.pipefyId);
+  const [type, setType] = React.useState(initialValues.type);
+  const [status, setStatus] = React.useState(initialValues.status);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
-    setType(initialValues.type);
     setDocumentNumber(initialValues.documentNumber);
     setPipefyId(initialValues.pipefyId);
+    setType(initialValues.type);
+    setStatus(initialValues.status);
     setErrors({});
   };
   const validations = {
-    type: [{ type: "Required" }],
     documentNumber: [],
     pipefyId: [],
+    type: [],
+    status: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -77,9 +80,10 @@ export default function ReportCreateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
-          type,
           documentNumber,
           pipefyId,
+          type,
+          status,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -125,43 +129,6 @@ export default function ReportCreateForm(props) {
       {...getOverrideProps(overrides, "ReportCreateForm")}
       {...rest}
     >
-      <RadioGroupField
-        label="Type"
-        name="type"
-        isReadOnly={false}
-        isRequired={true}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              type: value,
-              documentNumber,
-              pipefyId,
-            };
-            const result = onChange(modelFields);
-            value = result?.type ?? value;
-          }
-          if (errors.type?.hasError) {
-            runValidationTasks("type", value);
-          }
-          setType(value);
-        }}
-        onBlur={() => runValidationTasks("type", type)}
-        errorMessage={errors.type?.errorMessage}
-        hasError={errors.type?.hasError}
-        {...getOverrideProps(overrides, "type")}
-      >
-        <Radio
-          children="Pf"
-          value="PF"
-          {...getOverrideProps(overrides, "typeRadio0")}
-        ></Radio>
-        <Radio
-          children="Pj"
-          value="PJ"
-          {...getOverrideProps(overrides, "typeRadio1")}
-        ></Radio>
-      </RadioGroupField>
       <TextField
         label="Document number"
         isRequired={false}
@@ -171,9 +138,10 @@ export default function ReportCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              type,
               documentNumber: value,
               pipefyId,
+              type,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.documentNumber ?? value;
@@ -197,9 +165,10 @@ export default function ReportCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              type,
               documentNumber,
               pipefyId: value,
+              type,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.pipefyId ?? value;
@@ -214,6 +183,92 @@ export default function ReportCreateForm(props) {
         hasError={errors.pipefyId?.hasError}
         {...getOverrideProps(overrides, "pipefyId")}
       ></TextField>
+      <SelectField
+        label="Type"
+        placeholder="Please select an option"
+        isDisabled={false}
+        value={type}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              documentNumber,
+              pipefyId,
+              type: value,
+              status,
+            };
+            const result = onChange(modelFields);
+            value = result?.type ?? value;
+          }
+          if (errors.type?.hasError) {
+            runValidationTasks("type", value);
+          }
+          setType(value);
+        }}
+        onBlur={() => runValidationTasks("type", type)}
+        errorMessage={errors.type?.errorMessage}
+        hasError={errors.type?.hasError}
+        {...getOverrideProps(overrides, "type")}
+      >
+        <option
+          children="Pf"
+          value="PF"
+          {...getOverrideProps(overrides, "typeoption0")}
+        ></option>
+        <option
+          children="Pj"
+          value="PJ"
+          {...getOverrideProps(overrides, "typeoption1")}
+        ></option>
+      </SelectField>
+      <SelectField
+        label="Status"
+        placeholder="Please select an option"
+        isDisabled={false}
+        value={status}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              documentNumber,
+              pipefyId,
+              type,
+              status: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.status ?? value;
+          }
+          if (errors.status?.hasError) {
+            runValidationTasks("status", value);
+          }
+          setStatus(value);
+        }}
+        onBlur={() => runValidationTasks("status", status)}
+        errorMessage={errors.status?.errorMessage}
+        hasError={errors.status?.hasError}
+        {...getOverrideProps(overrides, "status")}
+      >
+        <option
+          children="Processing"
+          value="PROCESSING"
+          {...getOverrideProps(overrides, "statusoption0")}
+        ></option>
+        <option
+          children="Success"
+          value="SUCCESS"
+          {...getOverrideProps(overrides, "statusoption1")}
+        ></option>
+        <option
+          children="Error serasa"
+          value="ERROR_SERASA"
+          {...getOverrideProps(overrides, "statusoption2")}
+        ></option>
+        <option
+          children="Error pipefy"
+          value="ERROR_PIPEFY"
+          {...getOverrideProps(overrides, "statusoption3")}
+        ></option>
+      </SelectField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}

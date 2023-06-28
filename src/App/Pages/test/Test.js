@@ -1,82 +1,53 @@
 import React, { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { generateBusinessReport, generateReport } from "./service";
-import { Col, Form, FormGroup, Row } from "react-bootstrap";
+import { Col, Form, Row, Button, Container } from "react-bootstrap";
 import Radio from "../../components/Form/Radio";
 import Results from "../../Containers/Searches/Result/Results";
-import {createPDF, createPDFPJ} from "../../servicer/convertToPDF"
+import { createPDF, createPDFPJ } from "../../servicer/convertToPDF";
 import { Auth } from "aws-amplify";
 import Lambda from "aws-sdk/clients/lambda";
+import { Input } from "./components";
+import { handlePDFCreation, handleCheckboxSelection } from "./helpers";
 
-const useLambda = () => {
-  const [response, setResponse] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
-  
-  const invokeLambda = async (functionName, payload) => {
-    try {
-      setLoading(true);
-      const credentials = await Auth.currentCredentials();
-      console.log("---",{credentials});
-      const lambda = new Lambda({ region: "us-east-1", credentials });
-      const params = {
-        FunctionName: functionName,
-        Payload: JSON.stringify(payload),
-      };
-      const result = await lambda.invoke(params).promise();
-      console.log({response})
-      setResponse(result);
-    } catch (error) {
-      setError(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-  return { response, error, loading, invokeLambda };
-};
+const radioOptions = [
+  { label: "PF", value: "PF" },
+  { label: "PJ", value: "PJ" }
+];
 
+const ActionButtons = ({ isResultViewVisible, state, state2, handleBaixarPDF, handleConsultarSocios }) => (
+  <>
+    {isResultViewVisible && (
+      <>
+        <Results list={state} pfOuPj={state2 === "PJ" ? "PJ" : undefined} />
+        <Button variant="primary" onClick={handleBaixarPDF}>
+          Baixar Relatório PDF
+        </Button>
+      </>
+    )}
 
-function Input({ label, name, type, placeholder, required, register }) {
-  return (
-    <FormGroup controlId={name}>
-      <Form.Label>{label}</Form.Label>
-      <Form.Control type={type} placeholder={placeholder} {...register(name, { required })} />
-    </FormGroup>
-  );
-}
-
-const ResultView = ({state, setState})=>{
-  console.log({state, setState})
-  return (
-      <Row className="w-100">
-        <Col className="w-100">
-          {state && state.length > 0 && <Results list={state} />}
-        </Col>
-      </Row>
-  )
-}
-
-const ResultView2 = ({state2, setState2})=>{
-  console.log({state2, setState2})
-  return (
-      <Row className="w-100">
-        <Col className="w-100">
-          {state2 && state2.length > 0 && <Results list={state2} pfOuPj="PJ" />}
-        </Col>
-      </Row>
-  )
-}
+    {isResultViewVisible && (
+      <>
+        <Results list={state2} pfOuPj="PJ" />
+        <Button variant="primary" onClick={handleConsultarSocios}>
+          Consultar Sócios
+        </Button>
+      </>
+    )}
+  </>
+);
 
 function ReportForm() {
   const methods = useForm();
+  const [response, setResponse] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [state, setState] = useState([]);
   const [state2, setState2] = useState([]);
   const [state3, setState3] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isResultViewVisible, setIsResultViewVisible] = useState(false);
-  const [isResultView2Visible, setIsResultView2Visible] = useState(false);
   const [personType, setPersonType] = useState("");
-  
+
   const {
     control,
     handleSubmit,
@@ -84,206 +55,133 @@ function ReportForm() {
     formState: { errors }
   } = methods;
 
-  const getEnvironment = () => {
-    const isLocal = window.location.hostname === 'localhost';
-    return isLocal ? 'dev' : 'prod';
+  const invokeLambda = async (functionName, payload) => {
+    try {
+      const credentials = await Auth.currentCredentials();
+      console.log("---", { credentials });
+      const lambda = new Lambda({ region: "us-east-1", credentials });
+      const params = {
+        FunctionName: functionName,
+        Payload: JSON.stringify(payload)
+      };
+      const result = await lambda.invoke(params).promise();
+      return result;
+    } catch (error) {
+      setError(error);
+    }
   };
-  
 
-  const { response, error, loading, invokeLambda } = useLambda();
+  const getEnvironment = () => {
+    const isLocal = window.location.hostname === "localhost";
+    return isLocal ? "dev" : "prod";
+  };
 
   const onSubmit = async (data) => {
-    console.log('form: ',data)
+    console.log("form: ", data);
     const environment = getEnvironment();
-    const payload = { numDocument: data.documentNumber, tipoPessoa: data.radioGroup, ambiente: environment };
-    console.log({payload})
+    const payload = {
+      numDocument: data.documentNumber,
+      tipoPessoa: data.radioGroup,
+      ambiente: environment
+    };
+    console.log({ payload });
     const functionName = "ApiSerasa-serasa";
     setPersonType(data.radioGroup);
     setIsLoading(true);
-    if (data.radioGroup === "PF") {
 
-      const respostas = await invokeLambda(functionName, payload)
-      console.log({response, error})
-
-      const result = JSON.parse(response.Payload);
-      //console.log({result});
-      const responseSerasa = result.response;
-      console.log({responseSerasa});
-      setState3(responseSerasa);
-      setState(responseSerasa.reports);
-      setIsResultViewVisible(true)
-      try{
-        if(responseSerasa.optionalFeatures.partner.partnershipResponse!==undefined){
-          setState2(responseSerasa.optionalFeatures.partner.partnershipResponse);
-          setIsResultView2Visible(true);
-        }
-      }catch(error){
-        console.log('erro: ',error)
-      }
+    const handleResponse = (response) => {
+      setState3(response);
+      setState(response.reports);
+      setIsResultViewVisible(true);
       setIsLoading(false);
-      
-      /*     
-      generateReport(data.documentNumber).then((response) => {
-        setState3(response);
-        setState(response.reports);
-        setIsResultViewVisible(true)
-        try{
-          if(response.optionalFeatures.partner.partnershipResponse!==undefined){
-            setState2(response.optionalFeatures.partner.partnershipResponse);
-            setIsResultView2Visible(true);
-          }
-        }catch(error){
-          console.log('erro: ',error)
-        }
-        setIsLoading(false);
-      }).catch((error) => {
-        console.error("Erro ao gerar relatório:", error);
-        setIsLoading(false);
-        alert(`Erro ao gerar relatório. Tente novamente mais tarde. Detalhes do erro: ${error.message}`);
-      });
-      */
-    } else if (data.radioGroup === "PJ") {
-      const respostas = await invokeLambda(functionName, payload)
-      console.log({response, error})
-      const result = JSON.parse(response.Payload);
-      //console.log({result});
+      if (response.optionalFeatures.partner?.partnershipResponse !== undefined) {
+        setState2(response.optionalFeatures.partner.partnershipResponse);
+      }
+    };
+
+    try {
+      const res = await invokeLambda(functionName, payload);
+      const result = JSON.parse(res.Payload);
       const responseSerasa = result.response;
-      console.log({responseSerasa});
-
-      setState3(responseSerasa);
-      setState(responseSerasa.reports);
-      setIsResultViewVisible(true)
-      setState2(responseSerasa.optionalFeatures.partner.PartnerResponse.results);
+      console.log({ responseSerasa });
+      handleResponse(responseSerasa);
+    } catch (error) {
+      console.error("Erro ao gerar relatório:", error);
       setIsLoading(false);
-      if(responseSerasa.optionalFeatures.partner.PartnerResponse.results !== undefined){
-        setIsResultView2Visible(true);
-      }
-    
-      /*
-      generateBusinessReport(data.documentNumber).then((response) => {
-        setState3(response);
-        console.log('json: ', response)
-        setState(response.reports);
-        setIsResultViewVisible(true)
-        setState2(response.optionalFeatures.partner.PartnerResponse.results);
-        setIsLoading(false);
-        if(response.optionalFeatures.partner.PartnerResponse.results !== undefined){
-          setIsResultView2Visible(true);
-        }
-      }).catch((error) => {
-        console.error("Erro ao gerar relatório:", error);
-        setIsLoading(false);
-        alert(`Erro ao gerar relatório. Tente novamente mais tarde. Detalhes do erro: ${error.message}`);
-      });
-      */
-    }
-  }
-  
-  const handleConsultarSocios = async () => {
-    const functionName = "ApiSerasa-serasa";
-    console.log('Consultar Sócios clicado');
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  
-    for (const checkbox of checkboxes) {
-      const status = checkbox.checked;
-      const row = checkbox.closest('tr');
-      const documento = row.querySelector('td:first-child').textContent;
-      
-      const getEnvironment = () => {
-        const isLocal = window.location.hostname === 'localhost';
-        return isLocal ? 'dev' : 'prod';
-      };
-
-      if (status === true) {
-        console.log(documento);
-        try {
-          if (documento.length <= 12) {
-            const payloadSociosPF = { numDocument: documento, tipoPessoa: "PF", ambiente: getEnvironment() };
-            const responseOpcional = await invokeLambda(functionName, payloadSociosPF)
-            const result = JSON.parse(response.Payload);
-            const responseSerasa = result.response;
-            console.log({responseSerasa})
-            createPDF(JSON.stringify(responseSerasa));
-          } else {
-            console.log('CNPJ');
-            const payloadSociosPJ = { numDocument: documento, tipoPessoa: "PJ", ambiente: getEnvironment() };
-            const responseOpcional = await invokeLambda(functionName, payloadSociosPJ)
-            const result = JSON.parse(response.Payload);
-            const responseSerasa = result.response;
-            console.log({responseSerasa})
-            createPDFPJ(JSON.stringify(responseSerasa));
-          }
-        } catch (error) {
-          console.error('Ocorreu um erro na requisição:', error);
-          alert(`Erro ao gerar relatório para: ${documento}. Detalhes do erro: ${error.message}`);
-          // Tratar o erro de acordo com a necessidade
-        }
-      }
+      alert(`Erro ao gerar relatório. Tente novamente mais tarde. Detalhes do erro: ${error.message}`);
     }
   };
-  
+
+  const handleConsultarSocios = async () => {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    const getPayload = (documento, tipoPessoa) => ({
+      numDocument: documento,
+      tipoPessoa,
+      ambiente: getEnvironment()
+    });
+
+    await handleCheckboxSelection(checkboxes, getPayload, invokeLambda, createPDF, createPDFPJ);
+  };
+
   const handleBaixarPDF = () => {
-    console.log('Baixar PDF clicado ', personType);
-    if(personType==="PF"){
-      console.log('clicado em PF')
-      createPDF(JSON.stringify(state3));
-    } else{
-      console.log('clicado em PJ')
-      createPDFPJ(JSON.stringify(state3));
-    }
-  }
+    console.log("Baixar PDF clicado ", personType);
+    const reportData = JSON.stringify(state3);
+    handlePDFCreation(personType, reportData);
+  };
 
-  const radioOptions = [
-    { label: "PF", value: "PF" },
-    { label: "PJ", value: "PJ" }
-  ];
-  
   return (
-    <FormProvider {...methods}>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-      <Radio
-          label="Tipo de Pessoa"
-          name="radioGroup"
-          options={radioOptions}
-          inline
-          control={control}
-        />
-        <Row>
-          <Col sm={4}>
-            <Input
-              type="text"
-              label="Número do Documento"
-              name="documentNumber"
-              placeholder="Document number"
-              register={register}
-              required
-            />
-          </Col>
-          <Col sm={5}>
-            <Input
-              type="text"
-              label="ID Pipefy"
-              name="idPipefy"
-              placeholder="Id Pipefy"
-              register={register}
-            />
-          </Col>
-        </Row>
-        {errors.documentNumber && <span>{errors.documentNumber.message}</span>}
-        <br></br>
-        <input type="submit" value="Realizar Consulta" /><br></br><br></br><br></br>
+    <Container>
+      <Row>
+        <Col>
+          <FormProvider {...methods}>
+            <Form onSubmit={handleSubmit(onSubmit)}>
+              <Form.Group as={Row} controlId="formTipoPessoa">
+                <Form.Label column sm={2}>
+                  Tipo de Pessoa
+                </Form.Label>
+                <Col sm={10}>
+                  <Radio label="" name="radioGroup" options={radioOptions} inline control={control} />
+                </Col>
+              </Form.Group>
+              <Form.Group as={Row} controlId="formNumeroDocumento">
+                <Form.Label column sm={2}>
+                  Número do Documento
+                </Form.Label>
+                <Col sm={4}>
+                  <Input
+                    type="text"
+                    label=""
+                    name="documentNumber"
+                    placeholder="Document number"
+                    register={register}
+                    required
+                  />
+                  {errors.documentNumber && (
+                    <Form.Text className="text-danger">{errors.documentNumber.message}</Form.Text>
+                  )}
+                </Col>
+                <Form.Label column sm={2}>
+                  ID Pipefy
+                </Form.Label>
+                <Col sm={4}>
+                  <Input type="text" label="" name="idPipefy" placeholder="Id Pipefy" register={register} />
+                </Col>
+              </Form.Group>
+              <Button variant="primary" type="submit">
+                Realizar Consulta
+              </Button>
+            </Form>
 
-      </Form>
-      <br></br><br></br>
-
-      {isLoading ? <div><h2>Carregando...</h2></div> : null}
-      <ResultView {...{state, setState}}/><br></br>
-      {isResultViewVisible ? <button onClick={handleBaixarPDF}>Baixar Relatório PDF</button> : null}<br></br><br></br><br></br>
-      {isResultView2Visible ? <ResultView2 {...{state2, setState2}}/> : null}<br></br>
-      {isResultView2Visible ? <button onClick={handleConsultarSocios}>Consultar Sócios</button> : null}<br></br><br></br>
-    </FormProvider>
+            {isLoading && <h2>Carregando...</h2>}
+            <ActionButtons
+              {...{ isResultViewVisible, state, state2, handleBaixarPDF, handleConsultarSocios }}
+            />
+          </FormProvider>
+        </Col>
+      </Row>
+    </Container>
   );
-
 }
 
 export default ReportForm;
