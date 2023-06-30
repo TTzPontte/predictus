@@ -13,7 +13,7 @@ const radioOptions = [
   { label: 'PJ', value: 'PJ' }
 ];
 
-const getEnvironment = () => (window.location.hostname === 'localhost' ? 'dev' : 'prod');
+const getEnvironment = () => (window.location.hostname === 'localhost' ? 'prod' : 'prod');
 
 const invokeLambda = async (functionName, payload) => {
   const credentials = await Auth.currentCredentials();
