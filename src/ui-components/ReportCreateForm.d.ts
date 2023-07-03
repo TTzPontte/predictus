@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { GridProps, SelectFieldProps, TextFieldProps } from "@aws-amplify/ui-react";
+import { GridProps, RadioGroupFieldProps, TextFieldProps } from "@aws-amplify/ui-react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 export declare type ValidationResponse = {
     hasError: boolean;
@@ -13,24 +13,21 @@ export declare type ValidationResponse = {
 };
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type ReportCreateFormInputValues = {
+    type?: string;
     documentNumber?: string;
     pipefyId?: string;
-    type?: string;
-    status?: string;
 };
 export declare type ReportCreateFormValidationValues = {
+    type?: ValidationFunction<string>;
     documentNumber?: ValidationFunction<string>;
     pipefyId?: ValidationFunction<string>;
-    type?: ValidationFunction<string>;
-    status?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type ReportCreateFormOverridesProps = {
     ReportCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
+    type?: PrimitiveOverrideProps<RadioGroupFieldProps>;
     documentNumber?: PrimitiveOverrideProps<TextFieldProps>;
     pipefyId?: PrimitiveOverrideProps<TextFieldProps>;
-    type?: PrimitiveOverrideProps<SelectFieldProps>;
-    status?: PrimitiveOverrideProps<SelectFieldProps>;
 } & EscapeHatchProps;
 export declare type ReportCreateFormProps = React.PropsWithChildren<{
     overrides?: ReportCreateFormOverridesProps | undefined | null;

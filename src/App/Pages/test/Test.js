@@ -7,13 +7,15 @@ import Results from '../../Containers/Searches/Result/Results';
 import { Auth } from 'aws-amplify';
 import Lambda from 'aws-sdk/clients/lambda';
 import Button from "react-bootstrap/Button";
+import { DataStore } from '@aws-amplify/datastore';
+import { Report, ClientType, ReportStatus } from '../../../models';
 
 const radioOptions = [
   { label: 'PF', value: 'PF' },
   { label: 'PJ', value: 'PJ' }
 ];
 
-const getEnvironment = () => (window.location.hostname === 'localhost' ? 'prod' : 'prod');
+const getEnvironment = () => (window.location.hostname === 'localhost' ? 'dev' : 'prod');
 
 const invokeLambda = async (functionName, payload) => {
   const credentials = await Auth.currentCredentials();
@@ -24,6 +26,28 @@ const invokeLambda = async (functionName, payload) => {
     Payload: JSON.stringify(payload)
   }).promise();
 };
+
+const createReport = async (payload)=>{
+  const item = await DataStore.save(
+    new Report({
+    "documentNumber": payload.numDocument,
+    "pipefyId": payload.idPipefy,
+    "type": ClientType.PF,
+    "status": ReportStatus.PROCESSING
+    })
+  );
+  return item
+}
+
+async function updateReport(id, status) {
+  const original = await DataStore.query(Report, id);
+  const updateReport = await DataStore.save(
+    Report.copyOf(original, updated => {
+      updated.status = status
+    })
+  );
+  return updateReport
+}
 
 function ReportForm() {
   const methods = useForm();
@@ -46,24 +70,43 @@ function ReportForm() {
     const payload = {
       numDocument: data.documentNumber,
       tipoPessoa: data.radioGroup,
+      idPipefy: data.idPipefy,
       ambiente
     };
     console.log({ payload });
     setLoading(true);
-
+    
+    const reportItem = await createReport(payload)
+    console.log({reportItem})
+    
     try {
       const result = await invokeLambda('ApiSerasa-serasa', payload);
-      const response = JSON.parse(result.Payload);
-      console.log({ response });
+      //const statusReq = response.statusCode;
+      const requestSerasa = JSON.parse(result.Payload)
+      const statusRequest = requestSerasa.statusCode
+      
+        if(statusRequest===200){
+        const updateItem = await updateReport(reportItem.id, ReportStatus.SUCCESS)
+        console.log({updateItem})
+        const response = JSON.parse(result.Payload);
+        console.log({ response });
 
-      setState3(response.response);
-      setState(response.response.reports);
-      if (response.response.optionalFeatures?.partner?.partnershipResponse !== undefined) {
-        setState2(response.response.optionalFeatures.partner.partnershipResponse);
+        setState3(response.response);
+        setState(response.response.reports);
+
+        
+        if (response.response.optionalFeatures?.partner?.partnershipResponse !== undefined) {
+          setState2(response.response.optionalFeatures.partner.partnershipResponse);
+        }else{
+          await updateReport(reportItem.id, ReportStatus.ERROR_SERASA)
+        }
+      }else{
+        alert('Ocorreu um erro ao consultar o Serasa. Código do erro: ', String(statusRequest));
+        await updateReport(reportItem.id, ReportStatus.ERROR_SERASA)
       }
-
       setPersonType(data.radioGroup);
     } catch (error) {
+      await updateReport(reportItem.id, ReportStatus.ERROR_SERASA)
       console.log('Ocorreu um erro na requisição:', error);
     } finally {
       setLoading(false);
