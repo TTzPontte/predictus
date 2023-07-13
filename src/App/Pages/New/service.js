@@ -19,7 +19,7 @@ const getToken = async () => {
   const {
     data: { accessToken }
   } = await axios.post(loginUrl, payload, { headers });
-  console.log(`Token gerado com sucesso!\n${accessToken}\n\n\n`);
+  //console.log(`Token gerado com sucesso!\n${accessToken}\n\n\n`);
   return accessToken;
 };
 export const generateBusinessReport = async (numDocument) => {
