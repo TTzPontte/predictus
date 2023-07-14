@@ -66,6 +66,8 @@ function ReportForm() {
 
   const onSubmit = async (data) => {
     console.log('form: ', data);
+    data.documentNumber = data.documentNumber.replace(/\D/g, ''); 
+    console.log('documento: ', data.documentNumber)
     const ambiente = getEnvironment();
     const payload = {
       numDocument: data.documentNumber,
@@ -121,6 +123,46 @@ function ReportForm() {
     }
   };
 
+  const handleConsultarSociosClick = async () => {
+    const functionName = "ApiSerasa-serasa";
+    console.log('Consultar Sócios clicado');
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  
+    for (const checkbox of checkboxes) {
+      const status = checkbox.checked;
+      const row = checkbox.closest('tr');
+      const documento = row.querySelector('td:first-child').textContent;
+      
+      if (status === true) {
+        console.log(documento);
+        try {
+          if (documento.length <= 12) {
+            console.log("Documento: CPF")
+            const payloadSociosPF = { numDocument: documento, tipoPessoa: "PF", ambiente: getEnvironment() };
+            const responseOpcional = await invokeLambda(functionName, payloadSociosPF)
+            const result = JSON.parse(responseOpcional.Payload);
+            const responseSerasa = result.response;
+            console.log({responseSerasa})
+            createPDF(JSON.stringify(responseSerasa));
+          } else {
+            console.log('CNPJ');
+            const payloadSociosPJ = { numDocument: documento, tipoPessoa: "PJ", ambiente: getEnvironment() };
+            const responseOpcional = await invokeLambda(functionName, payloadSociosPJ)
+            console.log({responseOpcional})
+            const result = JSON.parse(responseOpcional.Payload);
+            const responseSerasa = result.response;
+            console.log({responseSerasa})
+            createPDFPJ(JSON.stringify(responseSerasa));
+          }
+        } catch (error) {
+          console.error('Ocorreu um erro na requisição:', error);
+          alert(`Erro ao gerar relatório para: ${documento}. Detalhes do erro: ${error.message}`);
+          // Tratar o erro de acordo com a necessidade
+        }
+      }
+    }
+  };
+
   return (
       <FormProvider {...methods}>
         <Form onSubmit={handleSubmit(onSubmit)}>
@@ -138,13 +180,15 @@ function ReportForm() {
                 <Form.Control type="text" placeholder="Id Pipefy" {...register('idPipefy')} />
               </FormGroup>
             </Col>
-          </Row>
+          </Row><br />
           {errors.documentNumber && <span>{errors.documentNumber.message}</span>}
-          <Button type="submit" color="primary">Realizar Consulta</Button>
+          <Button type="submit" color="primary">Realizar Consulta</Button><br />
           {loading && <h2>Carregando...</h2>}
-          {state.length > 0 && <Results list={state} />}
-          <Button onClick={handleDownloadPDF}>Baixar Relatório PDF</Button>
-          {state2.length > 0 && <Results list={state2} pfOuPj="PJ" />}
+          {state.length > 0 && <Results list={state} />}<br />
+          {state.length > 0 && <Button onClick={handleDownloadPDF}>Baixar Relatório PDF</Button> }
+          <br /><br />
+          {state2.length > 0 && <Results list={state2} pfOuPj="PJ" />}<br />
+          {state2.length > 0 && <Button onClick={handleConsultarSociosClick}>Consultar Sócios</Button> }
         </Form>
       </FormProvider>
   );
