@@ -261,8 +261,9 @@ function ReportForm() {
           </Col>
           <Col sm={5}>
             <Input
-              type="text"
-              label="ID Pipefy"
+              type="hidden"
+              //type="text"
+              //label="ID Pipefy"
               name="idPipefy"
               placeholder="Id Pipefy"
               register={register}

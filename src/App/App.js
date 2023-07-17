@@ -20,7 +20,7 @@ const Layout = ({ children }) => (
       <header className="header header--sticky-default header--unlogged">
         <Navbar bg="light" variant="light">
           <Navbar.Brand>
-            <h1 className="">Teste </h1>
+            <h1 className="">Consulta Serasa</h1>
           </Navbar.Brand>
         </Navbar>
       </header>
