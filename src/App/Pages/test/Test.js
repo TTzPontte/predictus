@@ -164,49 +164,33 @@ function ReportForm() {
   };
 
   return (
-    <FormProvider {...methods}>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-      <Radio
-          label="Tipo de Pessoa"
-          name="radioGroup"
-          options={radioOptions}
-          inline
-          control={control}
-        />
-        <Row>
-          <Col sm={4}>
-            <Input
-              type="text"
-              label="Número do Documento"
-              name="documentNumber"
-              placeholder="Document number"
-              register={register}
-              required
-            />
-          </Col>
-          <Col sm={5}>
-            <Input
-              type="text"
-              label="ID Pipefy"
-              name="idPipefy"
-              placeholder="Id Pipefy"
-              register={register}
-            />
-          </Col>
-        </Row>
-        {errors.documentNumber && <span>{errors.documentNumber.message}</span>}
-        <br></br>
-        <input type="submit" value="Realizar Consulta" /><br></br><br></br><br></br>
-
-      </Form>
-      <br></br><br></br>
-
-      {isLoading ? <div><h2>Carregando...</h2></div> : null}
-      <ResultView {...{state, setState}}/><br></br>
-      {isResultViewVisible ? <button onClick={handleBaixarPDF}>Baixar Relatório PDF</button> : null}<br></br><br></br><br></br>
-      {isResultView2Visible ? <ResultView2 {...{state2, setState2}}/> : null}<br></br>
-      {isResultView2Visible ? <button onClick={handleConsultarSocios}>Consultar Sócios</button> : null}<br></br><br></br>
-    </FormProvider>
+      <FormProvider {...methods}>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <Radio label="Tipo de Pessoa" name="radioGroup" options={radioOptions} inline control={control} />
+          <Row>
+            <Col sm={4}>
+              <FormGroup controlId="documentNumber">
+                <Form.Label>Número do Documento</Form.Label>
+                <Form.Control type="text" placeholder="Document number" {...register('documentNumber', { required: true })} />
+              </FormGroup>
+            </Col>
+            <Col sm={5}>
+              <FormGroup controlId="idPipefy">
+                <Form.Label></Form.Label>
+                <Form.Control type="hidden" placeholder="Id Pipefy" {...register('idPipefy')} />
+              </FormGroup>
+            </Col>
+          </Row><br />
+          {errors.documentNumber && <span>{errors.documentNumber.message}</span>}
+          <Button type="submit" color="primary">Realizar Consulta</Button><br />
+          {loading && <h2>Carregando...</h2>}
+          {state.length > 0 && <Results list={state} />}<br />
+          {state.length > 0 && <Button onClick={handleDownloadPDF}>Baixar Relatório PDF</Button> }
+          <br /><br />
+          {state2.length > 0 && <Results list={state2} pfOuPj="PJ" />}<br />
+          {state2.length > 0 && <Button onClick={handleConsultarSociosClick}>Consultar Sócios</Button> }
+        </Form>
+      </FormProvider>
   );
 }
 
