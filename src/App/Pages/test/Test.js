@@ -1,185 +1,129 @@
-import React, { useState } from "react";
-import { FormProvider, useForm } from "react-hook-form";
-import { generateBusinessReport, generateReport } from "./service";
-import { Col, Form, FormGroup, Row } from "react-bootstrap";
-import Radio from "../../components/Form/Radio";
-import Results from "../../Containers/Searches/Result/Results";
-import {createPDF, createPDFPJ} from "../../servicer/convertToPDF"
-import { Auth } from "aws-amplify";
-import Lambda from "aws-sdk/clients/lambda";
+import React, { useState } from 'react';
+import { useForm, FormProvider } from 'react-hook-form';
+import { Form, Col, Row, FormGroup } from 'react-bootstrap';
+import Radio from '../../components/Form/Radio';
+import { createPDF, createPDFPJ } from '../../servicer/convertToPDF';
+import Results from '../../Containers/Searches/Result/Results';
+import { Auth } from 'aws-amplify';
+import Lambda from 'aws-sdk/clients/lambda';
+import Button from "react-bootstrap/Button";
+import { DataStore } from '@aws-amplify/datastore';
+import { Report, ClientType, ReportStatus } from '../../../models';
 
-const useLambda = () => {
-  const [response, setResponse] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
-  
-  const invokeLambda = async (functionName, payload) => {
-    try {
-      setLoading(true);
-      const credentials = await Auth.currentCredentials();
-      console.log("---",{credentials});
-      const lambda = new Lambda({ region: "us-east-1", credentials });
-      const params = {
-        FunctionName: functionName,
-        Payload: JSON.stringify(payload),
-      };
-      const result = await lambda.invoke(params).promise();
-      console.log({response})
-      setResponse(result);
-    } catch (error) {
-      setError(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-  return { response, error, loading, invokeLambda };
+const radioOptions = [
+  { label: 'PF', value: 'PF' },
+  { label: 'PJ', value: 'PJ' }
+];
+
+const getEnvironment = () => (window.location.hostname === 'localhost' ? 'dev' : 'prod');
+
+const invokeLambda = async (functionName, payload) => {
+  const credentials = await Auth.currentCredentials();
+  const lambda = new Lambda({ region: 'us-east-1', credentials });
+
+  return lambda.invoke({
+    FunctionName: functionName,
+    Payload: JSON.stringify(payload)
+  }).promise();
 };
 
-
-function Input({ label, name, type, placeholder, required, register }) {
-  return (
-    <FormGroup controlId={name}>
-      <Form.Label>{label}</Form.Label>
-      <Form.Control type={type} placeholder={placeholder} {...register(name, { required })} />
-    </FormGroup>
+const createReport = async (payload)=>{
+  const item = await DataStore.save(
+    new Report({
+    "documentNumber": payload.numDocument,
+    "pipefyId": payload.idPipefy,
+    "type": ClientType.PF,
+    "status": ReportStatus.PROCESSING
+    })
   );
+  return item
 }
 
-const ResultView = ({state, setState})=>{
-  console.log({state, setState})
-  return (
-      <Row className="w-100">
-        <Col className="w-100">
-          {state && state.length > 0 && <Results list={state} />}
-        </Col>
-      </Row>
-  )
-}
-
-const ResultView2 = ({state2, setState2})=>{
-  console.log({state2, setState2})
-  return (
-      <Row className="w-100">
-        <Col className="w-100">
-          {state2 && state2.length > 0 && <Results list={state2} pfOuPj="PJ" />}
-        </Col>
-      </Row>
-  )
+async function updateReport(id, status) {
+  const original = await DataStore.query(Report, id);
+  const updateReport = await DataStore.save(
+    Report.copyOf(original, updated => {
+      updated.status = status
+    })
+  );
+  return updateReport
 }
 
 function ReportForm() {
   const methods = useForm();
-  const [state, setState] = useState([]);
-  const [state2, setState2] = useState([]);
-  const [state3, setState3] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isResultViewVisible, setIsResultViewVisible] = useState(false);
-  const [isResultView2Visible, setIsResultView2Visible] = useState(false);
-  const [personType, setPersonType] = useState("");
-  
   const {
     control,
-    handleSubmit,
     register,
+    handleSubmit,
     formState: { errors }
   } = methods;
 
-  const getEnvironment = () => {
-    const isLocal = window.location.hostname === 'localhost';
-    return isLocal ? 'dev' : 'prod';
-  };
-  
-
-  const { response, error, loading, invokeLambda } = useLambda();
+  const [loading, setLoading] = useState(false);
+  const [state, setState] = useState([]);
+  const [state2, setState2] = useState([]);
+  const [state3, setState3] = useState([]);
+  const [personType, setPersonType] = useState("");
 
   const onSubmit = async (data) => {
-    console.log('form: ',data)
-    const environment = getEnvironment();
-    const payload = { numDocument: data.documentNumber, tipoPessoa: data.radioGroup, ambiente: environment };
-    console.log({payload})
-    const functionName = "ApiSerasa-serasa";
-    setPersonType(data.radioGroup);
-    setIsLoading(true);
-    if (data.radioGroup === "PF") {
-
-      const respostas = await invokeLambda(functionName, payload)
-      console.log({response, error})
-
-      const result = JSON.parse(response.Payload);
-      //console.log({result});
-      const responseSerasa = result.response;
-      console.log({responseSerasa});
-      setState3(responseSerasa);
-      setState(responseSerasa.reports);
-      setIsResultViewVisible(true)
-      try{
-        if(responseSerasa.optionalFeatures.partner.partnershipResponse!==undefined){
-          setState2(responseSerasa.optionalFeatures.partner.partnershipResponse);
-          setIsResultView2Visible(true);
-        }
-      }catch(error){
-        console.log('erro: ',error)
-      }
-      setIsLoading(false);
-      
-      /*     
-      generateReport(data.documentNumber).then((response) => {
-        setState3(response);
-        setState(response.reports);
-        setIsResultViewVisible(true)
-        try{
-          if(response.optionalFeatures.partner.partnershipResponse!==undefined){
-            setState2(response.optionalFeatures.partner.partnershipResponse);
-            setIsResultView2Visible(true);
-          }
-        }catch(error){
-          console.log('erro: ',error)
-        }
-        setIsLoading(false);
-      }).catch((error) => {
-        console.error("Erro ao gerar relatório:", error);
-        setIsLoading(false);
-        alert(`Erro ao gerar relatório. Tente novamente mais tarde. Detalhes do erro: ${error.message}`);
-      });
-      */
-    } else if (data.radioGroup === "PJ") {
-      const respostas = await invokeLambda(functionName, payload)
-      console.log({response, error})
-      const result = JSON.parse(response.Payload);
-      //console.log({result});
-      const responseSerasa = result.response;
-      console.log({responseSerasa});
-
-      setState3(responseSerasa);
-      setState(responseSerasa.reports);
-      setIsResultViewVisible(true)
-      setState2(responseSerasa.optionalFeatures.partner.PartnerResponse.results);
-      setIsLoading(false);
-      if(responseSerasa.optionalFeatures.partner.PartnerResponse.results !== undefined){
-        setIsResultView2Visible(true);
-      }
+    console.log('form: ', data);
+    data.documentNumber = data.documentNumber.replace(/\D/g, ''); 
+    console.log('documento: ', data.documentNumber)
+    const ambiente = getEnvironment();
+    const payload = {
+      numDocument: data.documentNumber,
+      tipoPessoa: data.radioGroup,
+      idPipefy: data.idPipefy,
+      ambiente
+    };
+    console.log({ payload });
+    setLoading(true);
     
-      /*
-      generateBusinessReport(data.documentNumber).then((response) => {
-        setState3(response);
-        console.log('json: ', response)
-        setState(response.reports);
-        setIsResultViewVisible(true)
-        setState2(response.optionalFeatures.partner.PartnerResponse.results);
-        setIsLoading(false);
-        if(response.optionalFeatures.partner.PartnerResponse.results !== undefined){
-          setIsResultView2Visible(true);
+    const reportItem = await createReport(payload)
+    console.log({reportItem})
+    
+    try {
+      const result = await invokeLambda('ApiSerasa-serasa', payload);
+      //const statusReq = response.statusCode;
+      const requestSerasa = JSON.parse(result.Payload)
+      const statusRequest = requestSerasa.statusCode
+      
+        if(statusRequest===200){
+        const updateItem = await updateReport(reportItem.id, ReportStatus.SUCCESS)
+        console.log({updateItem})
+        const response = JSON.parse(result.Payload);
+        console.log({ response });
+
+        setState3(response.response);
+        setState(response.response.reports);
+
+        
+        if (response.response.optionalFeatures?.partner?.partnershipResponse !== undefined) {
+          setState2(response.response.optionalFeatures.partner.partnershipResponse);
+        }else{
+          await updateReport(reportItem.id, ReportStatus.ERROR_SERASA)
         }
-      }).catch((error) => {
-        console.error("Erro ao gerar relatório:", error);
-        setIsLoading(false);
-        alert(`Erro ao gerar relatório. Tente novamente mais tarde. Detalhes do erro: ${error.message}`);
-      });
-      */
+      }else{
+        alert('Ocorreu um erro ao consultar o Serasa. Código do erro: ', String(statusRequest));
+        await updateReport(reportItem.id, ReportStatus.ERROR_SERASA)
+      }
+      setPersonType(data.radioGroup);
+    } catch (error) {
+      await updateReport(reportItem.id, ReportStatus.ERROR_SERASA)
+      console.log('Ocorreu um erro na requisição:', error);
+    } finally {
+      setLoading(false);
     }
-  }
-  
-  const handleConsultarSocios = async () => {
+  };
+
+  const handleDownloadPDF = () => {
+    if (personType === 'PF') {
+      createPDF(JSON.stringify(state3));
+    } else {
+      createPDFPJ(JSON.stringify(state3));
+    }
+  };
+
+  const handleConsultarSociosClick = async () => {
     const functionName = "ApiSerasa-serasa";
     console.log('Consultar Sócios clicado');
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -189,18 +133,14 @@ function ReportForm() {
       const row = checkbox.closest('tr');
       const documento = row.querySelector('td:first-child').textContent;
       
-      const getEnvironment = () => {
-        const isLocal = window.location.hostname === 'localhost';
-        return isLocal ? 'dev' : 'prod';
-      };
-
       if (status === true) {
         console.log(documento);
         try {
           if (documento.length <= 12) {
+            console.log("Documento: CPF")
             const payloadSociosPF = { numDocument: documento, tipoPessoa: "PF", ambiente: getEnvironment() };
             const responseOpcional = await invokeLambda(functionName, payloadSociosPF)
-            const result = JSON.parse(response.Payload);
+            const result = JSON.parse(responseOpcional.Payload);
             const responseSerasa = result.response;
             console.log({responseSerasa})
             createPDF(JSON.stringify(responseSerasa));
@@ -208,7 +148,8 @@ function ReportForm() {
             console.log('CNPJ');
             const payloadSociosPJ = { numDocument: documento, tipoPessoa: "PJ", ambiente: getEnvironment() };
             const responseOpcional = await invokeLambda(functionName, payloadSociosPJ)
-            const result = JSON.parse(response.Payload);
+            console.log({responseOpcional})
+            const result = JSON.parse(responseOpcional.Payload);
             const responseSerasa = result.response;
             console.log({responseSerasa})
             createPDFPJ(JSON.stringify(responseSerasa));
@@ -221,23 +162,7 @@ function ReportForm() {
       }
     }
   };
-  
-  const handleBaixarPDF = () => {
-    console.log('Baixar PDF clicado ', personType);
-    if(personType==="PF"){
-      console.log('clicado em PF')
-      createPDF(JSON.stringify(state3));
-    } else{
-      console.log('clicado em PJ')
-      createPDFPJ(JSON.stringify(state3));
-    }
-  }
 
-  const radioOptions = [
-    { label: "PF", value: "PF" },
-    { label: "PJ", value: "PJ" }
-  ];
-  
   return (
     <FormProvider {...methods}>
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -261,9 +186,8 @@ function ReportForm() {
           </Col>
           <Col sm={5}>
             <Input
-              type="hidden"
-              //type="text"
-              //label="ID Pipefy"
+              type="text"
+              label="ID Pipefy"
               name="idPipefy"
               placeholder="Id Pipefy"
               register={register}
@@ -284,7 +208,6 @@ function ReportForm() {
       {isResultView2Visible ? <button onClick={handleConsultarSocios}>Consultar Sócios</button> : null}<br></br><br></br>
     </FormProvider>
   );
-
 }
 
 export default ReportForm;
