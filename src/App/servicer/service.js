@@ -1,102 +1,68 @@
-const axios = require("axios");
-const base_url =
-  "https://juris.predictus.inf.br:8443/predictus-api/lawsuits/search/stream";
+import axios from "axios";
 
-exports.Service = async ({body, callback, action}) => {
-  let url, method, Authorization, data;
-  const TOKEN = "xxxxx";
+//Endpoint's
+const loginUrl = "/security/iam/v1/client-identities/login";
+const reportUrl = "/credit-services/person-information-report/v1/creditreport";
+const businessReportUrl ="/credit-services/business-information-report/v1/reports"
 
-  if (action === "getToken") {
-    method = "POST";
-    data = {
-      username: "pontte.homologacao",
-      password: "!7@f+6zEh^)N&Wy3Q2nxc*jDPge58KLdvFsuwCAZHbSmtI(Y"
-    };
-    url = `https://juris.predictus.inf.br:8443/auth`;
-  } else if (action === "getClientCPF") {
-    Authorization = `Bearer ${TOKEN}`;
-    method = "GET";
-    url = base_url;
-    data = body;
-    delete body.cpf;
-  }
-
-  const config = {
-    url: url,
-    method: method,
-    headers: { "Content-Type": "text/plain" },
-    timeout: 15000
+//Gerar Token
+const getToken = async () => {
+  const payload = {};
+  const headers = {
+    "Content-Type": "application/json",
+    //Authorization: "Basic NjQwOGRiOGYxMzI5NzY1ZWIyYTk0YmYyOjBmYjQ5YTJiZTU2NzkyMzFmOGJkODA0Ng==" // DEV
+    Authorization: "Basic NjQ4NzA4M2E0ZGU1Y2U0ZTgxZGM4YmNlOmRjYjhjZDE4ZTRlYzVlZDRhMzgwNzg0Ng==" //Prod
   };
-  if (!!Authorization) {
-    config.headers.Authorization = Authorization;
-  }
+  const {
+    data: { accessToken }
+  } = await axios.post(loginUrl, payload, { headers });
+  console.log(`Token gerado com sucesso!\n${accessToken}\n\n\n`);
+  return accessToken;
+};
 
-  delete body.action;
+//Relatório PJ
+export const generateBusinessReport = async (numDocument) => {
+  const reportName = "PACOTE_BASICO_FINTECH";
+  const optionalFeatures = "QSA";
+  const documentId = numDocument;
+  const token = await getToken();
 
-  if (data && data !== {}) {
-    config.data = JSON.stringify(data);
-  }
+  const headers = {
+    "X-Document-id": documentId,
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`
+  };
 
-  console.log(config);
+  const params = {
+    reportName: reportName,
+    optionalFeatures: optionalFeatures
+  };
 
-  if (!config.url || !config.method) {
-    throw new Error("Configuração errada");
-  }
-
-  return axios(config)
-    .then((result) => {
-      let body;
-      console.log("Success");
-
-      if (result.data.erro === "ERRO") {
-        body = {
-          statusCode: 400,
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Credentials": true
-          },
-          body: JSON.stringify({ data: result.data })
-        };
-      } else {
-        body = {
-          statusCode: 200,
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Credentials": true
-          },
-          body: JSON.stringify({ data: result.data })
-        };
-      }
-
-      console.log(body);
-
-      callback(null, body);
+  return axios
+    .get(businessReportUrl, { headers, params })
+    .then((response) => {
+      return response.data;
     })
-    .catch((e) => {
-      console.log("Error");
-      console.log(e.request);
-      console.log(e.response.data);
-      console.log(e.response.status);
-      console.log(e.response.headers);
-      const body = {
-        statusCode: e.response.status,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Credentials": true
-        },
-        body: JSON.stringify({ data: e.response.data })
-      };
-      callback(null, body);
+    .catch((error) => {
+      console.error(error);
+      throw new Error("Erro ao gerar relatório");
     });
 };
 
-// const response = await axios.post(
-//   "https://juris.predictus.inf.br:8443/predictus- api/lawsuits/search/stream",
-//   "",
-//   {
-//     headers: {
-//       "Content-Type": "application/json",
-//       Authorization: "Bearer TOKEN"
-//     }
-//   }
-// );
+//Relatório PF
+export const generateReport = async (numDocument) => {
+  const payload = {
+    documentNumber: numDocument,
+    reportName: "COMBO_CONCESSAO_COM_SCORE_FINTECH",
+    optionalFeatures: ["PARTICIPACAO_SOCIETARIA"]
+  };
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${await getToken()}`
+  };
+  //console.log(payload)
+  const { data } = await axios.post(reportUrl, payload, { headers });
+  console.log('dados: ',data);
+  //console.log(data.optionalFeatures.partner.partnershipResponse);
+  return data;
+};
