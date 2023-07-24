@@ -91,14 +91,15 @@ function ReportForm() {
         const updateItem = await updateReport(reportItem.id, ReportStatus.SUCCESS)
         console.log({updateItem})
         const response = JSON.parse(result.Payload);
-        console.log({ response });
-
+        console.log('Respostas:', { response });
+        console.log({result})
         setState3(response.response);
         setState(response.response.reports);
 
         
         if (response.response.optionalFeatures?.partner?.partnershipResponse !== undefined) {
           setState2(response.response.optionalFeatures.partner.partnershipResponse);
+          console.log({state2})
         }else{
           await updateReport(reportItem.id, ReportStatus.ERROR_SERASA)
         }
