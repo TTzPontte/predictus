@@ -97,9 +97,9 @@ function ReportForm() {
         setState(response.response.reports);
 
         
-        if (response.response.optionalFeatures?.partner?.partnershipResponse !== undefined) {
-          setState2(response.response.optionalFeatures.partner.partnershipResponse);
-          console.log({state2})
+        if (response.response.optionalFeatures?.partner?.PartnerResponse !== undefined) {
+          setState2(response.response.optionalFeatures.partner.PartnerResponse);
+          console.log({ state2 });
         }else{
           await updateReport(reportItem.id, ReportStatus.ERROR_SERASA)
         }
