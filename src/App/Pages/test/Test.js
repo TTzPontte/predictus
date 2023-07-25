@@ -89,19 +89,16 @@ function ReportForm() {
       
         if(statusRequest===200){
         const updateItem = await updateReport(reportItem.id, ReportStatus.SUCCESS)
-        console.log({updateItem})
         const response = JSON.parse(result.Payload);
         console.log('Respostas:', { response });
-        console.log({result})
         setState3(response.response);
         setState(response.response.reports);
         
         console.log({state})
 
-        if (response.response.optionalFeatures?.partner?.PartnerResponse !== undefined) {
+        if (response.response.optionalFeatures?.partner?.PartnerResponse?.results !== undefined) {
           setState2(response.response.optionalFeatures.partner.PartnerResponse);
           console.log("entrou no if")
-          console.log({ state2 });
         }else{
           await updateReport(reportItem.id, ReportStatus.ERROR_SERASA)
         }
