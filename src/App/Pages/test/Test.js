@@ -97,7 +97,7 @@ function ReportForm() {
         console.log({state})
 
         if (response.response.optionalFeatures?.partner?.PartnerResponse?.results !== undefined) {
-          setState2(response.response.optionalFeatures.partner.PartnerResponse);
+          setState2(response.response.optionalFeatures.partner.PartnerResponse.results);
           console.log("entrou no if")
         }else{
           await updateReport(reportItem.id, ReportStatus.ERROR_SERASA)
