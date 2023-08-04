@@ -28,11 +28,85 @@ function ReportForm() {
   } = methods;
 
   const onSubmit = async (data) => {
-    console.log('form: ', data);
-    //data.documentNumber = data.documentNumber.replace(/\D/g, '');
-    const ambiente = getEnvironment();
-    console.log({ambiente})
-    
+    // Extrair campos do objeto data
+    const {
+      radioGroup,
+      razaoSocial,
+      nomeFantasia,
+      name,
+      documentNumber,
+      email,
+      phoneNumber,
+      ...socios
+    } = data;
+  
+    // Função auxiliar para formatar o número de telefone do sócio
+    const formatPhoneNumber = (phoneNumber) => {
+      const cleanedPhoneNumber = phoneNumber.replace(/\D/g, '');
+      const phoneMatches = cleanedPhoneNumber.match(/(\d{2})(\d{2})(\d+)/);
+      const international_dial_code = phoneMatches[1];
+      const area_code = phoneMatches[2];
+      const number = phoneMatches[3];
+      const type = "residential";
+      return { international_dial_code, area_code, number, type };
+    };
+
+    // Função auxiliar para criar JSON de sócio
+    const formattedSocios = Object.entries(socios).reduce((acc, [key, value]) => {
+      const index = key.match(/\d+/)[0];
+      const field = key.match(/[a-zA-Z]+/)[0];
+      const newField =
+        field === 'socioName' ? 'name' :
+        field === 'socioDocumentNumber' ? 'documentNumber' :
+        field === 'socioEmail' ? 'email' :
+        field === 'socioPhoneNumber' ? 'phones' : field;
+  
+      if (!acc[index]) acc[index] = {};
+      acc[index][newField] = field === 'socioPhoneNumber' ? formatPhoneNumber(value) : value;
+      return acc;
+    }, {});
+  
+    // Montar o payload final
+    if (radioGroup === "PF") {
+      
+      // Extrair o código internacional, código de área e número do phoneNumber
+      const phoneNumberMatches = phoneNumber.match(/\+(\d+)\s?\((\d+)\)\s?(\d+)/);
+      const internationalDialCode = phoneNumberMatches[1];
+      const areaCode = phoneNumberMatches[2];
+      const number = phoneNumberMatches[3];
+
+      const payload = {
+        id: "123456789",
+        tipoPessoa: radioGroup,
+        name,
+        credit_request_date: new Date().toISOString(),
+        documentNumber,
+        email,
+        phones: [
+          {
+            international_dial_code: internationalDialCode,
+            area_code: areaCode,
+            number,
+            type: "residential",
+          },
+        ],
+      };
+  
+      console.log('Payload PF: ', payload);
+    } else if (radioGroup === "PJ") {
+      const payload = {
+        id: "123456789", // Este valor precisa ser definido conforme necessário
+        razaoSocial,
+        tipoPessoa: radioGroup,
+        nomeFantasia,
+        credit_request_date: new Date().toISOString(), // Define a data e hora atual
+        socios: formattedSocios,
+
+      };
+  
+      console.log('Payload PJ: ', payload);
+    }
+
   };
 
   const handleRadioChange = (e) => {
@@ -117,21 +191,21 @@ function ReportForm() {
               </Col>
             </Row>
             <br />
-            <h2>Dados dos Sócios PF</h2>
+            <h2>Dados dos Sócios</h2>
           </>
         )}
 
         {/* Campos PF */}
         {(watchRadio === 'PF') && (
           <>
-            <h3>Dados Pessoa Física</h3>
+            <h2>Dados Pessoa Física</h2>
             <Row>
               <Col sm={4}>
                 <FormGroup controlId="name">
                   <Form.Label>Nome</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="Digite o nome"
+                    placeholder="Ex: João da Silva"
                     {...methods.register('name', { required: true })}
                   />
                 </FormGroup>
@@ -143,7 +217,7 @@ function ReportForm() {
                   <Form.Label>Número do Documento</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="Digite o número do documento"
+                    placeholder="Ex: 000.000.000-00"
                     {...methods.register('documentNumber', { required: true })}
                   />
                 </FormGroup>
@@ -155,13 +229,12 @@ function ReportForm() {
                   <Form.Label>Email</Form.Label>
                   <Form.Control
                     type="email"
-                    placeholder="Digite o email"
+                    placeholder="Ex: email@gmail.com"
                     {...methods.register('email', { required: true })}
                   />
                 </FormGroup>
               </Col>
             </Row>
-            {/* Phone number field with mask */}
             <Row>
               <Col sm={4}>
                 <FormGroup controlId="phoneNumber">
@@ -171,10 +244,10 @@ function ReportForm() {
                     control={methods.control}
                     render={({ field }) => (
                       <InputMask
-                        mask="+99 (99) 999999999"
+                        mask="+55 (99) 999999999"
                         maskChar="_"
                         {...field}
-                        placeholder="Digite o número de telefone"
+                        placeholder="Ex: +55 (00) 000000000"
                         className="form-control"
                         required
                       />
@@ -189,14 +262,14 @@ function ReportForm() {
         {/* Campos adicionais de sócio */}
         {watchRadio === 'PJ' && Array.from({ length: numberOfSocios }).map((_, index) => (
           <React.Fragment key={index}>
-            <h3>Dados Sócio PF {index + 1}</h3>
+            <br /><h3>Sócio {index + 1}</h3>
             <Row>
               <Col sm={4}>
                 <FormGroup controlId={`socioName${index}`}>
                   <Form.Label>Nome</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="Digite o nome do sócio"
+                    placeholder="Ex: João SIlva"
                     {...methods.register(`socioName${index}`, { required: true })}
                   />
                 </FormGroup>
@@ -208,7 +281,7 @@ function ReportForm() {
                   <Form.Label>Número do Documento</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="Digite o número do documento do sócio"
+                    placeholder="Ex: 000.000.000-00"
                     {...methods.register(`socioDocumentNumber${index}`, { required: true })}
                   />
                 </FormGroup>
@@ -220,13 +293,12 @@ function ReportForm() {
                   <Form.Label>Email</Form.Label>
                   <Form.Control
                     type="email"
-                    placeholder="Digite o email do sócio"
+                    placeholder="email@gmail.com"
                     {...methods.register(`socioEmail${index}`, { required: true })}
                   />
                 </FormGroup>
               </Col>
             </Row>
-            {/* Phone number field with mask */}
             <Row>
               <Col sm={4}>
                 <FormGroup controlId={`socioPhoneNumber${index}`}>
@@ -236,10 +308,10 @@ function ReportForm() {
                     control={methods.control}
                     render={({ field }) => (
                       <InputMask
-                        mask="+99 (99) 999999999"
+                        mask="+55 (99) 999999999"
                         maskChar="_"
                         {...field}
-                        placeholder="Digite o número de telefone do sócio"
+                        placeholder="Ex: +55 (00) 000000000"
                         className="form-control"
                         required
                       />
