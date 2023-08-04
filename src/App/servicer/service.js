@@ -1,68 +1,40 @@
-import axios from "axios";
-
-//Endpoint's
-const loginUrl = "/security/iam/v1/client-identities/login";
-const reportUrl = "/credit-services/person-information-report/v1/creditreport";
-const businessReportUrl ="/credit-services/business-information-report/v1/reports"
-
-//Gerar Token
-const getToken = async () => {
-  const payload = {};
-  const headers = {
-    "Content-Type": "application/json",
-    //Authorization: "Basic NjQwOGRiOGYxMzI5NzY1ZWIyYTk0YmYyOjBmYjQ5YTJiZTU2NzkyMzFmOGJkODA0Ng==" // DEV
-    Authorization: "Basic NjQ4NzA4M2E0ZGU1Y2U0ZTgxZGM4YmNlOmRjYjhjZDE4ZTRlYzVlZDRhMzgwNzg0Ng==" //Prod
-  };
-  const {
-    data: { accessToken }
-  } = await axios.post(loginUrl, payload, { headers });
-  console.log(`Token gerado com sucesso!\n${accessToken}\n\n\n`);
-  return accessToken;
-};
-
-//Relatório PJ
-export const generateBusinessReport = async (numDocument) => {
-  const reportName = "PACOTE_BASICO_FINTECH";
-  const optionalFeatures = "QSA";
-  const documentId = numDocument;
-  const token = await getToken();
-
-  const headers = {
-    "X-Document-id": documentId,
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${token}`
-  };
-
-  const params = {
-    reportName: reportName,
-    optionalFeatures: optionalFeatures
-  };
-
-  return axios
-    .get(businessReportUrl, { headers, params })
-    .then((response) => {
-      return response.data;
-    })
-    .catch((error) => {
-      console.error(error);
-      throw new Error("Erro ao gerar relatório");
-    });
-};
-
-//Relatório PF
-export const generateReport = async (numDocument) => {
+function makeCreditAnalysisRequest() {
+  const url = "https://api.sandbox.zaig.com.br/credit_analysis/natural_person";
+  
   const payload = {
-    documentNumber: numDocument,
-    reportName: "COMBO_CONCESSAO_COM_SCORE_FINTECH",
-    optionalFeatures: ["PARTICIPACAO_SOCIETARIA"]
+    "id": "123456745",
+    "name": "Victor Silva Barbosa",
+    "credit_request_date": "2023-06-14T10:30:00-03:00",
+    "document_number": "199.208.915-92",
+    "email": "matheus.duarte@pontte.com.br",
+    "phones": [
+      {
+        "international_dial_code": "55",
+        "area_code": "11",
+        "number": "21158745",
+        "type": "residential"
+      }
+    ]
   };
+  
   const headers = {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${await getToken()}`
+    'Authorization': 'c6e7fe6d-c25c-467e-af91-fe9423d38c33',
+    'Content-Type': 'application/json'
   };
-  //console.log(payload)
-  const { data } = await axios.post(reportUrl, payload, { headers });
-  console.log('dados: ',data);
-  //console.log(data.optionalFeatures.partner.partnershipResponse);
-  return data;
-};
+  
+  fetch(url, {
+    method: 'POST',
+    headers: headers,
+    body: JSON.stringify(payload)
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+}
+
+// Chamando a função para fazer a requisição
+makeCreditAnalysisRequest();
