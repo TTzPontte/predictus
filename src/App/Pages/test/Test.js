@@ -95,17 +95,26 @@ function ReportForm() {
         setState(response.response.reports);
         
         console.log({state})
+        if (data.radioGroup==="PJ"){
+          if (response.response.optionalFeatures?.partner?.PartnerResponse?.results !== undefined) {
+            setState2(response.response.optionalFeatures.partner.PartnerResponse.results);
+            console.log("entrou no if")
+          }else{
+            await updateReport(reportItem.id, ReportStatus.ERROR_SERASA)
+          }
+        } else if (data.radioGroup==="PF"){
+          if (response.response.optionalFeatures?.partner?.partnershipResponse !== undefined) {
+            setState2(response.response.optionalFeatures.partner.partnershipResponse);
+            console.log("entrou no if")
+          }else{
+            await updateReport(reportItem.id, ReportStatus.ERROR_SERASA)
+          }
+          }
 
-        if (response.response.optionalFeatures?.partner?.PartnerResponse?.results !== undefined) {
-          setState2(response.response.optionalFeatures.partner.PartnerResponse.results);
-          console.log("entrou no if")
-        }else{
+      } else{
+          alert('Ocorreu um erro ao consultar o Serasa. Código do erro: ', String(statusRequest));
           await updateReport(reportItem.id, ReportStatus.ERROR_SERASA)
         }
-      }else{
-        alert('Ocorreu um erro ao consultar o Serasa. Código do erro: ', String(statusRequest));
-        await updateReport(reportItem.id, ReportStatus.ERROR_SERASA)
-      }
       setPersonType(data.radioGroup);
     } catch (error) {
       await updateReport(reportItem.id, ReportStatus.ERROR_SERASA)
