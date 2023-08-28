@@ -647,20 +647,35 @@ function generateReportContentPJ(report, optional) {
   }
 
   // Tabela de Sócios
-  if(partners!==undefined){
+  if (partners !== undefined) {
     const partnerAuxTable = [];
 
     for (let partner = 0; partner < partners.length; partner++) {
-      const partnerInfo = [
-        formatDocumentNumber(partners[partner].documentId),
-        partners[partner].name,
-        partners[partner].participationPercentage
-      ];
-      partnerAuxTable.push(partnerInfo);
+      const participationPercentage = partners[partner].participationPercentage;
+
+      if (participationPercentage > 0) {
+        try {
+          const partnerInfo = [
+            formatDocumentNumber(partners[partner].businessDocument),
+            partners[partner].companyName,
+            participationPercentage
+          ];
+
+          partnerAuxTable.push(partnerInfo);
+        } catch {
+          const partnerInfo = [
+            formatDocumentNumber(partners[partner].documentId),
+            partners[partner].name,
+            participationPercentage
+          ];
+
+          partnerAuxTable.push(partnerInfo);
+        }
+      }
     }
 
     var partnerInfoTable = tableGenerator.createInfoTable(
-      ["Número de Documento", "Nome / Razão Social", "% Participação"], 
+      ["Número de Documento", "Nome ou Razão Social", "% Participação"],
       partnerAuxTable
     );
   }
@@ -812,38 +827,39 @@ function generateReportContentPF(report, optional) {
   }
   
   // Tabela de Sócios
-  if(partners!==undefined){
+  if (partners !== undefined) {
     const partnerAuxTable = [];
 
     for (let partner = 0; partner < partners.length; partner++) {
-      console.log(partners[partner]);
+      const participationPercentage = partners[partner].participationPercentage;
 
-      try{
-        var partnerInfo = [
-          formatDocumentNumber(partners[partner].businessDocument),
-          partners[partner].companyName,
-          partners[partner].participationPercentage
-        ];
-      }
-      catch{
-        var partnerInfo = [
-          formatDocumentNumber(partners[partner].documentId),
-          partners[partner].name,
-          partners[partner].participationPercentage
-        ];
-      }
+      if (participationPercentage > 0) {
+        try {
+          const partnerInfo = [
+            formatDocumentNumber(partners[partner].businessDocument),
+            partners[partner].companyName,
+            participationPercentage
+          ];
 
-      partnerAuxTable.push(partnerInfo);
-      //console.log({partnerAuxTable});
+          partnerAuxTable.push(partnerInfo);
+        } catch {
+          const partnerInfo = [
+            formatDocumentNumber(partners[partner].documentId),
+            partners[partner].name,
+            participationPercentage
+          ];
+
+          partnerAuxTable.push(partnerInfo);
+        }
+      }
     }
 
     var partnerInfoTable = tableGenerator.createInfoTable(
-      ["Número de Documento", "Nome ou Razão Social", "% Participação"], 
+      ["Número de Documento", "Nome ou Razão Social", "% Participação"],
       partnerAuxTable
     );
-
-    console.log({partnerAuxTable})
   }
+
   
   // Topo - Serasa
   const topo = {
