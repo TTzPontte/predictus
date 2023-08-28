@@ -114,7 +114,7 @@ function ReportForm() {
           }
 
       } else{
-          alert('Ocorreu um erro ao consultar o Serasa. Código do erro: ', String(statusRequest));
+          alert(result.Payload+'\nOcorreu um erro ao consultar o Serasa. Código do erro: ', String(statusRequest));
           await updateReport(reportItem.id, ReportStatus.ERROR_SERASA)
         }
       setPersonType(data.radioGroup);
@@ -135,7 +135,7 @@ function ReportForm() {
       //createPDF(JSON.stringify(state3));
     } else {
       const ddPJ = generateDDPJ(state3);
-      var nomeJsonPJ = state.reports[0].registration.companyName;
+      var nomeJsonPJ = state3.reports[0].registration.companyName;
       createPDF(ddPJ, nomeJsonPJ);
       //createPDFPJ(JSON.stringify(state3));
     }
