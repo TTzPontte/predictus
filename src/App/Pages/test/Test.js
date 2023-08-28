@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { Form, Col, Row, FormGroup } from 'react-bootstrap';
 import Radio from '../../components/Form/Radio';
-import { createPDF, createPDFPJ } from '../../servicer/convertToPDF';
+//import { createPDF, createPDFPJ } from '../../servicer/convertToPDF';
+import { generateDDPJ, generateDDPF, createPDF } from '../../servicer/novoGeradorPDF/main';
+import { newPDFPJ } from '../../servicer/novoGeradorPDF/novoPDFPJ';
 import Results from '../../Containers/Searches/Result/Results';
 import { Auth } from 'aws-amplify';
 import Lambda from 'aws-sdk/clients/lambda';
@@ -125,10 +127,17 @@ function ReportForm() {
   };
 
   const handleDownloadPDF = () => {
+    console.log({state3})
     if (personType === 'PF') {
-      createPDF(JSON.stringify(state3));
+      const ddPF = generateDDPF(state3);
+      var nomeJsonPF = state3.reports[0].registration.consumerName;
+      createPDF(ddPF, nomeJsonPF);
+      //createPDF(JSON.stringify(state3));
     } else {
-      createPDFPJ(JSON.stringify(state3));
+      const ddPJ = generateDDPJ(state3);
+      var nomeJsonPJ = state.reports[0].registration.companyName;
+      createPDF(ddPJ, nomeJsonPJ);
+      //createPDFPJ(JSON.stringify(state3));
     }
   };
 
@@ -152,7 +161,10 @@ function ReportForm() {
             const result = JSON.parse(responseOpcional.Payload);
             const responseSerasa = result.response;
             console.log({responseSerasa})
-            createPDF(JSON.stringify(responseSerasa));
+            var nomeJsonSocioPF = responseSerasa.reports[0].registration.consumerName;
+            var ddSocioPF = generateDDPF(responseSerasa);
+            createPDF(ddSocioPF,nomeJsonSocioPF);
+            //createPDF(JSON.stringify(responseSerasa));
           } else {
             console.log('CNPJ');
             const payloadSociosPJ = { numDocument: documento, tipoPessoa: "PJ", ambiente: getEnvironment() };
@@ -161,7 +173,10 @@ function ReportForm() {
             const result = JSON.parse(responseOpcional.Payload);
             const responseSerasa = result.response;
             console.log({responseSerasa})
-            createPDFPJ(JSON.stringify(responseSerasa));
+            var nomeJsonSocioPJ = responseSerasa.reports[0].registration.companyName;
+            var ddSocioPJ = generateDDPJ(responseSerasa);
+            createPDF(ddSocioPJ,nomeJsonSocioPJ);
+            //createPDFPJ(JSON.stringify(responseSerasa));
           }
         } catch (error) {
           console.error('Ocorreu um erro na requisição:', error);
