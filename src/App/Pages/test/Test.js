@@ -67,9 +67,7 @@ function ReportForm() {
   const [personType, setPersonType] = useState("");
 
   const onSubmit = async (data) => {
-    console.log('form: ', data);
     data.documentNumber = data.documentNumber.replace(/\D/g, ''); 
-    console.log('documento: ', data.documentNumber)
     const ambiente = getEnvironment();
     const payload = {
       numDocument: data.documentNumber,
@@ -77,11 +75,10 @@ function ReportForm() {
       idPipefy: data.idPipefy,
       ambiente
     };
-    console.log({ payload });
+    
     setLoading(true);
     
     const reportItem = await createReport(payload)
-    console.log({reportItem})
     
     try {
       const result = await invokeLambda('ApiSerasa-serasa', payload);
@@ -95,25 +92,25 @@ function ReportForm() {
         console.log('Respostas:', { response });
         setState3(response.response);
         setState(response.response.reports);
-        
-        console.log({state})
+      
         if (data.radioGroup==="PJ"){
           if (response.response.optionalFeatures?.partner?.PartnerResponse?.results !== undefined) {
-            setState2(response.response.optionalFeatures.partner.PartnerResponse.results);
-            console.log("entrou no if")
+            const filteredPartners = response.response.optionalFeatures.partner.PartnerResponse.results.filter(partner => partner.participationPercentage > 0);
+            setState2(filteredPartners)
           }else{
             await updateReport(reportItem.id, ReportStatus.ERROR_SERASA)
           }
         } else if (data.radioGroup==="PF"){
           if (response.response.optionalFeatures?.partner?.partnershipResponse !== undefined) {
-            setState2(response.response.optionalFeatures.partner.partnershipResponse);
-            console.log("entrou no if")
+            const filteredPartners = response.response.optionalFeatures.partner.partnershipResponse.filter(partner => partner.participationPercentage > 0);
+            setState2(filteredPartners)
           }else{
             await updateReport(reportItem.id, ReportStatus.ERROR_SERASA)
           }
           }
 
       } else{
+          console.log({requestSerasa})
           alert('Ocorreu um erro ao consultar o Serasa: \n' + result.Payload.errorMessage + '\nCódigo do erro: ', String(statusRequest));
           await updateReport(reportItem.id, ReportStatus.ERROR_SERASA)
         }
@@ -132,12 +129,10 @@ function ReportForm() {
       const ddPF = generateDDPF(state3);
       var nomeJsonPF = state3.reports[0].registration.consumerName;
       createPDF(ddPF, nomeJsonPF);
-      //createPDF(JSON.stringify(state3));
     } else {
       const ddPJ = generateDDPJ(state3);
       var nomeJsonPJ = state3.reports[0].registration.companyName;
       createPDF(ddPJ, nomeJsonPJ);
-      //createPDFPJ(JSON.stringify(state3));
     }
   };
 
