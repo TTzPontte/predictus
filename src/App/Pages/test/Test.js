@@ -114,7 +114,7 @@ function ReportForm() {
           }
 
       } else{
-          alert(result.Payload+'\nOcorreu um erro ao consultar o Serasa. Código do erro: ', String(statusRequest));
+          alert('Ocorreu um erro ao consultar o Serasa: \n' + result.Payload.errorMessage + '\nCódigo do erro: ', String(statusRequest));
           await updateReport(reportItem.id, ReportStatus.ERROR_SERASA)
         }
       setPersonType(data.radioGroup);

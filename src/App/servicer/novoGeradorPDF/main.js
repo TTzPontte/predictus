@@ -660,7 +660,7 @@ function generateReportContentPJ(report, optional) {
     }
 
     var partnerInfoTable = tableGenerator.createInfoTable(
-      ["documentId", "name", "participationPercentage"], 
+      ["Número de Documento", "Nome / Razão Social", "% Participação"], 
       partnerAuxTable
     );
   }
@@ -718,6 +718,7 @@ function generateReportContentPF(report, optional) {
 
   // Dados Opcionais
   const partners = optional.partner.partnershipResponse;
+  console.log({partners})
 
   const tableFactory = new TableFactory("tableInfos");
   const tableGenerator = new TableGenerator(tableFactory);
@@ -741,21 +742,15 @@ function generateReportContentPF(report, optional) {
     ["PEFIN", negativeData.pefin.summary.count, "Valor Total", formatCurrency(negativeData.pefin.summary.balance)]
   );
 
-  // Adaptar o código para lidar com pefins de pessoa física, se houver
-
   // Refin
   const refinTable = tableGenerator.createHeaderNegativeTable(
     ["REFIN", negativeData.refin.summary.count, "Valor Total", formatCurrency(negativeData.refin.summary.balance)]
   );
 
-  // Adaptar o código para lidar com refins de pessoa física, se houver
-
   // Check
   const checkTable = tableGenerator.createHeaderNegativeTable(
     ["Cheque sem fundo", negativeData.check.summary.count, "Valor Total", formatCurrency(negativeData.check.summary.balance)]
   );
-
-  // Adaptar o código para lidar com checks de pessoa física, se houver
 
   // Notary
   const notaryTable = tableGenerator.createHeaderNegativeTable(
@@ -764,30 +759,92 @@ function generateReportContentPF(report, optional) {
 
   // Adaptar o código para lidar com notarys de pessoa física, se houver
 
-  // Dados Score
-  const score = report.score.score;
-  const probInadimplencia = report.score.defaultRate;
+  //Dados Score
+  var score = report.score.score;
+  var probInadimplencia = report.score.defaultRate
+  var messageScore = "";
+
+  if(score===undefined){
+    score = 0;
+    probInadimplencia = 0;
+    messageScore = report.score.message;
+  }
+
+  probInadimplencia = convertToPercentage(probInadimplencia)
 
   const scoreTest = {
     columns: [
+                    
       // Tabela do Score
       {
-        style: 'tableScore',
-        table: {
-          widths: ['25%'],
-          body: [
-            [{ text: 'Score', alignment: 'center', color: "#FFFFFF", bold: 'true', fontSize: 14 }],
-            [{ text: score, alignment: 'center', color: "#FFFFFF", bold: 'true', fontSize: 26 }],
-          ]
-        },
-        margin: [10, 15, 0, 0] // Margem para separar as tabelas
+          style: 'tableScore',
+          table: {
+              widths: ['25%'],
+              body: [
+                  [{text:'Score', alignment: 'center', color: "#FFFFFF", bold: 'true', fontSize: 14}],
+                  [{text:score, alignment: 'center', color: "#FFFFFF", bold: 'true', fontSize: 26}],
+              ]
+          },
+          margin: [10, 15, 0, 0] // Margem para separar as tabelas
       },
-      // Adaptar o código para lidar com o score de pessoa física, se houver
+      
+      // Texto de probabilidade inadimplência
+      {
+          text: [
+              { text: '\n\nProbabilidade de inadimplência\n---------------------------------------->', alignment: 'center', color: '#F', bold: true, fontSize: 14 },
+          ],
+          margin: [-250, 0, 0, 0]
+      },
+      
+      // Círculo Teste
+      {
+       style: 'tableScore',
+          table: {
+              heights:[20],
+              widths: ['35%'],
+              body: [
+                  [{text:probInadimplencia, style: 'centeredText', color: "#FFFFFF", bold: 'true', fontSize: 26}],
+              ]
+          },
+          margin: [-95, 30, 0, 0] // Margem para separar as tabelas   
+      }
     ]
-  };
+  }
+  
+  // Tabela de Sócios
+  if(partners!==undefined){
+    const partnerAuxTable = [];
 
-  // Adaptar o código para lidar com dados opcionais de pessoa física, se houver
+    for (let partner = 0; partner < partners.length; partner++) {
+      console.log(partners[partner]);
 
+      try{
+        var partnerInfo = [
+          formatDocumentNumber(partners[partner].businessDocument),
+          partners[partner].companyName,
+          partners[partner].participationPercentage
+        ];
+      }
+      catch{
+        var partnerInfo = [
+          formatDocumentNumber(partners[partner].documentId),
+          partners[partner].name,
+          partners[partner].participationPercentage
+        ];
+      }
+
+      partnerAuxTable.push(partnerInfo);
+      //console.log({partnerAuxTable});
+    }
+
+    var partnerInfoTable = tableGenerator.createInfoTable(
+      ["Número de Documento", "Nome ou Razão Social", "% Participação"], 
+      partnerAuxTable
+    );
+
+    console.log({partnerAuxTable})
+  }
+  
   // Topo - Serasa
   const topo = {
     table: {
@@ -811,17 +868,13 @@ function generateReportContentPF(report, optional) {
     registrationTable,
     { style: 'contentPDF', text: '\nDados de Score' },
     scoreTest,
-    // Adaptar o código para lidar com mensagens de erro de score de pessoa física, se houver
     { style: 'contentPDF', text: '\nDados de Negativação' },
     pefinTable,
-    // Adaptar o código para lidar com pefins de pessoa física, se houver
     refinTable,
-    // Adaptar o código para lidar com refins de pessoa física, se houver
     checkTable,
-    // Adaptar o código para lidar com checks de pessoa física, se houver
     notaryTable,
-    // Adaptar o código para lidar com notarys de pessoa física, se houver
-    // Adaptar o código para lidar com dados opcionais de pessoa física, se houver
+    {style: 'contentPDF',text: '\nInformações Societárias'},
+    partnerInfoTable,
   ];
 }
 
