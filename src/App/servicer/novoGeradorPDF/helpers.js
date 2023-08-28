@@ -85,7 +85,9 @@ const createHeaderStack = (text) => {
         stack: [{text, style: "header"}], fillColor: "#ADD8E6"
     };
 };
-module.exports = {TableFactory, TableGenerator, createBackground, createRect, createHeaderStack, styles}
+
+export { TableFactory, TableGenerator, createBackground, createRect, createHeaderStack, styles };
+
 
 
 // const tableFactory = new TableFactory("tableScore");
