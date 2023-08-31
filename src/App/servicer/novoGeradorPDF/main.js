@@ -485,10 +485,10 @@ function generateReportContentPJ(report, optional) {
 
   // Tabela Inicial
   const registrationTable = tableGenerator.createInfoTable(
-      ["Documento", "Razão Social", "Fundada em", "Status", "Cidade", "UF"],
+      ["Nome / Razão Social", "Documento", "Fundada em", "Status", "Cidade", "UF"],
       [[
-        formatDocumentNumber(registration.companyDocument),
         registration.companyName,
+        formatDocumentNumber(registration.companyDocument),
         registration.foundationDate,
         registration.statusRegistration,
         registration.address.city,
