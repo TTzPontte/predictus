@@ -470,6 +470,16 @@ function generateReportContentPJ(report, optional) {
   // Dados Opcionais
   const partners = optional.partner.PartnerResponse.results
   
+  // Opcional - Diretores
+  var directors = undefined
+  try{
+    directors = optional.director.DirectorResponse.results;
+    console.log({directors})
+  }catch{
+    directors = undefined
+    console.log('Não foi possível extrair o opcional director.')
+  }
+  
   const tableFactory = new TableFactory("tableInfos");
   const tableGenerator = new TableGenerator(tableFactory);
 
@@ -647,6 +657,7 @@ function generateReportContentPJ(report, optional) {
   }
 
   // Tabela de Sócios
+  var textPartner = "";
   if (partners !== undefined) {
     const partnerAuxTable = [];
 
@@ -678,8 +689,37 @@ function generateReportContentPJ(report, optional) {
       ["Número de Documento", "Nome ou Razão Social", "% Participação"],
       partnerAuxTable
     );
+
+    textPartner = {style: 'contentPDF',text: '\nInformações Societárias'};
   }
   
+  // Tabela de Sócios
+  var textDirector = "";
+  if (directors !== undefined) {
+    const directorAuxTable = [];
+
+    for (let director = 0; director < directors.length; director++) {
+      
+
+      const directorInfo = [
+        formatDocumentNumber(directors[director].documentId),
+        directors[director].name,
+        directors[director].hasNegative,
+      ];
+
+      directorAuxTable.push(directorInfo);
+        
+    }
+
+    var directorInfoTable = tableGenerator.createInfoTable(
+      ["Número de Documento", "Nome", "Tem negativo?"],
+      directorAuxTable
+    );
+    
+    textDirector = {style: 'contentPDF',text: '\nInformações de Diretoria'};
+
+  }
+
   // Topo - Serasa
   const topo = {
     table: {
@@ -714,8 +754,10 @@ function generateReportContentPJ(report, optional) {
     checkInfoTable,
     notaryTable,
     notaryInfoTable,
-    {style: 'contentPDF',text: '\nInformações Societárias'},
-    partnerInfoTable
+    textPartner,
+    partnerInfoTable,
+    textDirector,
+    directorInfoTable
   ];
 }
 
@@ -740,10 +782,10 @@ function generateReportContentPF(report, optional) {
 
   // Tabela Inicial
   const registrationTable = tableGenerator.createInfoTable(
-    ["CPF", "Nome", "Nome da Mãe", "Data de Nascimento", "Status", "Cidade", "UF"],
+    ["Nome", "CPF", "Nome da Mãe", "Data de Nascimento", "Status", "Cidade", "UF"],
     [[
-      formatDocumentNumber(registration.documentNumber),
       registration.consumerName,
+      formatDocumentNumber(registration.documentNumber),
       registration.motherName,
       formatDate(registration.birthDate),
       registration.statusRegistration,
@@ -827,6 +869,7 @@ function generateReportContentPF(report, optional) {
   }
   
   // Tabela de Sócios
+  var textPartner = "";
   if (partners !== undefined) {
     const partnerAuxTable = [];
 
@@ -858,9 +901,11 @@ function generateReportContentPF(report, optional) {
       ["Número de Documento", "Nome ou Razão Social", "% Participação"],
       partnerAuxTable
     );
+    
+    textPartner = {style: 'contentPDF',text: '\nInformações Societárias'};
+
   }
 
-  
   // Topo - Serasa
   const topo = {
     table: {
@@ -889,8 +934,8 @@ function generateReportContentPF(report, optional) {
     refinTable,
     checkTable,
     notaryTable,
-    {style: 'contentPDF',text: '\nInformações Societárias'},
-    partnerInfoTable,
+    textPartner,
+    partnerInfoTable
   ];
 }
 
@@ -926,10 +971,12 @@ export function createPDF(dd, nomeCliente){
   pdfDocGenerator.download(nomeCliente + '.pdf');
 }
 
+
 /*
 // Teste pra exibir resultados das funções
 const ddPJ = generateDDPJ(reportDataPJ);
 const ddPF = generateDDPF(reportDataPF);
 
 console.log(JSON.stringify(ddPJ, null, 2).replace("null,",""));
+
 */
